@@ -1,27 +1,30 @@
 import React from 'react';
 import { Link, BrowserRouter } from 'react-router-dom';
 import classes from './Header.module.css';
-
+import Logo from '../../assets/image/logo.png';
 function Header() {
   return (
     <BrowserRouter >
       <header className={classes.Header}>
-        <div className={classes.Logo}>
-          {/* Your logo image or text goes here */}
+        <div className={classes.HeaderList}>
+          <div className={classes.Logo}>
+            <img src={Logo} alt="Logo" />
+          </div>
+          <div className={classes.HeaderMenuList}>
+            <ul className={`${classes.HeaderMenuLinkList} ${classes.HeaderFontStyle}`}>
+              <li>
+                <Link to="/">업체 검색</Link>
+              </li>
+              <li>
+                <Link to="/">업체 등록</Link>
+              </li>
+            </ul>
+          </div>
+          <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
+            <Link to="/">로그인/회원가입</Link>
+          </div>
+
         </div>
-        <nav>
-          <ul className={classes.NavLinks}>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
       </header>
     </BrowserRouter>
   );
