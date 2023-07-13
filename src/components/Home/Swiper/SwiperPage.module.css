@@ -1,0 +1,11 @@
+.Swiper_Wrap {
+  height: 400px;
+  margin: 0 auto;
+  width: 100%
+}
+
+.Swiper_Img {
+  width: 100% !important;
+  height: 100% !important;
+  background: #4A4A4A;
+}
