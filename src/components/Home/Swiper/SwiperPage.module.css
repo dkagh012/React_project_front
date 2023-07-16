@@ -11,7 +11,7 @@
 }
 
 .pagination_num {
-  color: #9D9D9D;
+  color: #9D9D9D !important;
   border-radius: 100px;
   background: rgba(0, 0, 0, 0.40);
   display: flex;
@@ -40,6 +40,10 @@
   align-items: center;
   border: 0;
   cursor: pointer;
+}
+
+.SwiperBtn svg {
+  width: 32px;
 }
 
 .SwiperBtn svg path {
