@@ -39,7 +39,6 @@ function SwiperPage() {
         disableOnInteraction: false,
       }}
       onSwiper={setSwiper}
-      onSlideChange={() => console.log('slide change')}
     >
       <SwiperSlide className={classes.Swiper_Img}>Slide 1</SwiperSlide>
       <SwiperSlide className={classes.Swiper_Img}>Slide 2</SwiperSlide>
