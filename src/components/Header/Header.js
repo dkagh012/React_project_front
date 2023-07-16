@@ -32,7 +32,7 @@ function Header() {
             <button type="button" onClick={handleLoginClick}>로그인/회원가입</button>
           </div>
         </div>
-        {showLogin && <Login />} {/* 로그인 팝업 표시 상태가 true일 때만 Login 컴포넌트를 렌더링 */}
+        {showLogin && <Login onClose={handleLoginClick} />} 로그인 팝업 표시 상태가 true일 때만 Login 컴포넌트를 렌더링
       </header>
     </BrowserRouter>
   );

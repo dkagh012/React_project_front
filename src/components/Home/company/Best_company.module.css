@@ -70,7 +70,8 @@
 }
 
 .companyItemLinkHashTag {
-  color: #9D9D9D;
+  color: var(--colorFont);
+  ;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;

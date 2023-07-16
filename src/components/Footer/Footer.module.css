@@ -24,7 +24,8 @@
 }
 
 .footerInfo {
-  color: #9D9D9D;
+  color: var(--colorFont);
+  ;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

@@ -1,0 +1,30 @@
+.JoinBox form {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  width: 100%;
+}
+
+.JoinBoxInput {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.JoinBoxInput>div {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+.JoinBoxInput>div>h1 {
+  color: var(--colorWhite);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.4px;
+}
+
+.loginBoxBtn {
+  width: 100%;
+}
