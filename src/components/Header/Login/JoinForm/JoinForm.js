@@ -22,7 +22,7 @@ function JoinForm() {
           <button type="submit">다음</button>
         </div>
       </form>
-      <div >
+      <div className={classes.JoinBoxLoginBtn} >
         <p>이미 계정이 있으신가요?</p><button type="button">로그인</button>
       </div>
     </div>

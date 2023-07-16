@@ -1,3 +1,7 @@
+.JoinBox {
+  width: 100%;
+}
+
 .JoinBox form {
   display: flex;
   gap: 16px;
@@ -27,4 +31,52 @@
 
 .loginBoxBtn {
   width: 100%;
+}
+
+.JoinBoxDesc {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.JoinBoxDesc span::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--colorFont);
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.JoinBoxDesc span {
+  display: flex;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.4px;
+  color: var(--colorFont);
+  align-items: center;
+}
+
+.JoinBoxLoginBtn {
+  display: flex;
+  padding: 40px 0 16px 0;
+  align-items: center;
+  color: var(--colorWhite);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  /* 157.143% */
+  letter-spacing: -0.4px;
+  gap: 4px;
+  justify-content: center;
+}
+
+.JoinBoxLoginBtn button {
+  background: transparent;
+  color: var(--colorMain);
+  border: 0;
+  font-size: 14px;
+  cursor: pointer;
 }
