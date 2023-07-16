@@ -1,0 +1,35 @@
+.footer {
+  height: 192px;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.footerDesc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerItems {
+  display: flex;
+  gap: 16px;
+  color: #FFF;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.4px;
+}
+
+.footerInfo {
+  color: #9D9D9D;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  /* 137.5% */
+  letter-spacing: -0.4px;
+  padding-top: 24px;
+}

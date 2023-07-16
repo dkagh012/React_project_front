@@ -6,6 +6,7 @@
   --colorDarkBlack: #101010;
   --colorMain: #00F2FE;
   --colorSub: #4FACFE;
+  --colorFont: #9D9D9D;
 }
 
 * {
@@ -182,6 +183,11 @@ table {
   max-width: 1080px;
   width: 100%;
   margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 /* font */
