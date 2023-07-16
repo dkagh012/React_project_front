@@ -30,9 +30,15 @@
 
 
 .HeaderLoginButton {
-  color: #00F2FE;
   text-align: right;
   margin-left: auto;
+  text-align: right;
+}
+
+.HeaderLoginButton button {
+  background: transparent;
+  border: 0;
+  color: #00F2FE;
 }
 
 .HeaderFontStyle {
