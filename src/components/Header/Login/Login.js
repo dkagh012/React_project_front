@@ -4,12 +4,14 @@ import Logo from "../../../assets/image/logo.png";
 import { IoClose } from "react-icons/io5";
 import LoginForm from "./LoginForm/LoginForm";
 import JoinForm from "./JoinForm/JoinForm";
+import JoinEmail from "./JoinForm/JoinEmail/JoinEmail";
 import "./LoginBox.css";
 function Login({ onClose }) {
   const [activeForm, setActiveForm] = useState("loginForm");
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(true);
-
+  const [password, setPassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
   // 이메일 업데이트 함수
   const updateEmail = (newEmail) => {
     setEmail(newEmail);
@@ -20,6 +22,19 @@ function Login({ onClose }) {
   const validateEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
+  };
+  console.log(email);
+  // 비밀번호와 비밀번호 확인 값이 일치하는지 확인하는 함수를 추가합니다.
+  const isPasswordMatch = () => {
+    return password === passwordCheck;
+  };
+  // 활성 폼 변경 함수
+  const changeForm = (formName) => {
+    setActiveForm(formName);
+    setPassword("");
+    setPasswordCheck("");
+    setEmail(""); // 이메일 상태 초기화
+    setIsEmailValid(true);
   };
   return (
     <div>
@@ -34,7 +49,7 @@ function Login({ onClose }) {
         </div>
         {activeForm === "loginForm" && (
           <LoginForm
-            onChange={setActiveForm}
+            onChange={changeForm}
             email={email}
             updateEmail={updateEmail}
             isEmailValid={isEmailValid}
@@ -42,10 +57,20 @@ function Login({ onClose }) {
         )}
         {activeForm === "joinForm" && (
           <JoinForm
-            onChange={setActiveForm}
+            onChange={changeForm}
             email={email}
             updateEmail={updateEmail}
             isEmailValid={isEmailValid}
+            password={password}
+            setPassword={setPassword}
+            passwordCheck={passwordCheck}
+            setPasswordCheck={setPasswordCheck}
+            isPasswordMatch={isPasswordMatch}
+          />
+        )}
+        {activeForm === "JoinEmail" && (
+          <JoinEmail
+            onChange={changeForm}
           />
         )}
       </div>

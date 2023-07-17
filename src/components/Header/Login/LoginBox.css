@@ -1,3 +1,19 @@
-.email {
-  color: white;
+.Check {
+  color: #FF4747;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.Check::before {
+  content: "";
+  background: #FF4747;
+  width: 5px;
+  height: 5px;
+  display: inline-block;
+  border-radius: 50%;
 }

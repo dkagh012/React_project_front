@@ -191,6 +191,12 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
 
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
 /* font */
 @font-face {
   font-family: 'Spoqa Han Sans Neo';

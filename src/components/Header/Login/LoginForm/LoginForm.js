@@ -3,7 +3,6 @@ import classes from "./LoginForm.module.css";
 
 function LoginForm(props) {
   const { email, updateEmail, isEmailValid } = props;
-
   return (
     <div className={classes.loginBoxForm}>
       <form>
@@ -18,7 +17,7 @@ function LoginForm(props) {
               onChange={(e) => updateEmail(e.target.value)}
             ></input>
             {!isEmailValid && (
-              <span className="email">이메일 형식이 맞지 않습니다.</span>
+              <span className="Check">이메일 형식이 맞지 않습니다.</span>
             )}
             <input type="password" required placeholder="비밀번호 입력"></input>
           </div>
