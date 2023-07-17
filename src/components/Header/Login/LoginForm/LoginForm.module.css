@@ -9,12 +9,11 @@
   width: 100%;
 }
 
-.loginBoxInput>div {
+.loginBoxInput > div {
   display: flex;
   flex-direction: column;
-  gap: 16px
+  gap: 16px;
 }
-
 
 .loginBoxList {
   color: white;
@@ -31,6 +30,13 @@
   align-items: center;
 }
 
+.loginBoxList li button {
+  border: 0;
+  background: transparent;
+  font-size: 14px;
+  color: var(--colorWhite);
+  cursor: pointer;
+}
 .loginBoxList li::after {
   content: "";
   width: 1px;
