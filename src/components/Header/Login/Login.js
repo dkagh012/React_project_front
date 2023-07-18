@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import classes from "./Login.module.css";
+import classes from "./Login.module.scss";
 import Logo from "../../../assets/image/logo.png";
 import { IoClose } from "react-icons/io5";
 import LoginForm from "./LoginForm/LoginForm";
 import JoinForm from "./JoinForm/JoinForm";
 import JoinEmail from "./JoinForm/JoinEmail/JoinEmail";
 import JoinFinish from "./JoinForm/JoinFinish/JoinFinish";
-import "./LoginBox.css";
+import "./LoginBox.scss";
 function Login({ onClose }) {
   const [activeForm, setActiveForm] = useState("loginForm");
   const [email, setEmail] = useState("");

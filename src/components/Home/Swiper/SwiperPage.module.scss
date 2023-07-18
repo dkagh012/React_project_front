@@ -1,19 +1,19 @@
 .Swiper_Wrap {
   height: 400px;
   margin: 0 auto;
-  width: 100%
+  width: 100%;
 }
 
 .Swiper_Img {
   width: 100% !important;
   height: 100% !important;
-  background: #4A4A4A;
+  background: #4a4a4a;
 }
 
 .pagination_num {
   color: var(--colorFont) !important;
   border-radius: 100px;
-  background: rgba(0, 0, 0, 0.40);
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   padding: 4px 12px;
   align-items: flex-start;
@@ -28,24 +28,24 @@
   align-items: center;
   right: 10%;
   bottom: 36px;
-}
 
-.SwiperBtn {
-  border-radius: 100px;
-  background: rgba(0, 0, 0, 0.40);
-  display: flex;
-  width: 32px;
-  height: 32px;
-  justify-content: center;
-  align-items: center;
-  border: 0;
-  cursor: pointer;
-}
+  .SwiperBtn {
+    border-radius: 100px;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    cursor: pointer;
 
-.SwiperBtn svg {
-  width: 32px;
-}
+    svg {
+      width: 32px;
 
-.SwiperBtn svg path {
-  color: white;
+      path {
+        color: white;
+      }
+    }
+  }
 }

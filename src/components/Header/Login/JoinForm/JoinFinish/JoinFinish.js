@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./JoinFinish.module.css";
+import classes from "./JoinFinish.module.scss";
 function JoinFinish(props) {
   return (
     <div>

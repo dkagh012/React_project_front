@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Link, BrowserRouter } from 'react-router-dom';
 import companyImg from "../../../assets/image/companyImg.png"
-import classes from './Best_company.module.css';
+import classes from './Best_company.module.scss';
 import { companies, companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate'; // Import data from data.js
 
 function Best_company() {

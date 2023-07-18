@@ -1,0 +1,48 @@
+.Header {
+  height: 96px;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  gap: 10px;
+
+  .HeaderList {
+    padding: 36px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .Logo {
+    float: left;
+    margin-right: 100px;
+  }
+
+  .HeaderMenuLinkList {
+    display: flex;
+    gap: 60px;
+
+    li a {
+      color: var(--colorWhite);
+      text-align: center;
+    }
+  }
+
+  .HeaderLoginButton {
+    text-align: right;
+    margin-left: auto;
+
+    button {
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      color: #00f2fe;
+    }
+  }
+
+  .HeaderFontStyle {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.4px;
+  }
+}

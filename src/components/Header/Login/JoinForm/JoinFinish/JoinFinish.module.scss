@@ -4,6 +4,7 @@
   align-items: center;
   gap: 16px;
 }
+
 .icon {
   color: #fff;
   text-align: center;
@@ -12,26 +13,31 @@
   line-height: normal;
   letter-spacing: -0.4px;
 }
+
 .Title {
   color: #fff;
   text-align: center;
   font-size: 20px;
   font-weight: 700;
-  line-height: 30px; /* 150% */
+  line-height: 30px;
+  /* 150% */
   letter-spacing: -0.4px;
 }
+
 .Desc {
   color: #fff;
   text-align: center;
   font-size: 16px;
   font-weight: 400;
-  line-height: 22px; /* 137.5% */
+  line-height: 22px;
+  /* 137.5% */
   letter-spacing: -0.4px;
 }
+
 .JoinFinishBtn {
   border-radius: 8px;
   background: var(--colorButton);
-  padding: 16px;
+  padding: 16px 0;
   color: #fff;
   font-size: 18px;
   font-weight: 700;
@@ -39,6 +45,5 @@
   letter-spacing: -0.4px;
   width: 100%;
   cursor: pointer;
-  padding-bottom: 24px;
   margin-top: 24px;
 }

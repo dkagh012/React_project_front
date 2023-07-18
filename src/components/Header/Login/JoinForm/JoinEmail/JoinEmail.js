@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./JoinEmail.module.css";
+import classes from "./JoinEmail.module.scss";
 function JoinForm(props) {
   return (
     <div className={classes.JoinEmailBox}>

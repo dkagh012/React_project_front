@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, BrowserRouter } from 'react-router-dom';
-import classes from './Header.module.css';
+import classes from './Header.module.scss';
 import Login from './Login/Login'
 import Logo from '../../assets/image/logo.png';
 

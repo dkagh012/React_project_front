@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./JoinForm.module.css";
+import classes from "./JoinForm.module.scss";
 function JoinForm(props) {
   const { email, updateEmail, isEmailValid, isPasswordMatch, setPasswordCheck, password, setPassword, passwordCheck } = props;
   return (

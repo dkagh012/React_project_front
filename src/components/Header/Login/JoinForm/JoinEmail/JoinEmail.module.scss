@@ -1,0 +1,64 @@
+.JoinEmailBox {
+  form {
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    button {
+      margin-top: 24px;
+    }
+  }
+}
+
+.JoinEmailTitle {
+  h1 {
+    color: var(--colorWhite);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -0.4px;
+  }
+}
+
+.JoinEmailDesc {
+  font-size: 16px;
+  line-height: 22px;
+  color: var(--colorWhite);
+  font-size: 16px;
+  letter-spacing: -0.4px;
+}
+
+.emailaddress {
+  font-weight: bold;
+}
+
+.JoinEmailInput {
+  display: flex;
+  gap: 8px;
+
+  input {
+    text-align: center;
+  }
+}
+
+.JoinEmailCheck {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.4px;
+  color: #89898a;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #89898a;
+  }
+}
