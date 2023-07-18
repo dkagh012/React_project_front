@@ -5,6 +5,7 @@ import { IoClose } from "react-icons/io5";
 import LoginForm from "./LoginForm/LoginForm";
 import JoinForm from "./JoinForm/JoinForm";
 import JoinEmail from "./JoinForm/JoinEmail/JoinEmail";
+import JoinFinish from "./JoinForm/JoinFinish/JoinFinish";
 import "./LoginBox.css";
 function Login({ onClose }) {
   const [activeForm, setActiveForm] = useState("loginForm");
@@ -44,9 +45,11 @@ function Login({ onClose }) {
             <IoClose />
           </button>
         </div>
-        <div className={classes.loginBoxLogo}>
-          <img src={Logo}></img>
-        </div>
+        {activeForm !== "JoinEmail" && activeForm !== "JoinFinish" && (
+          <div className={classes.loginBoxLogo}>
+            <img src={Logo}></img>
+          </div>
+        )}
         {activeForm === "loginForm" && (
           <LoginForm
             onChange={changeForm}
@@ -68,11 +71,8 @@ function Login({ onClose }) {
             isPasswordMatch={isPasswordMatch}
           />
         )}
-        {activeForm === "JoinEmail" && (
-          <JoinEmail
-            onChange={changeForm}
-          />
-        )}
+        {activeForm === "JoinEmail" && <JoinEmail onChange={changeForm} />}
+        {activeForm === "JoinFinish" && <JoinFinish onChange={changeForm} />}
       </div>
       <div onClick={onClose} className={classes.loginBoxBackground}></div>
     </div>
