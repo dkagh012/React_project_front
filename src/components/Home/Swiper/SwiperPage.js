@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { FaPlay, FaPause } from 'react-icons/fa';
 import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import classes from './SwiperPage.module.css';
+import classes from './SwiperPage.module.scss';
 // Import Swiper styles
-import './SwiperEvent.css';
+import './SwiperEvent.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
