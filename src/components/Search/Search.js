@@ -1,9 +1,16 @@
 import React from "react";
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import SearchList from './SearchList/SearchList';
 
 function Search() {
-  <div>
-    <h2>테스트</h2>
-  </div>
+  return (
+    <div>
+      {/* <Header /> */}
+      <SearchList />
+      {/* <Footer /> */}
+    </div>
+  );
 }
 
 export default Search;

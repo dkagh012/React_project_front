@@ -26,7 +26,7 @@ function Header() {
         <div className={classes.HeaderMenuList}>
           <ul className={`${classes.HeaderMenuLinkList} ${classes.HeaderFontStyle}`}>
             <li>
-              <Link to="/">업체 검색</Link>
+              <Link to="/Search">업체 검색</Link>
             </li>
             <li>
               <Link to="/">업체 등록</Link>
