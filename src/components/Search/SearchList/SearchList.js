@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import companyImg from "../../../assets/image/companyImg.png";
 import { Link } from 'react-router-dom';
 import { BsSearch } from "react-icons/bs";
 import classes from './SearchList.module.scss';
 import Subclasses from '../../Home/company/Best_company.module.scss';
 import { companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate'; // Import data from data.js
+import SearchItem from '../SearchItem/SearchItem.js'
 function SearchList() {
+  const [activeTab, setActiveTab] = useState("recent"); // Default active tab is "recent"
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
   return (
     <section className="container">
       <div>
@@ -53,10 +59,25 @@ function SearchList() {
         </div>
         <div className={classes.SearchItem}>
           <ul className={classes.ItemTab}>
-            <li>최신순</li>
-            <li>인기순</li>
+            <li>
+              <button
+                className={activeTab === "recent" ? classes.active : ""}
+                onClick={() => handleTabClick("recent")}
+              >
+                최신순
+              </button>
+            </li>
+            <li>
+              <button
+                className={activeTab === "popular" ? classes.active : ""}
+                onClick={() => handleTabClick("popular")}
+              >
+                인기순
+              </button>
+            </li>
           </ul>
         </div>
+        <SearchItem />
       </div>
     </section>
   )

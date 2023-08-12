@@ -6,9 +6,9 @@ import SearchList from './SearchList/SearchList';
 function Search() {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <SearchList />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

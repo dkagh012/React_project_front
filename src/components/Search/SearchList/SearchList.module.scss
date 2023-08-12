@@ -32,3 +32,34 @@
   height: 24px;
   color: #9d9d9d;
 }
+.SearchItem ul {
+  display: flex;
+  gap: 12px;
+}
+.SearchItem ul li {
+  position: relative;
+}
+.SearchItem ul li:nth-child(2) {
+  margin-left: 12px;
+}
+.SearchItem button {
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+}
+.SearchItem .active {
+  color: white;
+}
+.SearchItem ul li:nth-child(2)::before {
+  content: " ";
+  position: absolute;
+  left: -12px;
+  width: 1px;
+  top: 5px;
+  height: 16px;
+  background: #9d9d9d;
+}
+.SearchItem * {
+  font-size: 14px;
+  color: #9d9d9d;
+}
