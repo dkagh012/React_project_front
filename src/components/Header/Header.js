@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classes from './Header.module.scss';
 import Login from './Login/Login'
 import Logo from '../../assets/image/logo.png';
 
 function Header() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const goToSearch = () => {
-    navigate("/Search");
-  }
+  // const goToSearch = () => {
+  //   navigate("/Search");
+  // }
 
   const [showLogin, setShowLogin] = useState(false);
 
@@ -29,7 +29,7 @@ function Header() {
               <Link to="/Search">업체 검색</Link>
             </li>
             <li>
-              <Link to="/">업체 등록</Link>
+              <Link to="/Business">업체 등록</Link>
             </li>
           </ul>
         </div>

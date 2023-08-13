@@ -4,10 +4,10 @@
   --colorBlack: #333;
   --colorGray: #666;
   --colorDarkBlack: #101010;
-  --colorMain: #00F2FE;
-  --colorSub: #4FACFE;
-  --colorFont: #9D9D9D;
-  --colorButton: linear-gradient(136deg, #00F2FE 26.56%, #4FACFE 63.02%);
+  --colorMain: #00f2fe;
+  --colorSub: #4facfe;
+  --colorFont: #9d9d9d;
+  --colorButton: linear-gradient(136deg, #00f2fe 26.56%, #4facfe 63.02%);
 }
 
 * {
@@ -112,14 +112,14 @@ select {
 
 button,
 input {
+  cursor: pointer;
   font-family: inherit;
 }
 
 a {
   text-decoration: none;
-  outline: none
+  outline: none;
 }
-
 
 a:hover,
 a:active {
@@ -147,7 +147,7 @@ html {
 
 body {
   font-size: 16px;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
   line-height: 1em;
   background: #141414;
   font-weight: 300;
@@ -167,7 +167,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -188,7 +188,7 @@ table {
 }
 
 footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 input::-webkit-inner-spin-button {
@@ -199,47 +199,46 @@ input::-webkit-inner-spin-button {
 
 /* font */
 @font-face {
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: "Spoqa Han Sans Neo";
   font-weight: 700;
-  src: local('Spoqa Han Sans Neo Bold'),
-    url('./assets/fonts/SpoqaHanSansNeo-Bold.woff2') format('woff2'),
-    url('./assets/fonts/SpoqaHanSansNeo-Bold.woff') format('woff'),
-    url('./assets/fonts/SpoqaHanSansNeo-Bold.ttf') format('truetype'),
+  src: local("Spoqa Han Sans Neo Bold"),
+    url("./assets/fonts/SpoqaHanSansNeo-Bold.woff2") format("woff2"),
+    url("./assets/fonts/SpoqaHanSansNeo-Bold.woff") format("woff"),
+    url("./assets/fonts/SpoqaHanSansNeo-Bold.ttf") format("truetype");
 }
 
-
 @font-face {
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: "Spoqa Han Sans Neo";
   font-weight: 500;
-  src: local('Spoqa Han Sans Neo Medium'),
-    url('./assets/fonts/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
-    url('./assets/fonts/SpoqaHanSansNeo-Medium.woff') format('woff'),
-    url('./assets/fonts/SpoqaHanSansNeo-Medium.ttf') format('truetype');
+  src: local("Spoqa Han Sans Neo Medium"),
+    url("./assets/fonts/SpoqaHanSansNeo-Medium.woff2") format("woff2"),
+    url("./assets/fonts/SpoqaHanSansNeo-Medium.woff") format("woff"),
+    url("./assets/fonts/SpoqaHanSansNeo-Medium.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: "Spoqa Han Sans Neo";
   font-weight: 400;
-  src: local('Spoqa Han Sans Neo Regular'),
-    url('./assets/fonts/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
-    url('./assets/fonts/SpoqaHanSansNeo-Regular.woff') format('woff'),
-    url('./assets/fonts/SpoqaHanSansNeo-Regular.ttf') format('truetype');
+  src: local("Spoqa Han Sans Neo Regular"),
+    url("./assets/fonts/SpoqaHanSansNeo-Regular.woff2") format("woff2"),
+    url("./assets/fonts/SpoqaHanSansNeo-Regular.woff") format("woff"),
+    url("./assets/fonts/SpoqaHanSansNeo-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: "Spoqa Han Sans Neo";
   font-weight: 300;
-  src: local('Spoqa Han Sans Neo Light'),
-    url('./assets/fonts/SpoqaHanSansNeo-Light.woff2') format('woff2'),
-    url('./assets/fonts/SpoqaHanSansNeo-Light.woff') format('woff'),
-    url('./assets/fonts/SpoqaHanSansNeo-Light.ttf') format('truetype');
+  src: local("Spoqa Han Sans Neo Light"),
+    url("./assets/fonts/SpoqaHanSansNeo-Light.woff2") format("woff2"),
+    url("./assets/fonts/SpoqaHanSansNeo-Light.woff") format("woff"),
+    url("./assets/fonts/SpoqaHanSansNeo-Light.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Spoqa Han Sans Neo';
+  font-family: "Spoqa Han Sans Neo";
   font-weight: 100;
-  src: local('Spoqa Han Sans Neo Thin'),
-    url('./assets/fonts/SpoqaHanSansNeo-Thin.woff2') format('woff2'),
-    url('./assets/fonts/SpoqaHanSansNeo-Thin.woff') format('woff'),
-    url('./assets/fonts/SpoqaHanSansNeo-Thin.ttf') format('truetype');
+  src: local("Spoqa Han Sans Neo Thin"),
+    url("./assets/fonts/SpoqaHanSansNeo-Thin.woff2") format("woff2"),
+    url("./assets/fonts/SpoqaHanSansNeo-Thin.woff") format("woff"),
+    url("./assets/fonts/SpoqaHanSansNeo-Thin.ttf") format("truetype");
 }
