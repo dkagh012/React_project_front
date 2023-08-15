@@ -24,7 +24,6 @@ function Login({ onClose }) {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
   };
-  console.log(email);
   // 비밀번호와 비밀번호 확인 값이 일치하는지 확인하는 함수를 추가합니다.
   const isPasswordMatch = () => {
     return password === passwordCheck;

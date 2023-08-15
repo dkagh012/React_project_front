@@ -69,6 +69,24 @@
       height: 24px;
     }
   }
+  .BusinessDanger {
+    padding-top: 8px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-size: 12px;
+    line-height: 16px;
+    color: #ff4747;
+    font-weight: 300;
+    * {
+      color: #ff4747;
+    }
+    svg,
+    path {
+      width: 24px;
+      height: 24px;
+    }
+  }
   .BusinessSelect {
     position: absolute;
     top: 108px;
@@ -117,6 +135,15 @@
     padding: 16px;
     background: transparent;
     color: #9d9d9d;
+  }
+  .danger {
+    border: 1px solid #ff4747 !important;
+  }
+  .danger:focus {
+    border: 1px solid #ff4747 !important;
+  }
+  .danger:focus-visible {
+    border: 1px solid #ff4747 !important;
   }
 }
 .BusinessNextBtn {

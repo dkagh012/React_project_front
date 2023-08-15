@@ -1,4 +1,5 @@
 import classes from './App.module.scss';
+import Test from './test'
 import Home from './components/Home/Home'
 import Search from './components/Search/Search'
 import Business from './components/Business/Business '
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/test" element={<Test />} />
           <Route path="/Search" element={<Search />} />
           <Route path="/Business" element={<Business />} />
           <Route path="/BusinessCheck" element={<BusinessCheck />} />
