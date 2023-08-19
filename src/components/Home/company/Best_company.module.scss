@@ -25,7 +25,7 @@
     border-radius: 100px;
     border: 0;
     cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     background: transparent;
     color: white;
   }
@@ -41,7 +41,7 @@
   gap: 44px 0;
   flex-wrap: wrap;
 
-  >li {
+  > li {
     width: calc(calc(100% / 4 - 12px));
     margin-right: 16px;
 
@@ -52,7 +52,7 @@
 }
 
 .companyItemLink {
-  >a {
+  > a {
     display: flex;
     flex-direction: column;
     border: 1px solid var(--colorBorder);
@@ -102,7 +102,7 @@
     li {
       color: var(--colorMain);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 100;
       line-height: 16px;
       letter-spacing: -0.4px;
       padding: 4px 8px;

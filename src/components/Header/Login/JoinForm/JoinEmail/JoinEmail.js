@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./JoinEmail.module.scss";
+import Button from "../../../../UI/Button/Button"
 function JoinForm(props) {
   return (
     <div className={classes.JoinEmailBox}>
@@ -26,9 +27,8 @@ function JoinForm(props) {
             주소가 정확한지 확인해 주세요
           </span>
         </div>
-        <button type="button" onClick={() => props.onChange("JoinFinish")}>
-          회원가입 완료
-        </button>
+
+        <Button type="button" onClick={() => props.onChange("JoinFinish")}> 회원가입 완료</Button>
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./JoinFinish.module.scss";
+import Button from "../../../../UI/Button/Button"
 function JoinFinish(props) {
   return (
     <div>
@@ -14,13 +15,7 @@ function JoinFinish(props) {
           </h4>
         </div>
       </div>
-      <button
-        type="button"
-        className={classes.JoinFinishBtn}
-        onClick={() => props.onChange("loginForm")}
-      >
-        로그인 페이지 이동
-      </button>
+      <Button type="button" onClick={() => props.onChange("loginForm")}>로그인 페이지 이동</Button>
     </div>
   );
 }

@@ -9,7 +9,7 @@
   width: 100%;
 }
 
-.loginBoxInput > div {
+.loginBoxInput>div {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -37,6 +37,11 @@
   color: var(--colorWhite);
   cursor: pointer;
 }
+
+.loginBoxList li:last-child button {
+  font-weight: bold;
+}
+
 .loginBoxList li::after {
   content: "";
   width: 1px;

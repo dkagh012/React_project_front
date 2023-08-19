@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./JoinForm.module.scss";
+import Button from "../../../UI/Button/Button"
 function JoinForm(props) {
   const { email, updateEmail, isEmailValid, isPasswordMatch, setPasswordCheck, password, setPassword, passwordCheck } = props;
   return (
@@ -50,7 +51,7 @@ function JoinForm(props) {
           <span>영문,숫자,특수문자 중 2가지 이상 조합해 주세요</span>
         </div>
         <div className={classes.loginBoxBtn}>
-          <button type="submit" onClick={() => props.onChange("JoinEmail")}>다음</button>
+          <Button type="submit" onClick={() => props.onChange("JoinEmail")}>다음</Button>
         </div>
       </form>
       <div className={classes.JoinBoxLoginBtn}>

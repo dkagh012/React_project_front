@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./LoginForm.module.css";
-
+import Button from "../../../UI/Button/Button"
 function LoginForm(props) {
   const { email, updateEmail, isEmailValid } = props;
   return (
@@ -21,9 +21,7 @@ function LoginForm(props) {
             )}
             <input type="password" required placeholder="비밀번호 입력"></input>
           </div>
-          <button className={classes.loginBoxBtn} type="submit">
-            로그인
-          </button>
+          <Button type="submit">로그인</Button>
         </div>
       </form>
       <ul className={classes.loginBoxList}>
