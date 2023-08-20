@@ -1,10 +1,15 @@
 import classes from './ViewItem.module.scss';
-import React from "react";
+import React, { useState } from "react";
 import Image from '../../../assets/image/logo.png';
 import CAImage from '../../../assets/image/companyImg.png';
 import Button from "../../UI/Button/Button";
 import { FiShare2 } from "react-icons/fi";
 function View() {
+  const [OpenText, setOpenText] = useState(false);
+
+  const handleTextOpenClick = () => {
+    setOpenText(!OpenText);
+  }
   return (
     <section className="container">
       <h2 className={classes.title}>인플루드 (INFLUDE)</h2>
@@ -25,12 +30,12 @@ function View() {
             </div>
             <div className={classes.View_Info}>
               <p>
-                <span className={classes.on}>
+                <span className={OpenText ? '' : classes.on}>
                   여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기
-
+                  여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈                  여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기
                   여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의
                 </span>
-                <button>더 보기</button>
+                <button type='button' onClick={handleTextOpenClick}>더 보기</button>
               </p>
               <ul>
                 <li><img src={CAImage} alt=""></img></li>
