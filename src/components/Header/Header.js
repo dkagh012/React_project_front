@@ -29,7 +29,7 @@ function Header() {
               <Link to="/Search">업체 검색</Link>
             </li>
             <li>
-              <Link to="/Business">업체 등록</Link>
+              <Link to="/View">업체 등록</Link>
             </li>
           </ul>
         </div>

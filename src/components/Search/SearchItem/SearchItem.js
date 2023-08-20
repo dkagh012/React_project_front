@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./SearchItem.module.css"
+import classes from "./SearchItem.module.scss"
 import companyImg from "../../../assets/image/companyImg.png"
 function SearchItem() {
   return (
