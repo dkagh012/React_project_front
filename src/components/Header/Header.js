@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import classes from './Header.module.scss';
 import Login from './Login/Login'
+import Notice from './Notice/Notice'
 import Logo from '../../assets/image/logo.png';
 
 function Header() {
@@ -21,7 +22,9 @@ function Header() {
     <header className={classes.Header}>
       <div className={classes.HeaderList}>
         <div className={classes.Logo}>
-          <img src={Logo} alt="Logo" />
+          <Link to="/">
+            <img src={Logo} alt="Logo" />
+          </Link>
         </div>
         <div className={classes.HeaderMenuList}>
           <ul className={`${classes.HeaderMenuLinkList} ${classes.HeaderFontStyle}`}>
@@ -33,9 +36,15 @@ function Header() {
             </li>
           </ul>
         </div>
-        <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
+        {/* <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
           <button type="button" onClick={handleLoginClick}>로그인/회원가입</button>
+        </div> */}
+        <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
+          <button type="button" className={classes.chat}></button>
+          <button type="button" className={classes.notice}></button>
+          <button type="button" className={classes.UserIcon}></button>
         </div>
+        {/* <Notice /> */}
       </div>
       {showLogin && <Login onClose={handleLoginClick} />}
     </header>
