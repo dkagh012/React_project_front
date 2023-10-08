@@ -6,11 +6,6 @@ import Notice from './Notice/Notice'
 import Logo from '../../assets/image/logo.png';
 
 function Header() {
-  // const navigate = useNavigate();
-
-  // const goToSearch = () => {
-  //   navigate("/Search");
-  // }
 
   const [showLogin, setShowLogin] = useState(false);
 
