@@ -5,18 +5,29 @@ import Login from './Login/Login'
 import Notice from './Notice/Notice'
 import Logo from '../../assets/image/logo.png';
 import UserIcon from '../../assets/image/companyImg.png';
+import MessagesIcon from '../../assets/image/messages-2.svg';
 import { FaRegBell } from "react-icons/fa";
-import { TbMessageCircle2 } from "react-icons/tb";
-function Header() {
 
+function Header() {
   const [showLogin, setShowLogin] = useState(false);
   const [showNotice, setShowNotice] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLoginClick = () => {
     setShowLogin(!showLogin);
   };
+
   const handleAlarmClick = () => {
     setShowNotice(!showNotice);
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(true); // 로그인 버튼 클릭 시 로그인 상태를 true로 변경
+    setShowLogin(false);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
   };
 
   return (
@@ -37,18 +48,22 @@ function Header() {
             </li>
           </ul>
         </div>
-        {/* <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
-          <button className={classes.LoginBtn} type="button" onClick={handleLoginClick}>로그인/회원가입</button>
-        </div> */}
-        <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
-          <button type="button" className={classes.UserIcon}><TbMessageCircle2 /></button>
-          <button type="button" className={classes.notice} onClick={handleAlarmClick}><FaRegBell /></button>
-          <button type="button" className={classes.chat}><img src={UserIcon} alt="UserIcon" /></button>
-          {showNotice && <Notice onClose={handleAlarmClick} />}
-        </div>
-        {/* <Notice /> */}
+        {isLoggedIn ? (
+          <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
+            <button type="button" className={classes.chat} onClick={handleAlarmClick}><img src={MessagesIcon} alt="MessagesIcon"></img></button>
+            <button type="button" className={classes.notice}><FaRegBell /></button>
+            <button type="button" className={classes.UserIcon} onClick={() => setIsLoggedIn(false)}>
+              <img src={UserIcon} alt="UserIcon" />
+            </button>
+            {showNotice && <Notice onClose={handleAlarmClick} />}
+          </div>
+        ) : (
+          <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
+            <button className={classes.LoginBtn} type="button" onClick={handleLoginClick}>로그인/회원가입</button>
+          </div>
+        )}
       </div>
-      {showLogin && <Login onClose={handleLoginClick} />}
+      {showLogin && <Login onClose={handleLoginClick} onLogin={handleLogin} onLogout={handleLogout} />}
     </header>
   );
 }

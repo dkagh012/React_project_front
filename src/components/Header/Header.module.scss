@@ -6,9 +6,9 @@
   gap: 10px;
 
   .HeaderList {
-    padding: 36px 0;
     display: flex;
     align-items: center;
+    height: 100%;
   }
 
   .Logo {
@@ -40,7 +40,7 @@
       cursor: pointer;
       color: #00f2fe;
     }
-    .chat {
+    .UserIcon {
       width: 40px;
       height: 40px;
       background: transparent;
@@ -64,7 +64,7 @@
         height: 100%;
       }
     }
-    .UserIcon {
+    .chat {
       width: 40px;
       background: transparent;
       height: 40px;
