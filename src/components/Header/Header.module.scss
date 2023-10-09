@@ -29,13 +29,51 @@
   .HeaderLoginButton {
     text-align: right;
     margin-left: auto;
+    display: flex;
+    gap: 16px;
+    position: relative;
 
-    button {
+    .LoginBtn {
       background: transparent;
       border: 0;
       font-size: 16px;
       cursor: pointer;
       color: #00f2fe;
+    }
+    .chat {
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 0;
+      padding: 0 !important;
+      img {
+        object-fit: cover;
+        width: 100%;
+        border-radius: 50%;
+        height: 100%;
+      }
+    }
+    .notice {
+      width: 40px;
+      height: 40px;
+      background: transparent;
+      border: 0;
+      * {
+        width: 100%;
+        color: white;
+        height: 100%;
+      }
+    }
+    .UserIcon {
+      width: 40px;
+      background: transparent;
+      height: 40px;
+      border: 0;
+      * {
+        color: white;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
