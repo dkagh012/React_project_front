@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import companyImg from "../../../assets/image/companyImg.png"
 import classes from './Best_company.module.scss';
 import { companies, companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate'; // Import data from data.js
-
+import ListClickPopup from '../../PageEvent/ListClickPopup';
 function Best_company() {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
 
@@ -14,6 +14,8 @@ function Best_company() {
 
   return (
     <section className="sectionWrap container">
+      <ListClickPopup />
+
       <div className={classes.company_title}>
         <h1>인기 업체</h1>
       </div>

@@ -7,11 +7,12 @@ import Logo from '../../assets/image/logo.png';
 import UserIcon from '../../assets/image/companyImg.png';
 import MessagesIcon from '../../assets/image/messages-2.svg';
 import { FaRegBell } from "react-icons/fa";
-
+import { useSelector, useDispatch } from 'react-redux';
 function Header() {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn); // Redux 스토어에서 isLoggedIn 가져오기
+  const dispatch = useDispatch();
   const [showLogin, setShowLogin] = useState(false);
   const [showNotice, setShowNotice] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLoginClick = () => {
     setShowLogin(!showLogin);
@@ -21,13 +22,8 @@ function Header() {
     setShowNotice(!showNotice);
   };
 
-  const handleLogin = () => {
-    setIsLoggedIn(true); // 로그인 버튼 클릭 시 로그인 상태를 true로 변경
-    setShowLogin(false);
-  };
-
   const handleLogout = () => {
-    setIsLoggedIn(false);
+    dispatch({ type: 'LOGOUT' }); // 로그아웃 액션 디스패치
   };
 
   return (
@@ -52,7 +48,7 @@ function Header() {
           <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
             <button type="button" className={classes.chat} onClick={handleAlarmClick}><img src={MessagesIcon} alt="MessagesIcon"></img></button>
             <button type="button" className={classes.notice}><FaRegBell /></button>
-            <button type="button" className={classes.UserIcon} onClick={() => setIsLoggedIn(false)}>
+            <button type="button" className={classes.UserIcon} onClick={handleLogout}>
               <img src={UserIcon} alt="UserIcon" />
             </button>
             {showNotice && <Notice onClose={handleAlarmClick} />}
@@ -63,7 +59,7 @@ function Header() {
           </div>
         )}
       </div>
-      {showLogin && <Login onClose={handleLoginClick} onLogin={handleLogin} onLogout={handleLogout} />}
+      {showLogin && <Login onClose={handleLoginClick} onLogout={handleLogout} />}
     </header>
   );
 }
