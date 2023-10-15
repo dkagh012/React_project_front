@@ -3,8 +3,6 @@ import classes from './ListClickPopup.module.scss';
 import { IoClose } from 'react-icons/io5';
 
 function ListClickPopup({ showPopup, setShowPopup }) {
-  console.log(showPopup);
-  console.log(setShowPopup);
   return (
     showPopup && (
       <div className={classes.ListClickPopupBox}>
