@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import companyImg from "../../../assets/image/companyImg.png";
 import classes from './Best_company.module.scss';
-import { companies, companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate'; // Import data from data.js
+import { companies, companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate';
 import ListClickPopup from '../../PageEvent/ListClickPopup';
 import { useSelector } from 'react-redux';
+import { Navigation, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.min.css'; // Load Swiper styles
-import SwiperCore, { Navigation } from 'swiper';
-
-SwiperCore.use([Navigation]); // Activate the Navigation module
+import 'swiper/css/bundle';
 
 function Best_company() {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
@@ -21,7 +19,6 @@ function Best_company() {
   };
 
   const handleListClick = () => {
-    console.log(isLoggedIn);
     if (isLoggedIn) {
       setShowPopup(true);
     } else {
@@ -52,7 +49,7 @@ function Best_company() {
       <div>
         <ul className={classes.companyItem}>
           {companiesItem.map((companyItem, index) => {
-            const post = posts.find((post) => post.id === index + 1); // Find the corresponding post
+            const post = posts.find((post) => post.id === index + 1);
             return (
               <li key={index} className={classes.companyItemLink} onClick={() => handleListClick()}>
                 <Link to="#">
@@ -71,25 +68,36 @@ function Best_company() {
                     </div>
                   </div>
                   <div className={classes.companyItemLinkTag}>
-                    {post && (
-                      <Swiper
-                        className={classes.companyItemSwiper}
-                        spaceBetween={10}
-                        slidesPerView={2}
-                        navigation={{  // Navigation module is active
-                          nextEl: `.${classes.nextButton}`, // Next button class
-                          prevEl: `.${classes.prevButton}`, // Previous button class
-                        }}
-                      >
-                        {post.tags.map((tag, index) => (
-                          <SwiperSlide key={index}>
-                            <li key={index}>#{tag}</li>
-                          </SwiperSlide>
-                        ))}
-                      </Swiper>
-                    )}
-                    <div className={classes.nextButton}>Next</div> {/* Next button */}
-                    <div className={classes.prevButton}>Prev</div> {/* Previous button */}
+                    <Swiper
+                      modules={[Navigation, A11y]}
+                      spaceBetween={50}
+                      slidesPerView={3}
+                      navigation={{
+                        prevEl: '.prev-button',
+                        nextEl: '.next-button',
+                      }}
+                      onSwiper={(swiper) => console.log(swiper)}
+                      onSlideChange={() => console.log('slide change')}
+                    >
+                      <div>
+                        <SwiperSlide>Slide 1</SwiperSlide>
+                        <SwiperSlide>Slide 2</SwiperSlide>
+                        <SwiperSlide>Slide 3</SwiperSlide>
+                        <SwiperSlide>Slide 4</SwiperSlide>
+                        <SwiperSlide>Slide 1</SwiperSlide>
+                        <SwiperSlide>Slide 2</SwiperSlide>
+                        <SwiperSlide>Slide 3</SwiperSlide>
+                        <SwiperSlide>Slide 4</SwiperSlide>
+                        <SwiperSlide>Slide 1</SwiperSlide>
+                        <SwiperSlide>Slide 2</SwiperSlide>
+                        <SwiperSlide>Slide 3</SwiperSlide>
+                        <SwiperSlide>Slide 4</SwiperSlide>
+                      </div>
+                      <div>
+                        <div className="next-button" onClick={() => Swiper.slideNext()}>Next</div>
+                        <div className="prev-button" onClick={() => Swiper.slidePrev()}>Prev</div>
+                      </div>
+                    </Swiper>
                   </div>
                 </Link>
               </li>
