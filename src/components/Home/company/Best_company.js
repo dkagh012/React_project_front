@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from 'react-router-dom';
 import companyImg from "../../../assets/image/companyImg.png";
 import classes from './Best_company.module.scss';
 import { companies, companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate';
 import ListClickPopup from '../../PageEvent/ListClickPopup';
 import { useSelector } from 'react-redux';
-import { Navigation, A11y } from 'swiper/modules';
+import SwiperCore, { Navigation } from 'swiper'; // 패키지 경로를 확인하십시오
+
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css/bundle';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import './Swiper_Tag.css';
+
+SwiperCore.use([Navigation]);
 
 function Best_company() {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
   const [showPopup, setShowPopup] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  const swiperRef = useRef(null); // Ref for Swiper instance
 
   const handleClick = (company) => {
     setSelectedCompany(company);
@@ -24,6 +31,18 @@ function Best_company() {
     } else {
       // Handle what to do when not logged in and companyItem is clicked
       // For example, you can navigate to the login page or implement another action.
+    }
+  };
+
+  const slideNext = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slideNext();
+    }
+  };
+
+  const slidePrev = () => {
+    if (swiperRef.current) {
+      swiperRef.current.slidePrev();
     }
   };
 
@@ -69,35 +88,20 @@ function Best_company() {
                   </div>
                   <div className={classes.companyItemLinkTag}>
                     <Swiper
-                      modules={[Navigation, A11y]}
-                      spaceBetween={50}
-                      slidesPerView={3}
+                      ref={swiperRef}
                       navigation={{
                         prevEl: '.prev-button',
                         nextEl: '.next-button',
                       }}
-                      onSwiper={(swiper) => console.log(swiper)}
-                      onSlideChange={() => console.log('slide change')}
+                      spaceBetween={50}
+                      slidesPerView={3}
                     >
-                      <div>
-                        <SwiperSlide>Slide 1</SwiperSlide>
-                        <SwiperSlide>Slide 2</SwiperSlide>
-                        <SwiperSlide>Slide 3</SwiperSlide>
-                        <SwiperSlide>Slide 4</SwiperSlide>
-                        <SwiperSlide>Slide 1</SwiperSlide>
-                        <SwiperSlide>Slide 2</SwiperSlide>
-                        <SwiperSlide>Slide 3</SwiperSlide>
-                        <SwiperSlide>Slide 4</SwiperSlide>
-                        <SwiperSlide>Slide 1</SwiperSlide>
-                        <SwiperSlide>Slide 2</SwiperSlide>
-                        <SwiperSlide>Slide 3</SwiperSlide>
-                        <SwiperSlide>Slide 4</SwiperSlide>
-                      </div>
-                      <div>
-                        <div className="next-button" onClick={() => Swiper.slideNext()}>Next</div>
-                        <div className="prev-button" onClick={() => Swiper.slidePrev()}>Prev</div>
-                      </div>
+                      <SwiperSlide className="blue-slide">Slide 1</SwiperSlide>
+                      <SwiperSlide className="yellow-slide">Slide 2</SwiperSlide>
+                      <SwiperSlide className="green-slide">Slide 3</SwiperSlide>
                     </Swiper>
+                    <div className="prev-button" onClick={slidePrev}>Prev</div>
+                    <div className="next-button" onClick={slideNext}>Next</div>
                   </div>
                 </Link>
               </li>

@@ -103,20 +103,18 @@
     display: flex;
     gap: 8px;
     width: 100%;
-    .companyItemSwiper {
-      div {
-        width: auto !important;
+    swiper-container {
+      width: 100% !important;
+      swiper-slide {
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        padding: 4px 12px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        color: white;
       }
-    }
-    li {
-      border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      padding: 4px 12px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      color: white;
     }
   }
 }
