@@ -1,0 +1,26 @@
+#company {
+  .swiper-backface-hidden .swiper-slide {
+    width: auto !important;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    padding: 4px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+  }
+
+  .swiper-backface-hidden .swiper-slide span {
+    color: #fff;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -0.4px;
+  }
+
+  .swiper-wrapper {
+    gap: 8px;
+  }
+}
