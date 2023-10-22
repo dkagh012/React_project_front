@@ -1,25 +1,48 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import companyImg from "../../../assets/image/companyImg.png";
-import classes from './Best_company.module.scss';
 import { companies, companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate';
-import ListClickPopup from '../../PageEvent/ListClickPopup';
 import { useSelector } from 'react-redux';
-import SwiperCore, { Navigation } from 'swiper'; // 패키지 경로를 확인하십시오
+import companyImg from "../../../assets/image/companyImg.png";
+import ListClickPopup from '../../PageEvent/ListClickPopup';
+import classes from './Best_company.module.scss';
 
+import { FaPlay, FaPause, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import './Swiper_Tag.css';
-
-SwiperCore.use([Navigation]);
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
 function Best_company() {
+  // Swiper 기능
+
+  const [swiper, setSwiper] = useState(null);
+
+  useEffect(() => {
+    if (swiper) {
+      swiper.autoplay.start();
+    }
+  }, [swiper]);
+
+
+
+  const goNext = () => {
+    if (swiper) {
+      swiper.slideNext();
+    }
+  };
+
+  const goPrev = () => {
+    if (swiper) {
+      swiper.slidePrev();
+    }
+  };
+  // 랜더링 기능
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
   const [showPopup, setShowPopup] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-  const swiperRef = useRef(null); // Ref for Swiper instance
 
   const handleClick = (company) => {
     setSelectedCompany(company);
@@ -34,17 +57,8 @@ function Best_company() {
     }
   };
 
-  const slideNext = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slideNext();
-    }
-  };
 
-  const slidePrev = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slidePrev();
-    }
-  };
+
 
   return (
     <section className="sectionWrap container">
@@ -88,20 +102,24 @@ function Best_company() {
                   </div>
                   <div className={classes.companyItemLinkTag}>
                     <Swiper
-                      ref={swiperRef}
-                      navigation={{
-                        prevEl: '.prev-button',
-                        nextEl: '.next-button',
-                      }}
-                      spaceBetween={50}
-                      slidesPerView={3}
+                      className={classes.Swiper_Wrap}
+                      modules={[Navigation, Pagination, A11y, Autoplay]}
+                      navigation
+                      onSwiper={setSwiper}
                     >
-                      <SwiperSlide className="blue-slide">Slide 1</SwiperSlide>
-                      <SwiperSlide className="yellow-slide">Slide 2</SwiperSlide>
-                      <SwiperSlide className="green-slide">Slide 3</SwiperSlide>
+                      <SwiperSlide className={classes.Swiper_Img}>Slide 1</SwiperSlide>
+                      <SwiperSlide className={classes.Swiper_Img}>Slide 2</SwiperSlide>
+                      <SwiperSlide className={classes.Swiper_Img}>Slide 3</SwiperSlide>
+                      <SwiperSlide className={classes.Swiper_Img}>Slide 4</SwiperSlide>
                     </Swiper>
-                    <div className="prev-button" onClick={slidePrev}>Prev</div>
-                    <div className="next-button" onClick={slideNext}>Next</div>
+                    <div className={classes.Swiper_Buttons}>
+                      <button className={classes.SwiperBtn} onClick={goPrev}>
+                        <FaChevronLeft />
+                      </button>
+                      <button className={classes.SwiperBtn} onClick={goNext}>
+                        <FaChevronRight />
+                      </button>
+                    </div>
                   </div>
                 </Link>
               </li>
