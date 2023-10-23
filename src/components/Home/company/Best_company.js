@@ -52,48 +52,51 @@ function Best_company() {
     // Swiper 인스턴스를 업데이트하는 논리를 여기에 추가합니다.
   }, [swiperInstances]);
 
-  // function SwiperClickEvent() {
-  //   let Swiper_Wrap = document.querySelectorAll("#company .swiper-wrapper");
-  //   let ItemTag = document.querySelectorAll("#ItemTag");
+  let Swiper_Wrap = document.querySelectorAll("#company .swiper-wrapper");
+  let ItemTag = document.querySelectorAll("#ItemTag");
 
-  //   for (let i = 0; i < Swiper_Wrap.length; i++) {
-  //     let prev = ItemTag[i].querySelector("#prev");
-  //     let next = ItemTag[i].querySelector("#next");
-  //     let SwiperItem = Swiper_Wrap[i].querySelectorAll(".swiper-slide");
+  for (let i = 0; i < Swiper_Wrap.length; i++) {
+    let prev = ItemTag[i].querySelector("#prev");
+    let next = ItemTag[i].querySelector("#next");
+    let SwiperItem = Swiper_Wrap[i].querySelectorAll(".swiper-slide");
 
-  //     prev.addEventListener("click", () => {
-  //       SwiperItem.forEach((item) => {
-  //         const ariaLabel = item.getAttribute("aria-label");
-  //         const match = ariaLabel.match(/(\d+) \/ (\d+)/);
+    prev.addEventListener("click", () => {
+      SwiperItem.forEach((item) => {
+        const ariaLabel = item.getAttribute("aria-label");
+        const match = ariaLabel.match(/(\d+) \/ (\d+)/);
+        const isActive = item.classList.contains("swiper-slide-active");
 
-  //         if (match) {
-  //           const currentNumber = parseInt(match[1]);
-  //           if (currentNumber === 1) {
-  //             prev.style.display = "none";
-  //           } else {
-  //             prev.style.display = "block";
-  //           }
-  //         }
-  //       });
-  //     });
+        if (match) {
+          const currentNumber = parseInt(match[1]);
+          console.log(item)
+          console.log(isActive);
+          if (currentNumber === 1 && isActive) {
+            prev.style.display = "none";
+          } else {
+            next.style.display = "block";
+          }
+        }
+      });
+    });
 
-  //     next.addEventListener("click", () => {
-  //       SwiperItem.forEach((item) => {
-  //         const ariaLabel = item.getAttribute("aria-label");
-  //         const match = ariaLabel.match(/(\d+) \/ (\d+)/);
-
-  //         if (match) {
-  //           const currentNumber = parseInt(match[1]);
-  //           if (currentNumber === 1) {
-  //             next.style.display = "none";
-  //           } else {
-  //             next.style.display = "block";
-  //           }
-  //         }
-  //       });
-  //     });
-  //   }
-  // }
+    next.addEventListener("click", () => {
+      SwiperItem.forEach((item) => {
+        const ariaLabel = item.getAttribute("aria-label");
+        const match = ariaLabel.match(/(\d+) \/ (\d+)/);
+        const isActive = item.classList.contains("swiper-slide-active");
+        if (match) {
+          const currentNumber = parseInt(match[1]);
+          console.log(item)
+          console.log(isActive);
+          if (currentNumber === 1 && isActive) {
+            prev.style.display = "none";
+          } else {
+            prev.style.display = "block";
+          }
+        }
+      });
+    });
+  }
 
 
 
