@@ -52,6 +52,52 @@ function Best_company() {
     // Swiper 인스턴스를 업데이트하는 논리를 여기에 추가합니다.
   }, [swiperInstances]);
 
+  // function SwiperClickEvent() {
+  //   let Swiper_Wrap = document.querySelectorAll("#company .swiper-wrapper");
+  //   let ItemTag = document.querySelectorAll("#ItemTag");
+
+  //   for (let i = 0; i < Swiper_Wrap.length; i++) {
+  //     let prev = ItemTag[i].querySelector("#prev");
+  //     let next = ItemTag[i].querySelector("#next");
+  //     let SwiperItem = Swiper_Wrap[i].querySelectorAll(".swiper-slide");
+
+  //     prev.addEventListener("click", () => {
+  //       SwiperItem.forEach((item) => {
+  //         const ariaLabel = item.getAttribute("aria-label");
+  //         const match = ariaLabel.match(/(\d+) \/ (\d+)/);
+
+  //         if (match) {
+  //           const currentNumber = parseInt(match[1]);
+  //           if (currentNumber === 1) {
+  //             prev.style.display = "none";
+  //           } else {
+  //             prev.style.display = "block";
+  //           }
+  //         }
+  //       });
+  //     });
+
+  //     next.addEventListener("click", () => {
+  //       SwiperItem.forEach((item) => {
+  //         const ariaLabel = item.getAttribute("aria-label");
+  //         const match = ariaLabel.match(/(\d+) \/ (\d+)/);
+
+  //         if (match) {
+  //           const currentNumber = parseInt(match[1]);
+  //           if (currentNumber === 1) {
+  //             next.style.display = "none";
+  //           } else {
+  //             next.style.display = "block";
+  //           }
+  //         }
+  //       });
+  //     });
+  //   }
+  // }
+
+
+
+
   return (
     <section className="sectionWrap container" id="company">
       <ListClickPopup showPopup={showPopup} setShowPopup={setShowPopup} />
@@ -94,14 +140,15 @@ function Best_company() {
                       <span> 선호 파트너 형태</span>
                     </div>
                   </div>
-                  <div className={classes.companyItemLinkTag}>
-                    {/* <button
+                  <div id="ItemTag" className={classes.companyItemLinkTag}>
+                    <button
                       className={`prev-button-${index} ${classes.SwiperBtn}`}
+                      id='prev'
                       onClick={() => goPrev(index)}
-                      style={{ display: 'block' }}
+                      style={{ display: 'none' }}
                     >
                       <FaChevronLeft />
-                    </button> */}
+                    </button>
                     <Swiper
                       ref={swiperRefs[index]}
                       className={classes.Swiper_Wrap}
@@ -119,13 +166,14 @@ function Best_company() {
                       <SwiperSlide className={classes.Swiper_Img}><span>Slide 3</span></SwiperSlide>
                       <SwiperSlide className={classes.Swiper_Img}><span>Slide 4</span></SwiperSlide>
                     </Swiper>
-                    {/* <button
+                    <button
                       className={`next-button-${index} ${classes.SwiperBtn}`}
+                      id='next'
                       onClick={() => goNext(index)}
                       style={{ display: 'block' }}
                     >
                       <FaChevronRight />
-                    </button> */}
+                    </button>
                   </div>
                 </Link>
               </li>
