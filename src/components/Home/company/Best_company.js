@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { companies, companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate';
 import { useSelector } from 'react-redux';
@@ -15,28 +15,24 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './Swiper_Tag.scss';
 
-
 function Best_company() {
   const [swiperInstances, setSwiperInstances] = useState([]);
-
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
   const [showPopup, setShowPopup] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  const swiperRefs = useRef(new Array(companiesItem.length).fill(null).map(() => React.createRef()));
 
   const goNext = (index) => {
     if (swiperInstances[index]) {
       swiperInstances[index].slideNext();
     }
-    console.log(swiperInstances[index]);
-
   };
 
   const goPrev = (index) => {
     if (swiperInstances[index]) {
       swiperInstances[index].slidePrev();
     }
-    console.log(swiperInstances[index]);
-
   };
 
   const handleClick = (company) => {
@@ -52,7 +48,6 @@ function Best_company() {
     }
   };
 
-  // useEffect 내에서 상태 업데이트로 변경합니다.
   useEffect(() => {
     // Swiper 인스턴스를 업데이트하는 논리를 여기에 추가합니다.
   }, [swiperInstances]);
@@ -82,8 +77,6 @@ function Best_company() {
           {companiesItem.map((companyItem, index) => {
             const post = posts.find((post) => post.id === index + 1);
 
-            const swiperRef = React.createRef();
-
             return (
               <li key={index} className={classes.companyItemLink} onClick={() => handleListClick(index)}>
                 <Link to="#">
@@ -102,19 +95,19 @@ function Best_company() {
                     </div>
                   </div>
                   <div className={classes.companyItemLinkTag}>
-                    <button
-                      className={classes.SwiperBtn}
+                    {/* <button
+                      className={`prev-button-${index} ${classes.SwiperBtn}`}
                       onClick={() => goPrev(index)}
-                      style={{ display: swiperInstances[index] && !swiperInstances[index].isBeginning ? 'block' : 'none' }}
+                      style={{ display: 'block' }}
                     >
                       <FaChevronLeft />
-                    </button>
+                    </button> */}
                     <Swiper
-                      ref={swiperRef}
+                      ref={swiperRefs[index]}
                       className={classes.Swiper_Wrap}
                       modules={[Navigation, Pagination, A11y, Autoplay]}
                       slidesPerView={3}
-                      navigation
+                      navigation={true}
                       onSwiper={(swiper) => setSwiperInstances((prevInstances) => {
                         const updatedInstances = [...prevInstances];
                         updatedInstances[index] = swiper;
@@ -126,13 +119,13 @@ function Best_company() {
                       <SwiperSlide className={classes.Swiper_Img}><span>Slide 3</span></SwiperSlide>
                       <SwiperSlide className={classes.Swiper_Img}><span>Slide 4</span></SwiperSlide>
                     </Swiper>
-                    <button
-                      className={classes.SwiperBtn}
+                    {/* <button
+                      className={`next-button-${index} ${classes.SwiperBtn}`}
                       onClick={() => goNext(index)}
-                      style={{ display: swiperInstances[index] && !swiperInstances[index].isEnd ? 'block' : 'none' }}
+                      style={{ display: 'block' }}
                     >
                       <FaChevronRight />
-                    </button>
+                    </button> */}
                   </div>
                 </Link>
               </li>
