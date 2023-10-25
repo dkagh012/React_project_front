@@ -100,16 +100,37 @@
 
   .companyItemLinkTag {
     padding-top: 12px;
+    position: relative;
     display: flex;
     gap: 8px;
     width: 100%;
     height: 42px;
     > div {
-      > div {
+      position: unset;
+      width: 80%;
+      div:nth-child(1) {
         > div {
           color: white;
           width: auto !important;
+          display: flex;
+          align-items: center;
+          padding-right: 8px;
         }
+        div:last-child {
+          padding-right: 0;
+        }
+      }
+      > div:nth-child(3) {
+        right: -10px !important;
+        height: auto;
+        bottom: 0;
+        align-items: flex-end;
+      }
+      > div:nth-child(2) {
+        left: -10px !important;
+        height: auto;
+        bottom: 0;
+        align-items: flex-end;
       }
     }
   }
