@@ -2,7 +2,22 @@
   color: white !important;
 }
 
-.swiper-button-prev,
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  display: none;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: white;
+  font-size: 18px !important;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .swiper-button-next {
-  display: none !important;
+  right: 0 !important;
 }

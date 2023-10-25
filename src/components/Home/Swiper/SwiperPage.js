@@ -26,9 +26,9 @@ function SwiperPage() {
 
   return (
     <Swiper
+      id='MainSwiper'
       className={classes.Swiper_Wrap}
       modules={[Navigation, Pagination, A11y, Autoplay]}
-      navigation
       pagination={{
         clickable: true,
         el: '#paginationNumber',
