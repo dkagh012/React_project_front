@@ -10,7 +10,7 @@
 ![React](https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB)
 ![Redux](https://img.shields.io/badge/-Redux-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=white)
 ![CSS5](https://img.shields.io/badge/CSS5-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![SCSS](https://img.shields.io/badge/SCSS-#c69?style=for-the-badge&logo=SCSS&logoColor=#c69)
+![SCSS](https://img.shields.io/badge/SCSS-#c69?style=for-the-badge&logo=SCSS&logoColor=c69)
 
 ## 실행
 ```
