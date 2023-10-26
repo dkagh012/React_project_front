@@ -4,7 +4,7 @@
 ![SCSS](https://img.shields.io/badge/SCSS-cc6699?style=for-the-badge&logo=scss&logoColor=white)
 ![React](https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB)
 ![Javascript](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F)
-![Redux]([https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F](https://img.shields.io/badge/Redux-black?style=for-the-badge&labelColor=7248b6&logo=Redux&logoColor=white))
+![Redux](https://img.shields.io/badge/Redux-black?style=for-the-badge&labelColor=7248b6&logo=Redux&logoColor=white)
 ## 서비스 소개
 - 제휴업체 소개 프로젝트
 
