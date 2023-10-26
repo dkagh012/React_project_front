@@ -1,9 +1,14 @@
 # DEKER Front
 
+
+
 ## 서비스 소개
 - 제휴업체 소개 프로젝트
 
-
+## Skill Set
+![Javascript](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F)
+![CSS5](https://img.shields.io/badge/CSS5-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![SCSS](https://img.shields.io/badge/SCSS-1572B6?style=for-the-badge&logo=css3&logoColor=pink)
 ## 실행
 ```
 npm build
