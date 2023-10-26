@@ -1,7 +1,7 @@
 # DEKER Front
 
 
-
+![SCSS](https://img.shields.io/badge/SCSS-cc6699?style=for-the-badge&logo=scss&logoColor=white)
 ## 서비스 소개
 - 제휴업체 소개 프로젝트
 
