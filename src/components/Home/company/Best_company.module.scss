@@ -54,13 +54,14 @@
 .companyItemLink {
   border: 1px solid var(--colorBorder);
   border-radius: 10px;
-  padding: 0px 16px 16px 16px;
   > a {
     display: flex;
     gap: 8px;
     flex-direction: column;
   }
-
+  .companyItemBody {
+    padding: 0 16px 16px;
+  }
   .companyItemLinkInfo {
     display: flex;
     gap: 8px;
@@ -114,7 +115,9 @@
           width: auto !important;
           display: flex;
           align-items: center;
-          padding-right: 8px;
+          border-radius: 4px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          padding: 4px 12px;
         }
         div:last-child {
           padding-right: 0;
