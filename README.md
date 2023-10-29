@@ -1,8 +1,8 @@
-# DEKER Front
+# influde
 
 ## 서비스 소개
 
-- 제휴업체 소개 프로젝트
+- 파트너-업체-찾기-사이트
 
 ## Skill Set
 
