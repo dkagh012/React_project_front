@@ -4,11 +4,11 @@ import { IoClose } from 'react-icons/io5';
 
 function ListClickPopup({ showPopup, setShowPopup }) {
   return (
-    !showPopup && (
+    showPopup && (
       <div className={classes.ListClickPopupBox}>
         <div className={classes.ListClickPopupBackground}></div>
         <div className={classes.ListClickPopupBoxWrapper}>
-          <button type="button" className={classes.CloseBtn} onClick={() => setShowPopup(true)}>
+          <button type="button" className={classes.CloseBtn} onClick={() => setShowPopup(false)}>
             <IoClose />
           </button>
           <div className={classes.ListClickPopupBoxBody}>

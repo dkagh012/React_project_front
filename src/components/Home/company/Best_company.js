@@ -15,26 +15,30 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+
 function Best_company() {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
   const [showPopup, setShowPopup] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-
-
-
+  console.log(showPopup);
   const handleClick = (company) => {
     setSelectedCompany(company);
   };
-
-  const handleListClick = (index) => {
-    if (isLoggedIn) {
-      setShowPopup(true);
+  const handleListClick = (boolean) => {
+    if (boolean && !isLoggedIn) {
+      setShowPopup(true); // Set the showPopup state to true when a list item is clicked
+    } else {
+      setShowPopup(false); // Hide the popup when showPopup is false or when the user is logged in
     }
+    // if (!isLoggedIn) {
+    //   setShowPopup(true); // Set the showPopup state to true when a list item is clicked
+    // }
   };
 
   return (
     <section className="sectionWrap container" id="company">
-      {!isLoggedIn && <ListClickPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
+      {showPopup && <ListClickPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
+
 
       <div className={classes.company_title}>
         <h1>인기 업체</h1>
@@ -58,7 +62,7 @@ function Best_company() {
             const post = posts.find((post) => post.id === index + 1);
 
             return (
-              <li key={index} className={classes.companyItemLink} onClick={() => handleListClick(index)}>
+              <li key={index} className={classes.companyItemLink} onClick={() => handleListClick(true)}>
                 <Link to="#">
                   <div className={classes.companyItemLinkImg}>
                     <img alt={companyItem} src={companyImg} />
@@ -83,8 +87,6 @@ function Best_company() {
                           slidesPerView={3}
                           spaceBetween={8}
                           navigation={true} // Enable navigation
-                          onSwiper={(swiper) => console.log(swiper)}
-                          onSlideChange={() => console.log('slide change')}
                         >
                           {post.tags.map((tag, index) => (
                             <SwiperSlide key={index}>#{tag}</SwiperSlide>
@@ -104,3 +106,5 @@ function Best_company() {
 }
 
 export default Best_company;
+
+
