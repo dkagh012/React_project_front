@@ -6,6 +6,15 @@ import classes from './SearchList.module.scss';
 import Subclasses from '../../Home/company/Best_company.module.scss';
 import { companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate'; // Import data from data.js
 import SearchItem from '../SearchItem/SearchItem.js'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
 function SearchList() {
   const [activeTab, setActiveTab] = useState("recent"); // Default active tab is "recent"
 
@@ -15,7 +24,7 @@ function SearchList() {
   return (
     <section className="container">
       <div>
-        <title><span>광고</span><span>인플루드에서 추천하는 업체입니다.</span></title>
+        <div className={classes.TopIntro}><span className={classes.Intro}>[광고]</span><span className={classes.Desc}>인플루드에서 추천하는 업체입니다.</span></div>
         <ul className={`${Subclasses.companyItem} ${classes.SearchList}`}>
           {companiesItem.map((companyItem, index) => {
             if (index < 3) {
@@ -26,22 +35,29 @@ function SearchList() {
                     <div className={Subclasses.companyItemLinkImg}>
                       <img alt={companyItem} src={companyImg}></img>
                     </div>
-                    <div className={Subclasses.companyItemLinkInfo}>
-                      <div className={Subclasses.companyItemLinkHashTag}>
-                        <p>{companiesHashTag[index]}</p>
-                      </div>
+                    <div className={`${Subclasses.companyItemLinkInfo} ${classes.SearchTopList}`}>
                       <div className={Subclasses.companyItemLinkTitle}>
                         <h1>{companyItem}</h1>
+                      </div>
+                      <div className={Subclasses.companyItemLinkHashTag}>
+                        <p>{companiesHashTag[index]}</p>
                       </div>
                       <div className={Subclasses.companyItemLinkDesc}>
                         <span> 선호 파트너 형태</span>
                       </div>
                       {post && ( // Check if post exists
-                        <ul className={Subclasses.companyItemLinkTag}>
-                          {post.tags.map((tag, index) => (
-                            <li key={index}>#{tag}</li>
-                          ))}
-                        </ul>
+                        <div id="ItemTag" className={Subclasses.companyItemLinkTag}>
+                          <Swiper
+                            modules={[Navigation, Scrollbar, A11y]}
+                            slidesPerView={3}
+                            spaceBetween={8}
+                            navigation={true} // Enable navigation
+                          >
+                            {post.tags.map((tag, index) => (
+                              <SwiperSlide key={index}>#{tag}</SwiperSlide>
+                            ))}
+                          </Swiper>
+                        </div>
                       )}
                     </div>
                   </Link>
