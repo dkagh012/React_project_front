@@ -14,7 +14,7 @@ function Footer() {
             <li><Link to="#">서비스 이용약관</Link></li>
             <li><Link to="#">개인정보처리방침</Link></li>
             <li><Link to="#">결제/환불약관</Link></li>
-            <li><Link to="#">고객센터</Link></li>
+            <li><Link to="/Service">고객센터</Link></li>
           </ul>
         </div>
         <div className={classes.footerInfo}>

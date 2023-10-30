@@ -63,15 +63,19 @@ function SearchItem() {
       <div className={classes.PageNation}>
         <ul>
           <li>
-            <FaAngleLeft />
+            <button type="button">
+              <FaAngleLeft />
+            </button>
           </li>
-          <li><button type="button">1</button></li>
+          <li><button className={classes.Clicked} type="button">1</button></li>
           <li><button type="button">2</button></li>
           <li><button type="button">3</button></li>
           <li><button type="button">4</button></li>
           <li><button type="button">5</button></li>
           <li>
-            <FaAngleRight />
+            <button type="button">
+              <FaAngleRight />
+            </button>
           </li>
         </ul>
       </div>
