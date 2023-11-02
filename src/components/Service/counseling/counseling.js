@@ -15,7 +15,7 @@ function counseling() {
           <ul className={Subclasses.LinkBtn}>
             <li className={Subclasses.Clicked}><a href="/counseling">문의하기</a></li>
             <li><a href="/individual">개인정보 처리방침</a></li>
-            <li><a href="">서비스 이용약관</a></li>
+            <li><a href="/stipulation">서비스 이용약관</a></li>
           </ul>
         </div>
         <div className={`${classes.emailText} ${Subclasses.Desc_wrap}`}>

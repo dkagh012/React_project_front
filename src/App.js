@@ -4,6 +4,7 @@ import Search from './components/Search/Search'
 import View from './components/View/View'
 import Counseling from './components/Service/counseling/counseling'
 import Individual from './components/Service/individual/individual'
+import Stipulation from './components/Service/stipulation/stipulation'
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import './reset.scss'
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/View" element={<View />} />
           <Route path="/counseling" element={<Counseling />} />
           <Route path="/individual" element={<Individual />} />
+          <Route path="/stipulation" element={<Stipulation />} />
         </Routes>
       </BrowserRouter>
     </div>

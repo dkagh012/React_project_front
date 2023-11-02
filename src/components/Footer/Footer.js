@@ -11,7 +11,7 @@ function Footer() {
             <img src={Logo}></img>
           </div>
           <ul className={classes.footerItems}>
-            <li><Link to="#">서비스 이용약관</Link></li>
+            <li><Link to="/stipulation">서비스 이용약관</Link></li>
             <li><Link to="/individual">개인정보처리방침</Link></li>
             <li><Link to="#">결제/환불약관</Link></li>
             <li><Link to="/counseling">고객센터</Link></li>
