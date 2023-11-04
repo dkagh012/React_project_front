@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Login.module.scss";
 import Logo from "../../../assets/image/logo.png";
 import { IoClose } from "react-icons/io5";
@@ -9,14 +9,16 @@ import JoinFinish from "./JoinForm/JoinFinish/JoinFinish";
 import "./LoginBox.scss";
 import { useDispatch, useSelector } from 'react-redux';
 function Login({ onClose }) {
-  const [activeForm, setActiveForm] = useState("loginForm");
+  const formState = useSelector((state) => state.loginReducer.activeForm); //메인 홈 리스트팝업에서 회원가입 버튼을 눌렀을 떄
+
+  const [activeForm, setActiveForm] = useState(formState || "loginForm");
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
-
   const users = useSelector((state) => state.auth.users); // Redux 스토어에서 사용자 데이터 가져오기
   const dispatch = useDispatch();
+
 
   const handleLogin = (enteredEmail, enteredPassword) => {
     const user = users.find(
@@ -52,7 +54,11 @@ function Login({ onClose }) {
     setEmail("");
     setIsEmailValid(true);
   };
-
+  useEffect(() => {
+    if (formState) {
+      setActiveForm(formState);
+    }
+  }, [formState]);
   return (
     <div>
       <div className={classes.loginBox}>

@@ -4,20 +4,25 @@ import { IoClose } from 'react-icons/io5';
 import { showLoginAction, hideLoginAction } from '../../../reducers/LoginAction/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import Login from '../../Header/Login/Login';
+
 function ListClickPopup({ showPopup, setShowPopup }) {
   const showLogin = useSelector((state) => state.loginReducer.showLogin);
   const dispatch = useDispatch();
 
   const handleLoginClick = () => {
-    setShowPopup(false);   // 팝업을 닫는다
+    setShowPopup(false); // 팝업을 닫는다
     dispatch(showLoginAction()); // 로그인 창을 보여주는 액션을 디스패치한다
+  };
+
+  const handleJoinClick = () => {
+    setShowPopup(false); // 팝업을 닫는다
+    dispatch(showLoginAction('joinForm')); // 로그인 창을 '회원가입' 폼으로 보여주는 액션을 디스패치한다
   };
 
   const handleCloseLogin = () => {
     dispatch(hideLoginAction());
   };
 
-  // showPopup과 showLogin 상태에 따라 조건부 렌더링을 수행
   return (
     <>
       {showPopup && (
@@ -35,7 +40,7 @@ function ListClickPopup({ showPopup, setShowPopup }) {
                 <span>이미 회원가입을 완료했다면?</span>
                 <button type="button" onClick={handleLoginClick}>로그인하기</button>
               </div>
-              <button type="button" className={classes.JoinBtn}>회원가입</button>
+              <button type="button" className={classes.JoinBtn} onClick={handleJoinClick}>회원가입</button>
             </div>
           </div>
         </div>
