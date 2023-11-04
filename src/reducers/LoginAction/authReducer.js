@@ -3,7 +3,7 @@ const initialState = {
   isLoggedIn: false,
   user: null,
   users: [ // 사용자 데이터 배열
-    { username: "user1", password: "password1" },
+    { username: "1", password: "1" },
     { username: "user2", password: "password2" },
     { username: "user3", password: "password3" },
   ],
