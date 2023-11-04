@@ -8,7 +8,7 @@ function Footer() {
       <div className={classes.footer}>
         <div className={classes.footerDesc}>
           <div className={classes.footerLogo}>
-            <img src={Logo}></img>
+            <img alt="로고" src={Logo}></img>
           </div>
           <ul className={classes.footerItems}>
             <li><Link to="/stipulation">서비스 이용약관</Link></li>

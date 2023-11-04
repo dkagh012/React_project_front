@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { companies, companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate';
 import { useSelector } from 'react-redux';
 import companyImg from "../../../assets/image/companyImg.png";
-import ListClickPopup from '../../Home/PageEvent/ListClickPopup';
+import ListClickPopup from '../../Main/PageEvent/ListClickPopup';
 import classes from './Best_company.module.scss';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 

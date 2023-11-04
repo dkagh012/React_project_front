@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './counseling.module.scss';
-import Subclasses from '../Service.module.scss';
+import Subclasses from '../Legal.module.scss';
 import Footer from '../../Footer/Footer';
 import Header from '../../Header/Header';
 function counseling() {
@@ -19,7 +19,7 @@ function counseling() {
           </ul>
         </div>
         <div className={`${classes.emailText} ${Subclasses.Desc_wrap}`}>
-          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=influde.master@gmail.com" target="_blank">influde.master@gmail.com</a>
+          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=influde.master@gmail.com" target="_blank" rel="noopener noreferrer">influde.master@gmail.com</a>
           <span>으로 문의 내용을 보내주시면 빠른 검토 후 연락을 드리도록 하겠습니다</span>
         </div>
       </section>

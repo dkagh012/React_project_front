@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './ListClickPopup.module.scss';
 import { IoClose } from 'react-icons/io5';
-import { showLoginAction, hideLoginAction } from '../../../reducers/LoginAction/actions';
+import { showLoginAction, hideLoginAction } from '../../../store/reducers/LoginAction/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import Login from '../../Header/Login/Login';
 

@@ -9,7 +9,7 @@ import UserIcon from '../../assets/image/companyImg.png';
 import MessagesIcon from '../../assets/image/messages-2.svg';
 import { FaRegBell } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { showLoginAction, hideLoginAction } from '../../reducers/LoginAction/actions';
+import { showLoginAction, hideLoginAction } from '../../store/reducers/LoginAction/actions';
 function Header() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const showLogin = useSelector((state) => state.loginReducer.showLogin);

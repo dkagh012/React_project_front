@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import companyImg from "../../../assets/image/companyImg.png";
 import { Link } from 'react-router-dom';
-import Subclasses from '../../Home/company/Best_company.module.scss';
+import Subclasses from '../../Main/company/Best_company.module.scss';
 import classes from './SearchItem.module.scss';
 import { companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate'; // Import data from data.js
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,11 +14,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 function SearchItem() {
-  const [activeTab, setActiveTab] = useState("recent"); // Default active tab is "recent"
+  // const [activeTab, setActiveTab] = useState("recent"); // Default active tab is "recent"
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
+  // const handleTabClick = (tab) => {
+  //   setActiveTab(tab);
+  // };
   return (
     <div>
       <ul className={`${Subclasses.companyItem} ${classes.SearchList}`}>

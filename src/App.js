@@ -1,10 +1,10 @@
 import classes from './App.module.scss';
-import Home from './components/Home/Home'
-import Search from './components/Search/Search'
-import View from './components/View/View'
-import Counseling from './components/Service/counseling/counseling'
-import Individual from './components/Service/individual/individual'
-import Stipulation from './components/Service/stipulation/stipulation'
+import Home from './components/Main/Main'
+import Search from './components/SearchPage/Search'
+import View from './components/ListItemDetail/View'
+import Counseling from './components/Legal/counseling/counseling'
+import Individual from './components/Legal/individual/individual'
+import Stipulation from './components/Legal/stipulation/stipulation'
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import './reset.scss'
 

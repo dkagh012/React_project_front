@@ -1,6 +1,6 @@
 import React from 'react'
 import classes from './individual.module.scss';
-import Subclasses from '../Service.module.scss';
+import Subclasses from '../Legal.module.scss';
 import Footer from '../../Footer/Footer';
 import Header from '../../Header/Header';
 function individual() {

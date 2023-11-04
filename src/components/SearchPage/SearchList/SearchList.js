@@ -3,11 +3,11 @@ import companyImg from "../../../assets/image/companyImg.png";
 import { Link } from 'react-router-dom';
 import { BsSearch } from "react-icons/bs";
 import classes from './SearchList.module.scss';
-import Subclasses from '../../Home/company/Best_company.module.scss';
+import Subclasses from '../../Main/company/Best_company.module.scss';
 import { companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate'; // Import data from data.js
 import SearchItem from '../SearchItem/SearchItem.js'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Scrollbar, A11y } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
