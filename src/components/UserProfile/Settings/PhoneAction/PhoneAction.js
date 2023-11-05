@@ -22,7 +22,7 @@ function PhoneAction(props) {
     if (!/^\d{3}-\d{4}-\d{4}$/.test(newPhone)) {
       setPhoneNumberError('올바른 휴대폰 번호 형식이 아닙니다.');
     } else {
-      props.setPhoneValue(newPhone);
+      props.setPhoneValue(newPhone); // Set the value in the parent component (Settings)
       setShowSuccess(true);
       setPhoneNumberError(''); // Clear the error message
       // Automatically close the PhoneAction after 3 seconds

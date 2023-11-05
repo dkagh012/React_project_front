@@ -7,7 +7,8 @@ import PhoneAction from './PhoneAction/PhoneAction';
 
 function Settings() {
   const [ShowPhoneAction, setShowPhoneAction] = useState(false);
-  const [phoneValue, setPhoneValue] = useState(''); // Add this state
+  const [phoneValue, setPhoneValue] = useState(''); // Initialize the phoneValue state
+
   const handleShowPhoneAction = () => {
     setShowPhoneAction(true);
   }
@@ -20,7 +21,12 @@ function Settings() {
     <div>
       <Header />
       <section className='container'>
-        {ShowPhoneAction && <PhoneAction showClose={handleClosePhoneAction} setPhoneValue={setPhoneValue} />}
+        {ShowPhoneAction && (
+          <PhoneAction
+            showClose={handleClosePhoneAction}
+            setPhoneValue={setPhoneValue} // Pass the setPhoneValue function
+          />
+        )}
         <div className={classes.UserProfile}>
           <div className={classes.UserProfile_Tab}>
             <ul>
@@ -40,7 +46,13 @@ function Settings() {
               <li className={classes.InputBox}>
                 <p>휴대폰 번호</p>
                 <div className={classes.Input}>
-                  <input type='number' placeholder='미설정' disabled value={phoneValue} />
+                  {console.log(phoneValue)}
+                  <input
+                    type='number'
+                    placeholder='미설정'
+                    disabled
+                    value={phoneValue} // Set the value using the phoneValue state
+                  />
                   <button type='button' onClick={handleShowPhoneAction}>변경</button>
                 </div>
               </li>
