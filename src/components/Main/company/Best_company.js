@@ -20,7 +20,6 @@ function Best_company() {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
   const [showPopup, setShowPopup] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  console.log(showPopup);
   const handleClick = (company) => {
     setSelectedCompany(company);
   };
