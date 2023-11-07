@@ -11,21 +11,19 @@ function PhoneAction(props) {
   const handleInputChange = (e) => {
     setNewPhone(e.target.value);
 
-    // Clear the phoneNumberError when the user starts typing
     if (phoneNumberError) {
       setPhoneNumberError('');
     }
   }
 
   const handleSave = () => {
-    // Validate the phone number format
+
     if (!/^\d{3}-\d{4}-\d{4}$/.test(newPhone)) {
       setPhoneNumberError('올바른 휴대폰 번호 형식이 아닙니다.');
     } else {
-      props.setPhoneValue(newPhone); // Set the value in the parent component (Settings)
+      props.setPhoneValue(newPhone);
       setShowSuccess(true);
-      setPhoneNumberError(''); // Clear the error message
-      // Automatically close the PhoneAction after 3 seconds
+      setPhoneNumberError('');
       setTimeout(() => {
         props.showClose();
       }, 3000);
@@ -33,13 +31,11 @@ function PhoneAction(props) {
   };
 
   useEffect(() => {
-    // Clear the success message after 3 seconds
     if (showSuccess) {
       const timer = setTimeout(() => {
         setShowSuccess(false);
       }, 3000);
 
-      // Clear the timer if the component unmounts
       return () => clearTimeout(timer);
     }
   }, [showSuccess]);
@@ -48,7 +44,7 @@ function PhoneAction(props) {
     <div className={classes.PhoneAction_wrap}>
       <div className={classes.PhoneActionBack} onClick={props.showClose}></div>
       <div className={classes.PhoneActionBox}>
-        {showSuccess ? ( // Display success message if showSuccess is true
+        {showSuccess ? (
           <h1>휴대폰 번호 변경이 완료되었습니다.</h1>
         ) : (
           <form>

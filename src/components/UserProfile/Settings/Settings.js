@@ -4,10 +4,13 @@ import Header from '../../Header/Header';
 import classes from './Settings.module.scss';
 import { Link } from 'react-router-dom';
 import PhoneAction from './PhoneAction/PhoneAction';
+import EmailAction from './EmailAction/EmailAction';
 
 function Settings() {
   const [ShowPhoneAction, setShowPhoneAction] = useState(false);
+  const [ShowEmailAction, setShowEmailAction] = useState(false);
   const [phoneValue, setPhoneValue] = useState(''); // Initialize the phoneValue state
+  const [emailValue, setEmailValue] = useState(''); // Initialize the phoneValue state
 
   const handleShowPhoneAction = () => {
     setShowPhoneAction(true);
@@ -16,11 +19,31 @@ function Settings() {
   const handleClosePhoneAction = () => {
     setShowPhoneAction(false);
   }
+  const handleShowEmailAction = () => {
+    setShowEmailAction(true);
+  }
+
+  const handleCloseEmailAction = () => {
+    setShowEmailAction(false);
+  }
 
   return (
     <div>
       <Header />
       <section className='container'>
+        {ShowEmailAction &&
+          <EmailAction
+            showClose={handleCloseEmailAction}
+            setEmailValue={setEmailValue}
+          />
+        }
+
+        {ShowPhoneAction && (
+          <PhoneAction
+            showClose={handleClosePhoneAction}
+            setPhoneValue={setPhoneValue} // Pass the setPhoneValue function
+          />
+        )}
         {ShowPhoneAction && (
           <PhoneAction
             showClose={handleClosePhoneAction}
@@ -46,12 +69,11 @@ function Settings() {
               <li className={classes.InputBox}>
                 <p>휴대폰 번호</p>
                 <div className={classes.Input}>
-                  {console.log(phoneValue)}
                   <input
-                    type='number'
+                    type='text'
                     placeholder='미설정'
                     disabled
-                    value={phoneValue} // Set the value using the phoneValue state
+                    value={phoneValue}
                   />
                   <button type='button' onClick={handleShowPhoneAction}>변경</button>
                 </div>
@@ -59,8 +81,8 @@ function Settings() {
               <li className={classes.InputBox}>
                 <p>이메일</p>
                 <div className={classes.Input}>
-                  <input type='email' placeholder='미설정' disabled />
-                  <button type='button'>변경</button>
+                  <input type='email' placeholder='미설정' disabled value={emailValue} />
+                  <button type='button' onClick={handleShowEmailAction}>변경</button>
                 </div>
               </li>
               <li className={classes.InputBox}>
