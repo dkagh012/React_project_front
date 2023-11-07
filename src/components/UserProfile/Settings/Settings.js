@@ -41,13 +41,7 @@ function Settings() {
         {ShowPhoneAction && (
           <PhoneAction
             showClose={handleClosePhoneAction}
-            setPhoneValue={setPhoneValue} // Pass the setPhoneValue function
-          />
-        )}
-        {ShowPhoneAction && (
-          <PhoneAction
-            showClose={handleClosePhoneAction}
-            setPhoneValue={setPhoneValue} // Pass the setPhoneValue function
+            setPhoneValue={setPhoneValue}
           />
         )}
         <div className={classes.UserProfile}>
