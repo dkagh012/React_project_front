@@ -5,13 +5,23 @@ import classes from './Settings.module.scss';
 import { Link } from 'react-router-dom';
 import PhoneAction from './PhoneAction/PhoneAction';
 import EmailAction from './EmailAction/EmailAction';
+import PasswordAction from './PasswordAction/PasswordAction';
 
 function Settings() {
   const [ShowPhoneAction, setShowPhoneAction] = useState(false);
   const [ShowEmailAction, setShowEmailAction] = useState(false);
+  const [ShowPasswordAction, setShowPasswordAction] = useState(false);
   const [phoneValue, setPhoneValue] = useState(''); // Initialize the phoneValue state
   const [emailValue, setEmailValue] = useState(''); // Initialize the phoneValue state
+  const [passwordValue, setPasswordValue] = useState(''); // Initialize the phoneValue state
 
+  const handleShowPasswordAction = () => {
+    setShowPasswordAction(true);
+  }
+
+  const handleClosePasswordAction = () => {
+    setShowPasswordAction(false);
+  }
   const handleShowPhoneAction = () => {
     setShowPhoneAction(true);
   }
@@ -31,6 +41,14 @@ function Settings() {
     <div>
       <Header />
       <section className='container'>
+
+        {ShowPasswordAction &&
+          <PasswordAction
+            showClose={handleClosePasswordAction}
+            setEmailValue={setPasswordValue}
+          />
+        }
+        {console.log(ShowEmailAction)}
         {ShowEmailAction &&
           <EmailAction
             showClose={handleCloseEmailAction}
@@ -82,8 +100,8 @@ function Settings() {
               <li className={classes.InputBox}>
                 <p>비밀번호</p>
                 <div className={classes.Input}>
-                  <input type='password' placeholder='미설정' disabled />
-                  <button type='button'>변경</button>
+                  <input type='password' placeholder='미설정' disabled value={passwordValue} />
+                  <button type='button' onClick={handleShowPasswordAction}>변경</button>
                 </div>
               </li>
               <li className={classes.InputBox}>
