@@ -19,7 +19,7 @@ function PasswordAction(props) {
 
   const handleSave = () => {
     if (newPassword !== newPasswordConfirmation) {
-      setPasswordError('새로운 비밀번호가 일치하지 않습니다.');
+      setPasswordError('비밀번호가 일치하지 않습니다.');
     }
     else {
       props.setEmailValue(newPassword);
@@ -71,6 +71,7 @@ function PasswordAction(props) {
                   className={PasswordError ? classes.InputError : ''}
                 />
               </div>
+              {PasswordError && <p className={classes.Error}>{PasswordError}</p>}
               <div>
                 <p>새로운 비밀번호</p>
                 <input
@@ -85,6 +86,7 @@ function PasswordAction(props) {
                   }}
                   className={PasswordError ? classes.InputError : ''}
                 />
+
                 <input
                   type='password'
                   value={newPasswordConfirmation}
@@ -99,6 +101,8 @@ function PasswordAction(props) {
                 />
               </div>
               {PasswordError && <p className={classes.Error}>{PasswordError}</p>}
+              {PasswordError ? (<p className={classes.Error}>8자 이상 입력해주세요</p>) : (<p className={classes.NonError}>8자 이상 입력해주세요</p>)}
+              {PasswordError ? (<p className={classes.Error}>영문,숫자,특수문자 중 2가지 이상 조합해 주세요</p>) : (<p className={classes.NonError}>영문,숫자,특수문자 중 2가지 이상 조합해 주세요</p>)}
               <Button type="button" onClick={handleSave} disabled={!!PasswordError}>
                 저장
               </Button>
