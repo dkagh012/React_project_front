@@ -17,9 +17,23 @@ function PasswordAction(props) {
     }
   }
 
+  const validatePassword = (password) => {
+    const lengthValid = password.length >= 8;
+    const hasCharacter = /[a-zA-Z]/.test(password);
+    const hasDigit = /\d/.test(password);
+    const hasSpecialCharacter = /[!@#$%^&*]/.test(password);
+
+    const validConditions = [lengthValid, (hasCharacter + hasDigit + hasSpecialCharacter) >= 2];
+
+    return validConditions.every(condition => condition);
+  }
+
   const handleSave = () => {
     if (newPassword !== newPasswordConfirmation) {
       setPasswordError('비밀번호가 일치하지 않습니다.');
+    }
+    else if (!validatePassword(newPassword)) {
+      setPasswordError('8자 이상 입력하고, 영문, 숫자, 특수문자 중 2가지 이상을 조합해 주세요.');
     }
     else {
       props.setEmailValue(newPassword);
@@ -46,7 +60,7 @@ function PasswordAction(props) {
       <div className={classes.PasswordActionBack} onClick={props.showClose}></div>
       <div className={classes.PasswordActionBox}>
         {showSuccess ? (
-          <h1>이메일 변경이 완료되었습니다.</h1>
+          <h1>비밀번호 변경이 완료되었습니다</h1>
         ) : (
           <form>
             <div className={classes.Close}>
@@ -54,7 +68,6 @@ function PasswordAction(props) {
                 <IoClose />
               </button>
             </div>
-            {/* 나중에 DB 데이터를 뽑아서 현재 비밀번호 값을 가져와야한다 */}
             <div className={classes.InputBox}>
               <div>
                 <p>현재 비밀번호</p>
@@ -86,7 +99,7 @@ function PasswordAction(props) {
                   }}
                   className={PasswordError ? classes.InputError : ''}
                 />
-
+                <p>새로운 비밀번호 확인</p>
                 <input
                   type='password'
                   value={newPasswordConfirmation}
@@ -101,8 +114,16 @@ function PasswordAction(props) {
                 />
               </div>
               {PasswordError && <p className={classes.Error}>{PasswordError}</p>}
-              {PasswordError ? (<p className={classes.Error}>8자 이상 입력해주세요</p>) : (<p className={classes.NonError}>8자 이상 입력해주세요</p>)}
-              {PasswordError ? (<p className={classes.Error}>영문,숫자,특수문자 중 2가지 이상 조합해 주세요</p>) : (<p className={classes.NonError}>영문,숫자,특수문자 중 2가지 이상 조합해 주세요</p>)}
+              {PasswordError ? (
+                <p className={classes.Error}>8자 이상 입력해주세요</p>
+              ) : (
+                <p className={classes.NonError}>8자 이상 입력해주세요</p>
+              )}
+              {PasswordError ? (
+                <p className={classes.Error}>영문, 숫자, 특수문자 중 2가지 이상 조합해 주세요</p>
+              ) : (
+                <p className={classes.NonError}>영문, 숫자, 특수문자 중 2가지 이상 조합해 주세요</p>
+              )}
               <Button type="button" onClick={handleSave} disabled={!!PasswordError}>
                 저장
               </Button>
