@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classes from './EmailAction.module.scss';
 import Button from './../../../UI/Button/Button';
 import { IoClose } from "react-icons/io5";
+import Certification from './Certification/Certification';
 
 function EmailAction(props) {
   const [showSuccess, setShowSuccess] = useState(false);
+  const [CodeAuth, setCodeAuth] = useState(false);
   const [newEmail, setNewEmail] = useState('');
   const [emailError, setEmailError] = useState('');
 
@@ -21,30 +23,22 @@ function EmailAction(props) {
     if (!emailRegex.test(newEmail)) {
       setEmailError('올바른 이메일 형식이 아닙니다.');
     } else {
-      props.setEmailValue(newEmail);
       setShowSuccess(true);
       setEmailError('');
-      setTimeout(() => {
-        props.showClose();
-      }, 3000);
     }
   };
-  useEffect(() => {
-    if (showSuccess) {
-      const timer = setTimeout(() => {
-        setShowSuccess(false);
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [showSuccess]);
-
+  if (CodeAuth) {
+    props.setEmailValue(newEmail)
+  }
   return (
     <div className={classes.EmailAction_wrap}>
       <div className={classes.EmailActionBack} onClick={props.showClose}></div>
       <div className={classes.EmailActionBox}>
         {showSuccess ? (
-          <h1>이메일 변경이 완료되었습니다.</h1>
+          <Certification
+            showClose={props.showClose}
+            EmailValue={setCodeAuth}
+          />
         ) : (
           <form>
             <div className={classes.Close}>
@@ -70,7 +64,7 @@ function EmailAction(props) {
               </div>
               {emailError && <p className={classes.Error}>{emailError}</p>}
               <Button type="button" onClick={handleSave} disabled={!!emailError}>
-                저장
+                다음
               </Button>
             </div>
           </form>

@@ -8,7 +8,7 @@ function PasswordAction(props) {
   const [newPassword, setNewPassword] = useState('');
   const [PasswordError, setPasswordError] = useState('');
   const [newPasswordConfirmation, setNewPasswordConfirmation] = useState('');
-
+  const [currentPassword, setCurrentPassword] = useState('');
   const handleInputChange = (e) => {
     setNewPassword(e.target.value);
 
@@ -31,9 +31,11 @@ function PasswordAction(props) {
   const handleSave = () => {
     if (newPassword !== newPasswordConfirmation) {
       setPasswordError('비밀번호가 일치하지 않습니다.');
+      return;
     }
-    else if (!validatePassword(newPassword)) {
+    if (!validatePassword(newPassword)) {
       setPasswordError('8자 이상 입력하고, 영문, 숫자, 특수문자 중 2가지 이상을 조합해 주세요.');
+      return;
     }
     else {
       props.setEmailValue(newPassword);
@@ -44,7 +46,16 @@ function PasswordAction(props) {
       }, 3000);
     }
   };
-
+  // 나중에 DB값을 받아서 하는것
+  // async function checkCurrentPassword(currentPassword) {
+  //   try {
+  //     const response = await axios.post('/api/verify-password', { currentPassword });
+  //     return response.data.isPasswordValid;
+  //   } catch (error) {
+  //     console.error('Error verifying password', error);
+  //     return false;
+  //   }
+  // }
   useEffect(() => {
     if (showSuccess) {
       const timer = setTimeout(() => {
@@ -73,18 +84,17 @@ function PasswordAction(props) {
                 <p>현재 비밀번호</p>
                 <input
                   type='password'
-                  value=""
-                  onChange={handleInputChange}
+                  value={currentPassword}
+                  onChange={(e) => setCurrentPassword(e.target.value)}
                   placeholder='현재 비밀번호'
                   onFocus={() => {
                     if (PasswordError) {
                       setPasswordError('');
                     }
                   }}
-                  className={PasswordError ? classes.InputError : ''}
+                // className={PasswordError ? classes.InputError : ''}
                 />
               </div>
-              {PasswordError && <p className={classes.Error}>{PasswordError}</p>}
               <div>
                 <p>새로운 비밀번호</p>
                 <input
@@ -99,7 +109,6 @@ function PasswordAction(props) {
                   }}
                   className={PasswordError ? classes.InputError : ''}
                 />
-                <p>새로운 비밀번호 확인</p>
                 <input
                   type='password'
                   value={newPasswordConfirmation}
@@ -112,6 +121,9 @@ function PasswordAction(props) {
                   }}
                   className={PasswordError ? classes.InputError : ''}
                 />
+                {PasswordError && (
+                  <p className={classes.Error}>비밀번호가 일치하지 않습니다.</p>
+                )}
               </div>
               {PasswordError && <p className={classes.Error}>{PasswordError}</p>}
               {PasswordError ? (

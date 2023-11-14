@@ -37,6 +37,7 @@ function Settings() {
     setShowEmailAction(false);
   }
 
+
   return (
     <div>
       <Header />
@@ -48,13 +49,13 @@ function Settings() {
             setEmailValue={setPasswordValue}
           />
         }
-        {console.log(ShowEmailAction)}
         {ShowEmailAction &&
           <EmailAction
             showClose={handleCloseEmailAction}
             setEmailValue={setEmailValue}
           />
         }
+        {console.log(setEmailValue)}
 
         {ShowPhoneAction && (
           <PhoneAction
