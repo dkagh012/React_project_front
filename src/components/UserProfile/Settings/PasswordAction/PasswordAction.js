@@ -55,17 +55,20 @@ function PasswordAction(props) {
   //     console.error('Error verifying password', error);
   //     return false;
   //   }
-  // }
+  // 
   useEffect(() => {
+    let timer;
     if (showSuccess) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setShowSuccess(false);
+        props.showClose();
       }, 3000);
-
-      return () => clearTimeout(timer);
     }
-  }, [showSuccess]);
 
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [showSuccess]);
   return (
     <div className={classes.PasswordAction_wrap}>
       <div className={classes.PasswordActionBack} onClick={props.showClose}></div>

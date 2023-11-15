@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classes from './Certification.module.scss';
 import Button from '../../../../UI/Button/Button';
 import { IoClose } from "react-icons/io5";
@@ -41,7 +41,7 @@ function Certification(props) {
       <div className={classes.CertificationBack} onClick={props.showClose}></div>
       <div className={classes.CertificationBox}>
         {showSuccess ? (
-          <h1>회원 탈퇴가 완료되었습니다.</h1>
+          <h1>이메일이 변경되었습니다.</h1>
         ) : (
           <form>
             <div className={classes.Close}>

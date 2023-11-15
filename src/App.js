@@ -6,6 +6,7 @@ import Counseling from './components/Legal/counseling/counseling'
 import Individual from './components/Legal/individual/individual'
 import Stipulation from './components/Legal/stipulation/stipulation'
 import Settings from './components/UserProfile/Settings/Settings'
+import UserDelete from './components/UserProfile/UserDelete/UserDelete'
 import Notifications from './components/UserProfile/Notifications/Notifications'
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import './reset.scss'
@@ -21,8 +22,8 @@ function App() {
           <Route path="/counseling" element={<Counseling />} />
           <Route path="/individual" element={<Individual />} />
           <Route path="/stipulation" element={<Stipulation />} />
-          <Route path="/stipulation" element={<Stipulation />} />
           <Route path="/Settings" element={<Settings />} />
+          <Route path="/UserDelete" element={<UserDelete />} />
           <Route path="/Notifications" element={<Notifications />} />
         </Routes>
       </BrowserRouter>

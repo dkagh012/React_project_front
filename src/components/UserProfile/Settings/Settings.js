@@ -109,7 +109,7 @@ function Settings() {
                 <p>회원탈퇴</p>
                 <div className={classes.Input}>
                   <input type='text' disabled placeholder='탈퇴 후 모든 데이터가 삭제되며 복구할 수 없습니다' />
-                  <button type='button'>회원 탈퇴 신청</button>
+                  <Link to="/UserDelete">회원 탈퇴 신청</Link>
                 </div>
               </li>
             </ul>

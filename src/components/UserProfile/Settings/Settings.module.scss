@@ -71,6 +71,23 @@
             color: #00f2fe;
             padding: 0 16px 0 0;
           }
+
+          a {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: transparent;
+            border: 0;
+            height: 100%;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: -0.4px;
+            display: flex;
+            color: #00f2fe;
+            padding: 0 16px 0 0;
+            align-items: center;
+          }
         }
         p {
           color: #fff;
