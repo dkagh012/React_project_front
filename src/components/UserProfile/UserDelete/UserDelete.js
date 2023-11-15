@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../../Footer/Footer';
 import Header from '../../Header/Header';
 import classes from './UserDelete.module.scss'
 import { Link } from 'react-router-dom';
 import Button from '../../UI/Button/Button';
+import UserDeleteAction from './UserDeleteAction/UserDeleteAction'
 function UserDelete() {
+  const [ShowDeletePopUp, setShowDeletePopup] = useState(false)
+
+  const handleShowDeletePopup = () => {
+    setShowDeletePopup(true);
+  }
+  const handleCloseShowDeletePopup = () => {
+    setShowDeletePopup(false);
+  }
   return (
     <div>
       <Header />
       <section className='container'>
+        {ShowDeletePopUp &&
+          <UserDeleteAction
+            showClose={handleCloseShowDeletePopup}
+          />}
         <h4>회원탈퇴</h4>
         <div className={classes.UserDeleteWrap}>
           <div>
@@ -25,7 +38,9 @@ function UserDelete() {
             <h1>결제한 금액은 <Link to="/Refund">환불 정책</Link>에 따라 자동 환불됩니다.</h1>
           </div>
         </div>
-        <Button type="button" className={classes.UserDeletePopup}></Button>
+        <div className={classes.UserDeletePopup}>
+          <Button type="button" onClick={handleShowDeletePopup}>탈퇴 신청</Button>
+        </div>
       </section>
       <Footer />
     </div>
