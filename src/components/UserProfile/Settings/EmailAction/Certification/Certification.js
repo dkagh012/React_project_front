@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './Certification.module.scss';
 import Button from '../../../../UI/Button/Button';
 import { IoClose } from "react-icons/io5";
@@ -26,14 +26,23 @@ function Certification(props) {
       setShowSuccess(true);
       setEmailError('');
       props.EmailValue(true);
-      setTimeout(() => {
-        props.showClose();
-      }, 3000);
     } else {
       setEmailError('인증 코드를 다시 확인해 주세요');
     }
   };
+  useEffect(() => {
+    let timer;
+    if (showSuccess) {
+      timer = setTimeout(() => {
+        setShowSuccess(false);
+        props.showClose();
+      }, 3000);
+    }
 
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [showSuccess]);
   // 나머지 컴포넌트 코드
 
   return (

@@ -41,21 +41,8 @@ function PasswordAction(props) {
       props.setEmailValue(newPassword);
       setShowSuccess(true);
       setPasswordError('');
-      setTimeout(() => {
-        props.showClose();
-      }, 3000);
     }
   };
-  // 나중에 DB값을 받아서 하는것
-  // async function checkCurrentPassword(currentPassword) {
-  //   try {
-  //     const response = await axios.post('/api/verify-password', { currentPassword });
-  //     return response.data.isPasswordValid;
-  //   } catch (error) {
-  //     console.error('Error verifying password', error);
-  //     return false;
-  //   }
-  // 
   useEffect(() => {
     let timer;
     if (showSuccess) {
@@ -69,6 +56,16 @@ function PasswordAction(props) {
       if (timer) clearTimeout(timer);
     };
   }, [showSuccess]);
+  // 나중에 DB값을 받아서 하는것
+  // async function checkCurrentPassword(currentPassword) {
+  //   try {
+  //     const response = await axios.post('/api/verify-password', { currentPassword });
+  //     return response.data.isPasswordValid;
+  //   } catch (error) {
+  //     console.error('Error verifying password', error);
+  //     return false;
+  //   }
+  // 
   return (
     <div className={classes.PasswordAction_wrap}>
       <div className={classes.PasswordActionBack} onClick={props.showClose}></div>

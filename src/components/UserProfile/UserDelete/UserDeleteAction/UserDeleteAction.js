@@ -34,15 +34,22 @@ function UserDeleteAction(props) {
         setShowInputList(false);
       }
     };
-
+    let timer;
+    if (showSuccess) {
+      timer = setTimeout(() => {
+        setShowSuccess(false);
+        props.showClose();
+      }, 3000);
+    }
     // 문서 전체에 이벤트 리스너 추가
     document.addEventListener('mousedown', handleClickOutside);
 
     // 컴포넌트가 언마운트되거나 업데이트되기 전에 이벤트 리스너 제거
     return () => {
+      if (timer) clearTimeout(timer);
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [showSuccess]);
   return (
     <div className={classes.UserDeleteAction_wrap}>
       <div className={classes.UserDeleteActionBack} onClick={props.showClose}></div>

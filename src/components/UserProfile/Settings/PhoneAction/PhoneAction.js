@@ -24,20 +24,21 @@ function PhoneAction(props) {
       props.setPhoneValue(newPhone);
       setShowSuccess(true);
       setPhoneNumberError('');
-      setTimeout(() => {
-        props.showClose();
-      }, 3000);
     }
   };
 
   useEffect(() => {
+    let timer;
     if (showSuccess) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setShowSuccess(false);
+        props.showClose();
       }, 3000);
-
-      return () => clearTimeout(timer);
     }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, [showSuccess]);
 
   return (
