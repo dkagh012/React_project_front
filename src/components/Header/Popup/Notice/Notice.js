@@ -18,6 +18,7 @@ function Notice() {
             <Link to="">
               <div><span className={classes.NoticeTitle}>업체명업체명업체명업체명업체명업체명업체명<span className={classes.NoticeText}>에서나를관리자로초대를했습니다</span></span></div>
               <h2>2023.09.05 오후 03:00</h2>
+              <p>업체명</p>
             </Link>
           </li>
           <li>

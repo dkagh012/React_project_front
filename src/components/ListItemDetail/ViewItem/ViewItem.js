@@ -1,15 +1,33 @@
 import classes from './ViewItem.module.scss';
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import Image from '../../../assets/image/logo.png';
 import CAImage from '../../../assets/image/companyImg.png';
 import Button from "../../UI/Button/Button";
 import { FiShare2 } from "react-icons/fi";
+import { AiOutlineUser } from "react-icons/ai";
+import { LuPencil } from "react-icons/lu";
 function View() {
   const [OpenText, setOpenText] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState('');
 
   const handleTextOpenClick = () => {
     setOpenText(!OpenText);
   }
+
+  // Effect to set the current URL when the component mounts
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
+
+  // Function to copy the URL to the clipboard
+  const copyUrlToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(currentUrl);
+      alert('URL copied to clipboard!'); // Optionally, show a notification
+    } catch (error) {
+      console.error('Failed to copy URL: ', error);
+    }
+  };
   return (
     <section className="container">
       <h2 className={classes.title}>인플루드 (INFLUDE)</h2>
@@ -19,8 +37,7 @@ function View() {
             <div className={classes.View_Title}>
               <div className={classes.View_Img}><img src={Image} alt=""></img></div>
               <div className={classes.View_Info}>
-                <h2>인플루드</h2>
-                <span>서비스 간단 소개다</span>
+                <span>서비스 간단 소개다<button type='button'><LuPencil /></button></span>
                 <ul className={classes.ViewHash}>
                   <li>#커뮤니티</li>
                   <li>#커뮤니티</li>
@@ -28,7 +45,11 @@ function View() {
                 </ul>
               </div>
             </div>
-            <div className={classes.View_Info}>
+            <div className={classes.ModifyBox}>
+              <h2 className={classes.title}>인플루드 (INFLUDE)</h2>
+              <div className={classes.Modify}> <button type='button'>소개글 수정</button><button type='button'>이미지 수정</button></div>
+            </div>
+            <div className={classes.View_Text}>
               <p>
                 <span className={OpenText ? '' : classes.on}>
                   여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기
@@ -44,8 +65,11 @@ function View() {
                 <li><img src={CAImage} alt=""></img></li>
               </ul>
             </div>
-            <div className={classes.View_Desc}>
+            <div className={classes.ModifyBox}>
               <h2 className={classes.title}>선호 제휴 업체</h2>
+              <div className={classes.Modify}><button type='button'>선호 제휴 업체 정보 수정</button></div>
+            </div>
+            <div className={classes.View_Desc}>
               <div>
                 <span>저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요체가 아니더라도 연락을 주세</span>
                 <ul className={classes.ViewHash}>
@@ -56,8 +80,66 @@ function View() {
                 </ul>
               </div>
             </div>
+            <div className={classes.ModifyBox}>
+              <h2 className={classes.title}>관리자</h2>
+              <div className={classes.Modify}><button type='button'>수정</button></div>
+            </div>
+            <div className={classes.View_UserList}>
+              <span>
+                타 업체에 제휴 신청과 제휴 채팅을 할 수 있는 관리자를 URL로 초대할 수 있습니다
+              </span>
+              <div className={classes.ViewURL}>
+                <input type='text' value={currentUrl} disabled />
+                <button type='button' onClick={copyUrlToClipboard}>URL 복사</button>
+              </div>
+              <div className={classes.View_UserItem}>
+                <div className={classes.View_UserDesc}>
+                  <ul>
+                    <li>
+                      <div className={classes.View_UserBox}>
+                        <AiOutlineUser />
+                        <div>
+                          <h1>배광태</h1>
+                          <span>대표</span>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className={classes.View_UserBox}>
+                        <AiOutlineUser />
+                        <div>
+                          <h1>배광태</h1>
+                          <span>대표</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div className={classes.View_UserDesc}>
+                  <ul>
+                    <li>
+                      <div className={classes.View_UserBox}>
+                        <AiOutlineUser />
+                        <div>
+                          <h1>배광태</h1>
+                          <span>대표</span>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div className={classes.View_UserBox}>
+                        <AiOutlineUser />
+                        <div>
+                          <h1>배광태</h1>
+                          <span>대표</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-
         </div>
         <div className={classes.View_right}>
           <div className={classes.View_Category}>
@@ -91,11 +173,14 @@ function View() {
           <div className={classes.View_Text}>
             <p>최근 <span>5개</span>의 업체가 해당 업체에 관심을 가지고 있습니다(최근 7일 기준)</p>
           </div>
-          <div className={classes.View_interest}>
-            <button>관심등록</button>
+          <div className={classes.View_modify}>
+            <button>업체 정보 수정 요청</button>
             <button><FiShare2 /></button>
           </div>
-          <Button>제휴신청</Button>
+          <div className={classes.View_interest}>
+            <button>관심등록 리스트</button>
+          </div>
+          <Button>제휴 신청 리스트</Button>
         </div>
       </div>
       <div className={classes.View_list}>

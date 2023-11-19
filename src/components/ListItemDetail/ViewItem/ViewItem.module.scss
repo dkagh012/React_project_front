@@ -1,10 +1,10 @@
 .title {
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
+  font-style: normal;
   font-weight: 700;
-  line-height: 36px; /* 150% */
+  line-height: 28px; /* 155.556% */
   letter-spacing: -0.4px;
-  padding-bottom: 16px;
 }
 .View_wrap {
   color: white;
@@ -18,6 +18,22 @@
       display: flex;
       flex-direction: column;
       gap: 24px;
+      > .ModifyBox {
+        position: relative;
+        display: flex;
+        > .Modify {
+          position: absolute;
+          right: 0;
+          top: 0;
+          button {
+            border: 0;
+            color: #00f2fe;
+            background: transparent;
+            line-height: 24px;
+            font-size: 16px;
+          }
+        }
+      }
       > .View_Title {
         padding: 16px;
         border-radius: 8px;
@@ -39,17 +55,18 @@
           display: flex;
           flex-direction: column;
           gap: 8px;
-          h2 {
-            font-size: 16px;
-            font-weight: 700;
-            line-height: 24px; /* 150% */
-            letter-spacing: -0.4px;
-          }
           span {
             font-size: 14px;
             font-weight: 400;
             line-height: 20px; /* 142.857% */
             letter-spacing: -0.4px;
+            button {
+              border: 0;
+              background: transparent;
+              * {
+                color: #00f2fe;
+              }
+            }
           }
           ul {
             display: flex;
@@ -64,7 +81,7 @@
           }
         }
       }
-      > .View_Info {
+      > .View_Text {
         border-radius: 8px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         display: flex;
@@ -140,6 +157,97 @@
           }
         }
       }
+      > .View_UserList {
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        padding: 16px;
+        flex-direction: column;
+        gap: 16px;
+        .ViewURL {
+          display: flex;
+          gap: 7px;
+          input {
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            padding: 12px 16px;
+            align-items: center;
+            gap: 10px;
+            color: #9d9d9d;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            width: calc(100% - 94px);
+            letter-spacing: -0.4px;
+            background: transparent;
+          }
+          button {
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px; /* 157.143% */
+            letter-spacing: -0.4px;
+            display: flex;
+            padding: 12px 16px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: var(--2, #00f2fe);
+          }
+        }
+        .View_UserItem {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          .View_UserDesc {
+            ul {
+              display: flex;
+              li {
+                width: 50%;
+                .View_UserBox {
+                  display: flex;
+                  gap: 16px;
+                  svg {
+                    display: flex;
+                    width: 64px;
+                    height: 64px;
+                    padding: 16px;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 100px;
+                    background: rgba(255, 255, 255, 0.1);
+                  }
+                  div {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 4px;
+                    h1 {
+                      color: #fff;
+                      font-size: 16px;
+                      font-weight: 700;
+                      line-height: 24px; /* 150% */
+                      letter-spacing: -0.4px;
+                    }
+                    span {
+                      color: #fff;
+                      font-size: 14px;
+                      font-weight: 400;
+                      line-height: 22px; /* 157.143% */
+                      letter-spacing: -0.4px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
   .View_right {
@@ -188,7 +296,7 @@
         font-weight: bold;
       }
     }
-    > .View_interest {
+    > .View_modify {
       display: flex;
       gap: 8px;
       button:first-child {
@@ -212,10 +320,23 @@
         }
       }
     }
+    > .View_interest {
+      button {
+        border-radius: 8px;
+        padding: 16px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px; /* 150% */
+        width: 100%;
+        letter-spacing: -0.4px;
+        color: white !important;
+        background: transparent;
+        border: 1px solid var(--colorMain);
+      }
+    }
   }
 }
 .View_list {
-  padding: 40px 0;
   color: #fff;
   > h2 {
     font-size: 18px;
