@@ -2,14 +2,27 @@ import classes from './ViewItem.module.scss';
 import React, { useState, useEffect } from 'react';
 import Image from '../../../assets/image/logo.png';
 import CAImage from '../../../assets/image/companyImg.png';
+import IntroductionAction from './IntroductionAction/IntroductionAction';
 import Button from "../../UI/Button/Button";
 import { FiShare2 } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import { LuPencil } from "react-icons/lu";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Scrollbar, A11y } from 'swiper/modules';
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 function View() {
   const [OpenText, setOpenText] = useState(false);
   const [currentUrl, setCurrentUrl] = useState('');
+  const [IntroAction, setIntroAction] = useState(false);
 
+  // 회사 소개 팝업
+  const handleListOpen = () => {
+    setIntroAction(prev => !prev);
+  }
   const handleTextOpenClick = () => {
     setOpenText(!OpenText);
   }
@@ -30,14 +43,15 @@ function View() {
   };
   return (
     <section className="container">
-      <h2 className={classes.title}>인플루드 (INFLUDE)</h2>
+      {IntroAction && <IntroductionAction ShowClose={handleListOpen} />}
+      <h2 className={`${classes.title} ${classes.TopTitle}`}>인플루드 (INFLUDE)</h2>
       <div className={classes.View_wrap}>
         <div className={classes.View_left}>
           <div className={classes.View_card}>
             <div className={classes.View_Title}>
               <div className={classes.View_Img}><img src={Image} alt=""></img></div>
               <div className={classes.View_Info}>
-                <span>서비스 간단 소개다<button type='button'><LuPencil /></button></span>
+                <span>서비스 간단 소개다<button type='button' onClick={handleListOpen}><LuPencil /></button></span>
                 <ul className={classes.ViewHash}>
                   <li>#커뮤니티</li>
                   <li>#커뮤니티</li>
@@ -198,9 +212,17 @@ function View() {
               <h2>업체이름</h2>
               <span>선호 파트너 형태</span>
               <ul className={classes.View_list_Hash}>
-                <li>#태그</li>
-                <li>#태그</li>
-                <li>#태그</li>
+                <Swiper
+                  modules={[Navigation, Scrollbar, A11y]}
+                  slidesPerView={3}
+                  spaceBetween={8}
+                  navigation={true} // Enable navigation
+                >
+                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide >#tag</SwiperSlide>
+                </Swiper>
               </ul>
             </div>
           </li>
@@ -216,9 +238,17 @@ function View() {
               <h2>업체이름</h2>
               <span>선호 파트너 형태</span>
               <ul className={classes.View_list_Hash}>
-                <li>#태그</li>
-                <li>#태그</li>
-                <li>#태그</li>
+                <Swiper
+                  modules={[Navigation, Scrollbar, A11y]}
+                  slidesPerView={3}
+                  spaceBetween={8}
+                  navigation={true} // Enable navigation
+                >
+                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide >#tag</SwiperSlide>
+                </Swiper>
               </ul>
             </div>
           </li>
@@ -234,9 +264,17 @@ function View() {
               <h2>업체이름</h2>
               <span>선호 파트너 형태</span>
               <ul className={classes.View_list_Hash}>
-                <li>#태그</li>
-                <li>#태그</li>
-                <li>#태그</li>
+                <Swiper
+                  modules={[Navigation, Scrollbar, A11y]}
+                  slidesPerView={3}
+                  spaceBetween={8}
+                  navigation={true} // Enable navigation
+                >
+                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide >#tag</SwiperSlide>
+                </Swiper>
               </ul>
             </div>
           </li>
