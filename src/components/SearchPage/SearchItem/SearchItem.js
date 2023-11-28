@@ -1,17 +1,21 @@
 import React from "react";
 import companyImg from "../../../assets/image/companyImg.png";
-import { Link } from 'react-router-dom';
-import Subclasses from '../../Main/company/Best_company.module.scss';
-import classes from './SearchItem.module.scss';
-import { companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate'; // Import data from data.js
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Scrollbar, A11y } from 'swiper/modules';
+import { Link } from "react-router-dom";
+import Subclasses from "../../Main/company/Best_company.module.scss";
+import classes from "./SearchItem.module.scss";
+import {
+  companiesItem,
+  companiesHashTag,
+  posts,
+} from "../../../DATE/companyDate"; // Import data from data.js
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Scrollbar, A11y } from "swiper/modules";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 function SearchItem() {
   // const [activeTab, setActiveTab] = useState("recent"); // Default active tab is "recent"
@@ -25,9 +29,14 @@ function SearchItem() {
         {companiesItem.map((companyItem, index) => {
           const post = posts.find((post) => post.id === index + 1); // Find the corresponding post
           return (
-            <li key={index} className={`${Subclasses.companyItemLink} ${classes.SearchListItem}`}>
+            <li
+              key={index}
+              className={`${Subclasses.companyItemLink} ${classes.SearchListItem}`}
+            >
               <Link to="#">
-                <div className={`${Subclasses.companyItemLinkImg}  ${classes.SearchItemImage}`}>
+                <div
+                  className={`${Subclasses.companyItemLinkImg}  ${classes.SearchItemImage}`}
+                >
                   <img alt={companyItem} src={companyImg}></img>
                 </div>
                 <div className={`${Subclasses.companyItemLinkInfo}`}>
@@ -46,6 +55,8 @@ function SearchItem() {
                         modules={[Navigation, Scrollbar, A11y]}
                         slidesPerView={3}
                         spaceBetween={8}
+                        centeredSlides={false}
+                        watchOverflow={true}
                         navigation={true} // Enable navigation
                       >
                         {post.tags.map((tag, index) => (
@@ -67,11 +78,23 @@ function SearchItem() {
               <FaAngleLeft />
             </button>
           </li>
-          <li><button className={classes.Clicked} type="button">1</button></li>
-          <li><button type="button">2</button></li>
-          <li><button type="button">3</button></li>
-          <li><button type="button">4</button></li>
-          <li><button type="button">5</button></li>
+          <li>
+            <button className={classes.Clicked} type="button">
+              1
+            </button>
+          </li>
+          <li>
+            <button type="button">2</button>
+          </li>
+          <li>
+            <button type="button">3</button>
+          </li>
+          <li>
+            <button type="button">4</button>
+          </li>
+          <li>
+            <button type="button">5</button>
+          </li>
           <li>
             <button type="button">
               <FaAngleRight />
@@ -80,6 +103,6 @@ function SearchItem() {
         </ul>
       </div>
     </div>
-  )
+  );
 }
 export default SearchItem;

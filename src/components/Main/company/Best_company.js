@@ -85,6 +85,8 @@ function Best_company() {
                           modules={[Navigation, Pagination, Scrollbar, A11y]}
                           slidesPerView={3}
                           spaceBetween={8}
+                          centeredSlides={false}
+                          watchOverflow={true}
                           navigation={true} // Enable navigation
                         >
                           {post.tags.map((tag, index) => (

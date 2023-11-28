@@ -1,31 +1,31 @@
-import classes from './ViewItem.module.scss';
-import React, { useState, useEffect } from 'react';
-import Image from '../../../assets/image/logo.png';
-import CAImage from '../../../assets/image/companyImg.png';
-import IntroductionAction from './IntroductionAction/IntroductionAction';
+import classes from "./ViewItem.module.scss";
+import React, { useState, useEffect } from "react";
+import Image from "../../../assets/image/logo.png";
+import CAImage from "../../../assets/image/companyImg.png";
+import IntroductionAction from "./IntroductionAction/IntroductionAction";
 import Button from "../../UI/Button/Button";
 import { FiShare2 } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import { LuPencil } from "react-icons/lu";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Scrollbar, A11y } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Scrollbar, A11y } from "swiper/modules";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 function View() {
   const [OpenText, setOpenText] = useState(false);
-  const [currentUrl, setCurrentUrl] = useState('');
+  const [currentUrl, setCurrentUrl] = useState("");
   const [IntroAction, setIntroAction] = useState(false);
 
   // 회사 소개 팝업
   const handleListOpen = () => {
-    setIntroAction(prev => !prev);
-  }
+    setIntroAction((prev) => !prev);
+  };
   const handleTextOpenClick = () => {
     setOpenText(!OpenText);
-  }
+  };
 
   // Effect to set the current URL when the component mounts
   useEffect(() => {
@@ -36,22 +36,31 @@ function View() {
   const copyUrlToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(currentUrl);
-      alert('URL copied to clipboard!'); // Optionally, show a notification
+      alert("URL copied to clipboard!"); // Optionally, show a notification
     } catch (error) {
-      console.error('Failed to copy URL: ', error);
+      console.error("Failed to copy URL: ", error);
     }
   };
   return (
     <section className="container">
       {IntroAction && <IntroductionAction ShowClose={handleListOpen} />}
-      <h2 className={`${classes.title} ${classes.TopTitle}`}>인플루드 (INFLUDE)</h2>
+      <h2 className={`${classes.title} ${classes.TopTitle}`}>
+        인플루드 (INFLUDE)
+      </h2>
       <div className={classes.View_wrap}>
         <div className={classes.View_left}>
           <div className={classes.View_card}>
             <div className={classes.View_Title}>
-              <div className={classes.View_Img}><img src={Image} alt=""></img></div>
+              <div className={classes.View_Img}>
+                <img src={Image} alt=""></img>
+              </div>
               <div className={classes.View_Info}>
-                <span>서비스 간단 소개다<button type='button' onClick={handleListOpen}><LuPencil /></button></span>
+                <span>
+                  서비스 간단 소개다
+                  <button type="button" onClick={handleListOpen}>
+                    <LuPencil />
+                  </button>
+                </span>
                 <ul className={classes.ViewHash}>
                   <li>#커뮤니티</li>
                   <li>#커뮤니티</li>
@@ -61,31 +70,68 @@ function View() {
             </div>
             <div className={classes.ModifyBox}>
               <h2 className={classes.title}>인플루드 (INFLUDE)</h2>
-              <div className={classes.Modify}> <button type='button'>소개글 수정</button><button type='button'>이미지 수정</button></div>
+              <div className={classes.Modify}>
+                {" "}
+                <button type="button">소개글 수정</button>
+                <button type="button">이미지 수정</button>
+              </div>
             </div>
             <div className={classes.View_Text}>
               <p>
-                <span className={OpenText ? '' : classes.on}>
-                  여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기
-                  여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈                  여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기
-                  여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의
+                <span className={OpenText ? "" : classes.on}>
+                  여기는 기업의 소개가 들어갈거여 여기는 기업의 소개가
+                  들어갈거여 여기는 기업의 소개가 들어갈거여여기는 기업의 소개가
+                  들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가
+                  들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가
+                  들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가
+                  들어갈거여여기는 기 여기는 기업의 소개가 들어갈거여여기는
+                  기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는
+                  기업의 소개가 들어갈 여기는 기업의 소개가 들어갈거여 여기는
+                  기업의 소개가 들어갈거여 여기는 기업의 소개가 들어갈거여여기는
+                  기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는
+                  기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는
+                  기업의 소개가 들어갈거여여기는 기업의 소개가 들어갈거여여기는
+                  기업의 소개가 들어갈거여여기는 기 여기는 기업의 소개가
+                  들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가
+                  들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의 소개가
+                  들어갈거여여기는 기업의 소개가 들어갈거여여기는 기업의
                 </span>
-                <button type='button' onClick={handleTextOpenClick}>더 보기</button>
+                <button type="button" onClick={handleTextOpenClick}>
+                  더 보기
+                </button>
               </p>
               <ul>
-                <li><img src={CAImage} alt=""></img></li>
-                <li><img src={CAImage} alt=""></img></li>
-                <li><img src={CAImage} alt=""></img></li>
-                <li><img src={CAImage} alt=""></img></li>
+                <li>
+                  <img src={CAImage} alt=""></img>
+                </li>
+                <li>
+                  <img src={CAImage} alt=""></img>
+                </li>
+                <li>
+                  <img src={CAImage} alt=""></img>
+                </li>
+                <li>
+                  <img src={CAImage} alt=""></img>
+                </li>
               </ul>
             </div>
             <div className={classes.ModifyBox}>
               <h2 className={classes.title}>선호 제휴 업체</h2>
-              <div className={classes.Modify}><button type='button'>선호 제휴 업체 정보 수정</button></div>
+              <div className={classes.Modify}>
+                <button type="button">선호 제휴 업체 정보 수정</button>
+              </div>
             </div>
             <div className={classes.View_Desc}>
               <div>
-                <span>저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을 주세요체가 아니더라도 연락을 주세</span>
+                <span>
+                  저희는 이런 업체를 선호합니다 해당 업체가 아니더라도 연락을
+                  주세요저희는 이런 업체를 선호합니다 해당 업체가 아니더라도
+                  연락을 주세요저희는 이런 업체를 선호합니다 해당 업체가
+                  아니더라도 연락을 주세요저희는 이런 업체를 선호합니다 해당
+                  업체가 아니더라도 연락을 주세요저희는 이런 업체를 선호합니다
+                  해당 업체가 아니더라도 연락을 주세요체가 아니더라도 연락을
+                  주세
+                </span>
                 <ul className={classes.ViewHash}>
                   <li>#커머스</li>
                   <li>#커머스</li>
@@ -96,15 +142,20 @@ function View() {
             </div>
             <div className={classes.ModifyBox}>
               <h2 className={classes.title}>관리자</h2>
-              <div className={classes.Modify}><button type='button'>수정</button></div>
+              <div className={classes.Modify}>
+                <button type="button">수정</button>
+              </div>
             </div>
             <div className={classes.View_UserList}>
               <span>
-                타 업체에 제휴 신청과 제휴 채팅을 할 수 있는 관리자를 URL로 초대할 수 있습니다
+                타 업체에 제휴 신청과 제휴 채팅을 할 수 있는 관리자를 URL로
+                초대할 수 있습니다
               </span>
               <div className={classes.ViewURL}>
-                <input type='text' value={currentUrl} disabled />
-                <button type='button' onClick={copyUrlToClipboard}>URL 복사</button>
+                <input type="text" value={currentUrl} disabled />
+                <button type="button" onClick={copyUrlToClipboard}>
+                  URL 복사
+                </button>
               </div>
               <div className={classes.View_UserItem}>
                 <div className={classes.View_UserDesc}>
@@ -157,7 +208,7 @@ function View() {
         </div>
         <div className={classes.View_right}>
           <div className={classes.View_Category}>
-            <ul >
+            <ul>
               <li>
                 <p>업체분류</p>
                 <span>스타트업</span>
@@ -185,11 +236,16 @@ function View() {
             </ul>
           </div>
           <div className={classes.View_Text}>
-            <p>최근 <span>5개</span>의 업체가 해당 업체에 관심을 가지고 있습니다(최근 7일 기준)</p>
+            <p>
+              최근 <span>5개</span>의 업체가 해당 업체에 관심을 가지고
+              있습니다(최근 7일 기준)
+            </p>
           </div>
           <div className={classes.View_modify}>
             <button>업체 정보 수정 요청</button>
-            <button><FiShare2 /></button>
+            <button>
+              <FiShare2 />
+            </button>
           </div>
           <div className={classes.View_interest}>
             <button>관심등록 리스트</button>
@@ -216,12 +272,42 @@ function View() {
                   modules={[Navigation, Scrollbar, A11y]}
                   slidesPerView={3}
                   spaceBetween={8}
+                  centeredSlides={false}
+                  watchOverflow={true}
                   navigation={true} // Enable navigation
                 >
-                  <SwiperSlide >#tag</SwiperSlide>
-                  <SwiperSlide >#tag</SwiperSlide>
-                  <SwiperSlide >#tag</SwiperSlide>
-                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
+                </Swiper>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div className={classes.View_listImg}>
+              <img src={CAImage} alt="" />
+            </div>
+            <div className={classes.View_listInfo}>
+              <ul className={classes.View_list_Tag}>
+                <li>산업분야</li>
+                <li>산업분야</li>
+              </ul>
+              <h2>업체이름</h2>
+              <span>선호 파트너 형태</span>
+              <ul className={classes.View_list_Hash}>
+                <Swiper
+                  modules={[Navigation, Scrollbar, A11y]}
+                  slidesPerView={3}
+                  spaceBetween={8}
+                  centeredSlides={false}
+                  watchOverflow={true}
+                  navigation={true} // Enable navigation
+                >
+                  <SwiperSlide>#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
                 </Swiper>
               </ul>
             </div>
@@ -244,36 +330,10 @@ function View() {
                   spaceBetween={8}
                   navigation={true} // Enable navigation
                 >
-                  <SwiperSlide >#tag</SwiperSlide>
-                  <SwiperSlide >#tag</SwiperSlide>
-                  <SwiperSlide >#tag</SwiperSlide>
-                  <SwiperSlide >#tag</SwiperSlide>
-                </Swiper>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <div className={classes.View_listImg}>
-              <img src={CAImage} alt="" />
-            </div>
-            <div className={classes.View_listInfo}>
-              <ul className={classes.View_list_Tag}>
-                <li>산업분야</li>
-                <li>산업분야</li>
-              </ul>
-              <h2>업체이름</h2>
-              <span>선호 파트너 형태</span>
-              <ul className={classes.View_list_Hash}>
-                <Swiper
-                  modules={[Navigation, Scrollbar, A11y]}
-                  slidesPerView={3}
-                  spaceBetween={8}
-                  navigation={true} // Enable navigation
-                >
-                  <SwiperSlide >#tag</SwiperSlide>
-                  <SwiperSlide >#tag</SwiperSlide>
-                  <SwiperSlide >#tag</SwiperSlide>
-                  <SwiperSlide >#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
+                  <SwiperSlide>#tag</SwiperSlide>
                 </Swiper>
               </ul>
             </div>
@@ -281,7 +341,7 @@ function View() {
         </ul>
       </div>
     </section>
-  )
+  );
 }
 
 export default View;
