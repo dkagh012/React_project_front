@@ -3,13 +3,14 @@ import React, { useState, useEffect } from "react";
 import Image from "../../../assets/image/logo.png";
 import CAImage from "../../../assets/image/companyImg.png";
 import IntroductionAction from "./IntroductionAction/IntroductionAction";
+import ImageUploadAction from "./ImageUploadAction/ImageUploadAction";
+import CompanyAction from "./CompanyAction/CompanyAction";
 import Button from "../../UI/Button/Button";
 import { FiShare2 } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
 import { LuPencil } from "react-icons/lu";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Scrollbar, A11y } from "swiper/modules";
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa6";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -18,11 +19,19 @@ function View() {
   const [OpenText, setOpenText] = useState(false);
   const [currentUrl, setCurrentUrl] = useState("");
   const [IntroAction, setIntroAction] = useState(false);
+  const [DescAction, setDescAction] = useState(false);
+  // const [ImageUploadAction, setImageUploadAction] = useState(false);
 
   // 회사 소개 팝업
   const handleListOpen = () => {
     setIntroAction((prev) => !prev);
   };
+  const handleDescOpen = () => {
+    setDescAction((prev) => !prev);
+  };
+  // const handleImageUploadOpen = () => {
+  //   setImageUploadAction((prev) => !prev);
+  // };
   const handleTextOpenClick = () => {
     setOpenText(!OpenText);
   };
@@ -44,6 +53,11 @@ function View() {
   return (
     <section className="container">
       {IntroAction && <IntroductionAction ShowClose={handleListOpen} />}
+      {DescAction && <CompanyAction ShowClose={handleDescOpen} />}
+      {/* {ImageUploadAction && (
+        <ImageUploadAction ShowClose={handleImageUploadOpen} />
+      )} */}
+      <ImageUploadAction />
       <h2 className={`${classes.title} ${classes.TopTitle}`}>
         인플루드 (INFLUDE)
       </h2>
@@ -71,8 +85,9 @@ function View() {
             <div className={classes.ModifyBox}>
               <h2 className={classes.title}>인플루드 (INFLUDE)</h2>
               <div className={classes.Modify}>
-                {" "}
-                <button type="button">소개글 수정</button>
+                <button type="button" onClick={handleDescOpen}>
+                  소개글 수정
+                </button>
                 <button type="button">이미지 수정</button>
               </div>
             </div>

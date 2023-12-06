@@ -1,0 +1,121 @@
+.ImageUploadAction {
+  .PopupBox {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 468px;
+    z-index: 10;
+    background: #141414;
+    .Popup_Head {
+      display: flex;
+      padding: 16px;
+      justify-content: flex-end;
+      align-items: flex-start;
+      align-self: stretch;
+      button {
+        background: transparent;
+        border: 0;
+        svg {
+          font-size: 36px;
+          * {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  .Popup_Body {
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.4px;
+    font-style: normal;
+    form {
+      display: flex;
+      padding: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      align-self: stretch;
+      > div {
+        width: 100%;
+        .Popup_Intro {
+          padding-bottom: 16px;
+          h2 {
+            color: #fff;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px; /* 150% */
+            letter-spacing: -0.4px;
+            padding-bottom: 8px;
+          }
+          p {
+            color: #fff;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px; /* 157.143% */
+            letter-spacing: -0.4px;
+          }
+        }
+        .ImageUpload {
+          label {
+            border-radius: 8px;
+            border: 1px solid #00f2fe;
+            display: flex;
+            padding: 8px 0;
+            justify-content: center;
+            align-items: center;
+            color: #00f2fe;
+            gap: 10px;
+            font-weight: bold;
+            width: 138px;
+          }
+          input {
+            display: none;
+          }
+        }
+        .Popup_Desc {
+          padding-top: 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          span {
+            color: #89898a;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px; /* 150% */
+            letter-spacing: -0.4px;
+            position: relative;
+            padding-left: 11px;
+            &::before {
+              content: " ";
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+              position: absolute;
+              left: 0;
+              background: #89898a;
+              top: 7px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .PopupBoxBackground {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100vh;
+    background: black;
+    z-index: 9;
+    opacity: 0.5;
+  }
+}

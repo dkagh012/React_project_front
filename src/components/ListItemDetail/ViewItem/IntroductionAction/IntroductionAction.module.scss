@@ -2,12 +2,13 @@
   .PopupBox {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     width: 468px;
     z-index: 10;
+    border-radius: 8px;
     background: #141414;
     .Popup_Head {
       display: flex;
@@ -41,6 +42,7 @@
         h2 {
           color: #fff;
           font-weight: 700;
+          padding-bottom: 16px;
         }
         input {
           &::placeholder {
@@ -50,48 +52,75 @@
         }
         .companyIntro {
           width: 100%;
-          position: relative;
           height: 100%;
-          h2 {
-            padding-bottom: 16px;
+          .companyTextBox {
+            position: relative;
+            h2 {
+              padding-bottom: 16px;
+            }
+            p {
+              color: #9d9d9d;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 22px; /* 157.143% */
+              letter-spacing: -0.4px;
+              position: absolute;
+              bottom: 16px;
+              right: 16px;
+            }
+            textarea {
+              width: 100%;
+              padding: 16px 16px 36px 16px;
+              height: 150px;
+              border-radius: 8px;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              background: transparent;
+              color: white;
+              resize: none;
+              outline: none;
+              &::-webkit-scrollbar {
+                display: none;
+              }
+            }
           }
-          p {
-            color: #9d9d9d;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 22px; /* 157.143% */
-            letter-spacing: -0.4px;
-            position: absolute;
-            bottom: 16px;
-            right: 16px;
-          }
-          textarea {
-            width: 100%;
-            font-family: Spoqa Han Sans Neo;
-            padding: 16px 16px 36px 16px;
-            height: 150px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: transparent;
-            color: white;
-            resize: none;
-            &::-webkit-scrollbar {
-              display: none;
+          .companyError {
+            padding-top: 16px;
+            span {
+              display: block;
+              position: relative;
+              padding-left: 9px;
+              color: #ff4747;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 18px; /* 150% */
+              letter-spacing: -0.4px;
+              &::before {
+                position: absolute;
+                left: 0;
+                content: " ";
+                background: #ff4747;
+                width: 5px;
+                height: 5px;
+                top: 7px;
+                border-radius: 50%;
+              }
             }
           }
         }
         .companyTag {
           width: 100%;
           height: 100%;
-          position: relative;
           h2 {
             padding-bottom: 16px;
           }
           div {
             padding-bottom: 16px;
+            position: relative;
             input {
               width: 100%;
+              outline: none;
               padding: 16px;
               border-radius: 8px;
               border: 1px solid rgba(255, 255, 255, 0.1);
@@ -101,7 +130,6 @@
             button {
               position: absolute;
               right: 0;
-              bottom: 42px;
               background: transparent;
               border: 0;
               color: #89898a;
@@ -117,16 +145,36 @@
             line-height: 18px; /* 150% */
             letter-spacing: -0.4px;
             position: relative;
-            margin-left: 11px;
+            padding-left: 11px;
             &::before {
               content: " ";
-              width: 4px;
-              height: 4px;
+              width: 5px;
+              height: 5px;
               border-radius: 50%;
               position: absolute;
-              left: -9px;
+              left: 0;
               background: #89898a;
               top: 7px;
+            }
+          }
+          .companyError {
+            display: block;
+            position: relative;
+            color: #ff4747;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px; /* 150% */
+            letter-spacing: -0.4px;
+            &::before {
+              position: absolute;
+              left: 0;
+              content: " ";
+              background: #ff4747;
+              width: 5px;
+              height: 5px;
+              top: 7px;
+              border-radius: 50%;
             }
           }
         }
@@ -178,11 +226,14 @@
           }
         }
       }
+      .textareaError {
+        border: 1px solid #ff4747 !important;
+      }
     }
   }
 
   .PopupBoxBackground {
-    position: absolute;
+    position: fixed;
     left: 0;
     width: 100%;
     top: 0;

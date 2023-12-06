@@ -1,0 +1,151 @@
+.CompanyAction {
+  .PopupTrue {
+    display: flex;
+    padding: 24px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+    h1 {
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px; /* 150% */
+      letter-spacing: -0.4px;
+    }
+  }
+  .PopupBox {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 50%;
+    border-radius: 8px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 468px;
+    z-index: 10;
+    background: #141414;
+    .Popup_Head {
+      display: flex;
+      padding: 16px;
+      justify-content: flex-end;
+      align-items: flex-start;
+      align-self: stretch;
+      button {
+        background: transparent;
+        border: 0;
+        svg {
+          font-size: 36px;
+          * {
+            color: white;
+          }
+        }
+      }
+    }
+    .Popup_Body {
+      font-size: 16px;
+      line-height: 24px; /* 150% */
+      letter-spacing: -0.4px;
+      font-style: normal;
+      form {
+        display: flex;
+        padding: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        align-self: stretch;
+        h2 {
+          color: #fff;
+          font-weight: 700;
+        }
+        input {
+          &::placeholder {
+            color: #89898a;
+            font-weight: 400;
+          }
+        }
+        > div {
+          width: 100%;
+          position: relative;
+          textarea {
+            outline: none;
+            width: 100%;
+            font-family: Spoqa Han Sans Neo;
+            padding: 16px 16px 36px 16px;
+            height: 150px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: white;
+            resize: none;
+            &::-webkit-scrollbar {
+              display: none;
+            }
+          }
+          .textareaError {
+            border: 1px solid #ff4747;
+          }
+          p {
+            color: #9d9d9d;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: -0.4px;
+            position: absolute;
+            width: 100%;
+            background: #141414;
+            padding-right: 16px;
+            padding-bottom: 16px;
+            bottom: 0;
+            z-index: 10;
+            text-align: right;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 0;
+          }
+          .TextError {
+            border: 1px solid #ff4747;
+            border-top: 0;
+          }
+        }
+        .companyError {
+          padding-top: 16px;
+          span {
+            display: block;
+            position: relative;
+            padding-left: 9px;
+            color: #ff4747;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 18px; /* 150% */
+            letter-spacing: -0.4px;
+            &::before {
+              position: absolute;
+              left: 0;
+              content: " ";
+              background: #ff4747;
+              width: 5px;
+              height: 5px;
+              top: 7px;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .PopupBoxBackground {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100vh;
+    background: black;
+    z-index: 9;
+    opacity: 0.5;
+  }
+}
