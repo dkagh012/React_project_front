@@ -78,6 +78,41 @@
           input {
             display: none;
           }
+          > div {
+            > div {
+              width: 100%;
+              display: flex;
+              gap: 8px;
+              padding-top: 16px;
+              > div {
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                width: 120px !important;
+                height: 120px !important;
+                position: relative;
+
+                img {
+                  width: 120px;
+                  height: 120px;
+                  object-fit: cover;
+                  border-radius: 8px;
+                  border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+                button {
+                  position: absolute;
+                  right: 8px;
+                  padding: 0;
+                  top: 8px;
+                  border-radius: 100px;
+                  background: #fff;
+                  font-size: 16px;
+                  width: 24px;
+                  height: 24px;
+                  border: 0;
+                }
+              }
+            }
+          }
         }
         .Popup_Desc {
           padding-top: 16px;

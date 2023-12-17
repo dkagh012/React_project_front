@@ -20,7 +20,7 @@ function View() {
   const [currentUrl, setCurrentUrl] = useState("");
   const [IntroAction, setIntroAction] = useState(false);
   const [DescAction, setDescAction] = useState(false);
-  // const [ImageUploadAction, setImageUploadAction] = useState(false);
+  const [ViewImageUploadAction, setViewImageUploadAction] = useState(false);
 
   // 회사 소개 팝업
   const handleListOpen = () => {
@@ -29,9 +29,9 @@ function View() {
   const handleDescOpen = () => {
     setDescAction((prev) => !prev);
   };
-  // const handleImageUploadOpen = () => {
-  //   setImageUploadAction((prev) => !prev);
-  // };
+  const handleImageUploadOpen = () => {
+    setViewImageUploadAction((prev) => !prev);
+  };
   const handleTextOpenClick = () => {
     setOpenText(!OpenText);
   };
@@ -54,10 +54,9 @@ function View() {
     <section className="container">
       {IntroAction && <IntroductionAction ShowClose={handleListOpen} />}
       {DescAction && <CompanyAction ShowClose={handleDescOpen} />}
-      {/* {ImageUploadAction && (
+      {ViewImageUploadAction && (
         <ImageUploadAction ShowClose={handleImageUploadOpen} />
-      )} */}
-      <ImageUploadAction />
+      )}
       <h2 className={`${classes.title} ${classes.TopTitle}`}>
         인플루드 (INFLUDE)
       </h2>
@@ -88,7 +87,9 @@ function View() {
                 <button type="button" onClick={handleDescOpen}>
                   소개글 수정
                 </button>
-                <button type="button">이미지 수정</button>
+                <button type="button" onClick={handleImageUploadOpen}>
+                  이미지 수정
+                </button>
               </div>
             </div>
             <div className={classes.View_Text}>

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import classes from './Certification.module.scss';
-import Button from '../../../../UI/Button/Button';
+import React, { useState, useEffect } from "react";
+import classes from "./Certification.module.scss";
+import Button from "../../../../UI/Button/Button";
 import { IoClose } from "react-icons/io5";
 
 function Certification(props) {
   const [showSuccess, setShowSuccess] = useState(false);
-  const [emailInputs, setEmailInputs] = useState(['', '', '', '', '', '']);
-  const [emailError, setEmailError] = useState('');
+  const [emailInputs, setEmailInputs] = useState(["", "", "", "", "", ""]);
+  const [emailError, setEmailError] = useState("");
 
   const handleInputChange = (index, value) => {
     const newEmailInputs = [...emailInputs];
@@ -14,24 +14,25 @@ function Certification(props) {
     setEmailInputs(newEmailInputs);
 
     if (emailError) {
-      setEmailError('');
+      setEmailError("");
     }
-  }
+  };
 
   const handleSave = () => {
-    const correctCode = ['1', '2', '3', '4', '5', '6'];
+    const correctCode = ["1", "2", "3", "4", "5", "6"];
 
     if (JSON.stringify(emailInputs) === JSON.stringify(correctCode)) {
       // 인증 코드가 올바를 경우
       setShowSuccess(true);
-      setEmailError('');
+      setEmailError("");
       props.EmailValue(true);
     } else {
-      setEmailError('인증 코드를 다시 확인해 주세요');
+      setEmailError("인증 코드를 다시 확인해 주세요");
     }
   };
   useEffect(() => {
     let timer;
+
     if (showSuccess) {
       timer = setTimeout(() => {
         setShowSuccess(false);
@@ -42,19 +43,22 @@ function Certification(props) {
     return () => {
       if (timer) clearTimeout(timer);
     };
-  }, [showSuccess]);
+  }, [showSuccess, props]);
   // 나머지 컴포넌트 코드
 
   return (
     <div className={classes.Certification_wrap}>
-      <div className={classes.CertificationBack} onClick={props.showClose}></div>
+      <div
+        className={classes.CertificationBack}
+        onClick={props.showClose}
+      ></div>
       <div className={classes.CertificationBox}>
         {showSuccess ? (
           <h1>이메일이 변경되었습니다.</h1>
         ) : (
           <form>
             <div className={classes.Close}>
-              <button type='button' onClick={props.showClose}>
+              <button type="button" onClick={props.showClose}>
                 <IoClose />
               </button>
             </div>
@@ -62,32 +66,41 @@ function Certification(props) {
               <div>
                 <p>인증 코드를 입력해주세요</p>
                 <span className={classes.SendCodeDesc}>
-                  <h4>이메일</h4>으로 회원가입 이메일 인증 코드를 전덜하였습니다 30분 이내에 이메일에 있는 인증 코드를 입력해 주세요
+                  <h4>이메일</h4>으로 회원가입 이메일 인증 코드를 전덜하였습니다
+                  30분 이내에 이메일에 있는 인증 코드를 입력해 주세요
                 </span>
                 <div className={classes.InputCode}>
                   {emailInputs.map((value, index) => (
                     <input
                       key={index}
-                      type='text'
+                      type="text"
                       value={value}
                       onChange={(e) => handleInputChange(index, e.target.value)}
-                      placeholder=''
+                      placeholder=""
                       onFocus={() => {
                         if (emailError) {
-                          setEmailError('');
+                          setEmailError("");
                         }
                       }}
-                      className={emailError ? classes.InputError : ''}
+                      className={emailError ? classes.InputError : ""}
                     />
                   ))}
                 </div>
               </div>
-              <p className={classes.NonError}>인증 코드가 수신되지 않은 경우 입력하신 이메일 주소가 정확한지 확인해 주세요</p>
+              <p className={classes.NonError}>
+                인증 코드가 수신되지 않은 경우 입력하신 이메일 주소가 정확한지
+                확인해 주세요
+              </p>
               {emailError && <p className={classes.Error}>{emailError}</p>}
               <div className={classes.SendCode}>
-                <span>05:00</span><button type='button'>인증 코드 재발송</button>
+                <span>05:00</span>
+                <button type="button">인증 코드 재발송</button>
               </div>
-              <Button type="button" onClick={handleSave} disabled={!!emailError}>
+              <Button
+                type="button"
+                onClick={handleSave}
+                disabled={!!emailError}
+              >
                 저장
               </Button>
             </div>

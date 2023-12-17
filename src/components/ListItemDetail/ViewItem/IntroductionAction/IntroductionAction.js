@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "./IntroductionAction.module.scss";
 import { IoClose } from "react-icons/io5";
 import Button from "./../../../UI/Button/Button";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { containsForbiddenWords } from "../../../../DATE/ProfanityFilter"; // Adjust the import path as necessary
 
