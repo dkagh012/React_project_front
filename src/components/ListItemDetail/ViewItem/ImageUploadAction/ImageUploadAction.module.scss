@@ -139,6 +139,12 @@
               top: 7px;
             }
           }
+          .Error {
+            color: #ff4747;
+            &::before {
+              background: #ff4747;
+            }
+          }
         }
       }
     }
@@ -152,5 +158,30 @@
     background: black;
     z-index: 9;
     opacity: 0.5;
+  }
+  .PopupTrue {
+    display: flex;
+    padding: 24px 16px;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    gap: 24px;
+    align-self: stretch;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 10;
+    background: #141414;
+    width: 468px;
+    border-radius: 8px;
+    h1 {
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: -0.4px;
+    }
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "./IntroductionAction.module.scss";
+import classes from "./PreferredAffiliateCompany.module.scss";
 import { IoClose } from "react-icons/io5";
 import Button from "./../../../UI/Button/Button";
 import { Pagination, Scrollbar, A11y } from "swiper/modules";
@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-function IntroductionAction(props) {
+function PreferredAffiliateCompany(props) {
   const [inputValue, setInputValue] = useState("");
   const [ValueLength, setValueLength] = useState("0");
   const [tags, setTags] = useState([]);
@@ -106,20 +106,28 @@ function IntroductionAction(props) {
             <div className={classes.Popup_Body}>
               <form>
                 <div className={classes.companyIntro}>
-                  <h2>업체 간단 소개</h2>
+                  <h2>선호 제휴 업체 정보</h2>
                   <div className={classes.companyTextBox}>
                     <textarea
                       type="text"
                       value={inputValue}
                       onChange={handleInputChange}
-                      maxLength={60}
+                      maxLength={500}
                       className={`${
                         isLengthErrorVisible || isSwearWordErrorVisible
                           ? classes.textareaError
                           : ""
                       }`}
                     />
-                    <p>{ValueLength}/60</p>
+                    <p
+                      className={`${
+                        isLengthErrorVisible || isSwearWordErrorVisible
+                          ? classes.BorderError
+                          : ""
+                      }`}
+                    >
+                      {ValueLength}/500
+                    </p>
                   </div>
                   <div className={classes.companyError}>
                     {isLengthErrorVisible && (
@@ -133,7 +141,7 @@ function IntroductionAction(props) {
                   </div>
                 </div>
                 <div className={classes.companyTag}>
-                  <h2>업체 소개 태그</h2>
+                  <h2>선호 업체 관련 태그</h2>
                   <div>
                     <input
                       type="text"
@@ -149,7 +157,7 @@ function IntroductionAction(props) {
                       추가
                     </button>
                   </div>
-                  <div className={classes.IntroductionAction_Desc}>
+                  <div className={classes.PreferredAffiliateCompany_Desc}>
                     {isSwearWordErrorTag && (
                       <span className={classes.companyError}>
                         비속어는 사용할 수 없습니다 ‘{detectedSwearWordTag}’
@@ -196,4 +204,4 @@ function IntroductionAction(props) {
   );
 }
 
-export default IntroductionAction;
+export default PreferredAffiliateCompany;

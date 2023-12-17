@@ -63,7 +63,7 @@ function CompanyAction(props) {
                     type="text"
                     value={inputValue}
                     onChange={handleInputChange}
-                    maxLength={60}
+                    maxLength={500}
                     className={`${
                       isLengthErrorVisible || isSwearWordErrorVisible
                         ? classes.textareaError

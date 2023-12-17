@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "../../../assets/image/logo.png";
 import CAImage from "../../../assets/image/companyImg.png";
 import IntroductionAction from "./IntroductionAction/IntroductionAction";
+import PreferredAffiliateCompany from "./PreferredAffiliateCompany/PreferredAffiliateCompany";
 import ImageUploadAction from "./ImageUploadAction/ImageUploadAction";
 import CompanyAction from "./CompanyAction/CompanyAction";
 import Button from "../../UI/Button/Button";
@@ -19,6 +20,7 @@ function View() {
   const [OpenText, setOpenText] = useState(false);
   const [currentUrl, setCurrentUrl] = useState("");
   const [IntroAction, setIntroAction] = useState(false);
+  const [Preferred, setPreferred] = useState(false);
   const [DescAction, setDescAction] = useState(false);
   const [ViewImageUploadAction, setViewImageUploadAction] = useState(false);
 
@@ -28,6 +30,9 @@ function View() {
   };
   const handleDescOpen = () => {
     setDescAction((prev) => !prev);
+  };
+  const handlePrefeerredOpen = () => {
+    setPreferred((prev) => !prev);
   };
   const handleImageUploadOpen = () => {
     setViewImageUploadAction((prev) => !prev);
@@ -56,6 +61,9 @@ function View() {
       {DescAction && <CompanyAction ShowClose={handleDescOpen} />}
       {ViewImageUploadAction && (
         <ImageUploadAction ShowClose={handleImageUploadOpen} />
+      )}
+      {Preferred && (
+        <PreferredAffiliateCompany ShowClose={handlePrefeerredOpen} />
       )}
       <h2 className={`${classes.title} ${classes.TopTitle}`}>
         인플루드 (INFLUDE)
@@ -134,7 +142,9 @@ function View() {
             <div className={classes.ModifyBox}>
               <h2 className={classes.title}>선호 제휴 업체</h2>
               <div className={classes.Modify}>
-                <button type="button">선호 제휴 업체 정보 수정</button>
+                <button type="button" onClick={handlePrefeerredOpen}>
+                  선호 제휴 업체 정보 수정
+                </button>
               </div>
             </div>
             <div className={classes.View_Desc}>
