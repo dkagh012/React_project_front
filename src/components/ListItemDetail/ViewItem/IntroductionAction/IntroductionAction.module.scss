@@ -5,6 +5,7 @@
     position: fixed;
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
     width: 468px;
     z-index: 10;
@@ -258,7 +259,8 @@
     gap: 24px;
     align-self: stretch;
     left: 50%;
-    top: 50%;
+    top: calc(42% - 33px);
+
     transform: translate(-50%, 50%);
     z-index: 10;
     background: #141414;

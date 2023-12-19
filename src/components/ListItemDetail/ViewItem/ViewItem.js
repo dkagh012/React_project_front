@@ -23,6 +23,11 @@ function View() {
   const [Preferred, setPreferred] = useState(false);
   const [DescAction, setDescAction] = useState(false);
   const [ViewImageUploadAction, setViewImageUploadAction] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [isURLCopy, setURLCopy] = useState(false);
+  const handleModifyClick = () => {
+    setIsEditing(!isEditing);
+  };
 
   // 회사 소개 팝업
   const handleListOpen = () => {
@@ -50,7 +55,12 @@ function View() {
   const copyUrlToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(currentUrl);
-      alert("URL copied to clipboard!"); // Optionally, show a notification
+      setURLCopy(true);
+
+      // Set a timeout to reset URLCopy to false after 3 seconds
+      setTimeout(() => {
+        setURLCopy(false);
+      }, 3000);
     } catch (error) {
       console.error("Failed to copy URL: ", error);
     }
@@ -65,6 +75,10 @@ function View() {
       {Preferred && (
         <PreferredAffiliateCompany ShowClose={handlePrefeerredOpen} />
       )}
+      <div className={classes.UrlPopup}>
+        <div className={classes.UrlBackground}></div>
+        <h2>링크 복사를 완료했습니다</h2>
+      </div>
       <h2 className={`${classes.title} ${classes.TopTitle}`}>
         인플루드 (INFLUDE)
       </h2>
@@ -169,7 +183,9 @@ function View() {
             <div className={classes.ModifyBox}>
               <h2 className={classes.title}>관리자</h2>
               <div className={classes.Modify}>
-                <button type="button">수정</button>
+                <button type="button" onClick={handleModifyClick}>
+                  {isEditing ? "수정 완료" : "수정"}
+                </button>
               </div>
             </div>
             <div className={classes.View_UserList}>
@@ -192,6 +208,7 @@ function View() {
                         <div>
                           <h1>배광태</h1>
                           <span>대표</span>
+                          {isEditing && <button type="button">삭제</button>}
                         </div>
                       </div>
                     </li>
@@ -201,6 +218,7 @@ function View() {
                         <div>
                           <h1>배광태</h1>
                           <span>대표</span>
+                          {isEditing && <button type="button">삭제</button>}
                         </div>
                       </div>
                     </li>
@@ -214,6 +232,7 @@ function View() {
                         <div>
                           <h1>배광태</h1>
                           <span>대표</span>
+                          {isEditing && <button type="button">삭제</button>}
                         </div>
                       </div>
                     </li>
@@ -223,6 +242,7 @@ function View() {
                         <div>
                           <h1>배광태</h1>
                           <span>대표</span>
+                          {isEditing && <button type="button">삭제</button>}
                         </div>
                       </div>
                     </li>
