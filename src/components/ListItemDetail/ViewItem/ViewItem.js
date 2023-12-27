@@ -39,6 +39,11 @@ function View() {
   const handlePrefeerredOpen = () => {
     setPreferred((prev) => !prev);
   };
+
+  const handleUrlClose = () => {
+    setURLCopy(false);
+  };
+
   const handleImageUploadOpen = () => {
     setViewImageUploadAction((prev) => !prev);
   };
@@ -75,10 +80,17 @@ function View() {
       {Preferred && (
         <PreferredAffiliateCompany ShowClose={handlePrefeerredOpen} />
       )}
-      <div className={classes.UrlPopup}>
-        <div className={classes.UrlBackground}></div>
-        <h2>링크 복사를 완료했습니다</h2>
-      </div>
+      {isURLCopy && (
+        <div>
+          <div className={classes.UrlPopup}>
+            <div
+              className={classes.UrlBackground}
+              onClick={handleUrlClose}
+            ></div>
+            <h2>링크 복사를 완료했습니다</h2>
+          </div>
+        </div>
+      )}
       <h2 className={`${classes.title} ${classes.TopTitle}`}>
         인플루드 (INFLUDE)
       </h2>
