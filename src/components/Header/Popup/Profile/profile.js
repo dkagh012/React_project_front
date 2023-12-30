@@ -39,7 +39,7 @@ function Profile(props) {
           </Link>
         </li>
         <li>
-          <Link to="/activity-log">
+          <Link to="/UserLog">
             <span>활동 로그</span>
           </Link>
         </li>

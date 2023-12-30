@@ -50,18 +50,16 @@ function Header() {
       }
     }
 
-    if (showProfile) {
+    if (showProfile || showNotice) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-    if (showNotice) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-  }, [showProfile, showNotice]);
 
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showProfile, showNotice]);
   return (
     <header className={classes.Header}>
       <div className={classes.HeaderList}>
