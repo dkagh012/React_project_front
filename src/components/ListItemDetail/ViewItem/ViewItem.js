@@ -33,15 +33,6 @@ function View() {
   function handleListOpen(element) {
     element((prev) => !prev);
   }
-  const handleDescOpen = () => {
-    setDescAction((prev) => !prev);
-  };
-  const handlePrefeerredOpen = () => {
-    setPreferred((prev) => !prev);
-  };
-  const handleImageUploadOpen = () => {
-    setViewImageUploadAction((prev) => !prev);
-  };
 
   const handleUrlClose = () => {
     setURLCopy(false);

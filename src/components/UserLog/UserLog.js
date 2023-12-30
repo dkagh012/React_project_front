@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import classes from "./UserLog.module.scss";
@@ -29,6 +29,7 @@ function UserLog() {
     setBeforeAction1((prev) => !prev);
     setBeforeAction2(false);
   }
+
   function handleListOpen2() {
     setBeforeAction2((prev) => !prev);
     setBeforeAction1(false);
@@ -38,6 +39,29 @@ function UserLog() {
     setValue1(null);
     setValue2(null);
   };
+
+  const calendarRef1 = useRef(null);
+  const calendarRef2 = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        calendarRef1.current &&
+        !calendarRef1.current.contains(event.target) &&
+        calendarRef2.current &&
+        !calendarRef2.current.contains(event.target)
+      ) {
+        setBeforeAction1(false);
+        setBeforeAction2(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div>
@@ -51,12 +75,12 @@ function UserLog() {
                 초기화
               </button>
             </div>
-            <div className={classes.CalenderBeforeBox}>
+            <div className={classes.CalenderBeforeBox} ref={calendarRef1}>
               {BeforeAction1 && (
                 <Calendar
                   className={classes.CalenderBefore}
                   onChange={handleCalendarChange1}
-                  value={value1 || new Date()} // Set the initial value to null or a default date
+                  value={value1 || new Date()}
                   formatDay={(locale, date) =>
                     date.toLocaleString("en", { day: "numeric" })
                   }
@@ -66,7 +90,7 @@ function UserLog() {
                 <IoCalendarClearOutline />
                 <input
                   className={classes.CalendarBeforeInput}
-                  onClick={() => handleListOpen1()}
+                  onClick={handleListOpen1}
                   value={
                     value1
                       ? moment(value1).format("YYYY년 MM월 DD일")
@@ -76,12 +100,12 @@ function UserLog() {
                 <p>부터</p>
               </div>
             </div>
-            <div className={classes.CalenderBeforeBox}>
+            <div className={classes.CalenderBeforeBox} ref={calendarRef2}>
               {BeforeAction2 && (
                 <Calendar
                   className={classes.CalenderBefore}
                   onChange={handleCalendarChange2}
-                  value={value2 || new Date()} // Set the initial value to null or a default date
+                  value={value2 || new Date()}
                   formatDay={(locale, date) =>
                     date.toLocaleString("en", { day: "numeric" })
                   }
@@ -91,7 +115,7 @@ function UserLog() {
                 <IoCalendarClearOutline />
                 <input
                   className={classes.CalendarBeforeInput}
-                  onClick={() => handleListOpen2()}
+                  onClick={handleListOpen2}
                   value={
                     value2
                       ? moment(value2).format("YYYY년 MM월 DD일")

@@ -9,6 +9,7 @@ import Settings from "./components/UserProfile/Settings/Settings";
 import UserDelete from "./components/UserProfile/UserDelete/UserDelete";
 import Notifications from "./components/UserProfile/Notifications/Notifications";
 import BusinessPartnershipList from "./components/BusinessPartnershipList/BusinessPartnershipList";
+import Premium from "./components/Premium/Premium";
 import UserLog from "./components/UserLog/UserLog";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "./reset.scss";
@@ -42,6 +43,8 @@ function App() {
           />
           {/* 활동 로그 */}
           <Route path="/UserLog" element={<UserLog />} />
+          {/* 프리미엄 구독 */}
+          <Route path="/Premium" element={<Premium />} />
         </Routes>
       </BrowserRouter>
     </div>
