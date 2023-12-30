@@ -36,11 +36,22 @@
     width: 100%;
     .CalenderBefore {
       width: 100%;
+      position: absolute;
+      top: 49px;
     }
-    div {
+    > .CalendarInputBox {
       display: flex;
       gap: 8px;
       align-items: center;
+      svg {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        left: 12px;
+        * {
+          color: #9d9d9d;
+        }
+      }
       .CalendarBeforeInput {
         width: 100%;
         border-radius: 8px;
@@ -50,6 +61,9 @@
         align-items: flex-start;
         gap: 8px;
         flex: 1 0 0;
+        color: #9d9d9d;
+        padding-left: 44px;
+        background: transparent;
       }
       p {
         color: #fff;
