@@ -1,15 +1,18 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import classes from './Header.module.scss';
-import Login from './Login/Login';
-import Profile from './Popup/Profile/profile';
-import Notice from './Popup/Notice/Notice';
-import Logo from '../../assets/image/logo.png';
-import UserIcon from '../../assets/image/companyImg.png';
-import MessagesIcon from '../../assets/image/messages-2.svg';
-import { FaRegBell } from 'react-icons/fa';
-import { useSelector, useDispatch } from 'react-redux';
-import { showLoginAction, hideLoginAction } from '../../store/reducers/LoginAction/actions';
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import classes from "./Header.module.scss";
+import Login from "./Login/Login";
+import Profile from "./Popup/Profile/profile";
+import Notice from "./Popup/Notice/Notice";
+import Logo from "../../assets/image/logo.png";
+import UserIcon from "../../assets/image/companyImg.png";
+import MessagesIcon from "../../assets/image/messages-2.svg";
+import { FaRegBell } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  showLoginAction,
+  hideLoginAction,
+} from "../../store/reducers/LoginAction/actions";
 function Header() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const showLogin = useSelector((state) => state.loginReducer.showLogin);
@@ -34,7 +37,7 @@ function Header() {
   };
 
   const handleLogout = () => {
-    dispatch({ type: 'LOGOUT' });
+    dispatch({ type: "LOGOUT" });
   };
 
   useEffect(() => {
@@ -48,14 +51,14 @@ function Header() {
     }
 
     if (showProfile) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
     if (showNotice) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [showProfile, showNotice]);
 
@@ -68,7 +71,9 @@ function Header() {
           </Link>
         </div>
         <div className={classes.HeaderMenuList}>
-          <ul className={`${classes.HeaderMenuLinkList} ${classes.HeaderFontStyle}`}>
+          <ul
+            className={`${classes.HeaderMenuLinkList} ${classes.HeaderFontStyle}`}
+          >
             <li>
               <Link to="/Search">업체 검색</Link>
             </li>
@@ -79,29 +84,46 @@ function Header() {
         </div>
 
         {isLoggedIn ? (
-          <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
-            <button type="button" className={classes.chat} ><img src={MessagesIcon} alt="MessagesIcon"></img></button>
-            <button type="button" className={classes.notice} onClick={handleAlarmClick} ref={noticeRef}>
+          <div
+            className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}
+          >
+            <button type="button" className={classes.chat}>
+              <img src={MessagesIcon} alt="MessagesIcon"></img>
+            </button>
+            <button
+              type="button"
+              className={classes.notice}
+              onClick={handleAlarmClick}
+              ref={noticeRef}
+            >
               <FaRegBell />
             </button>
-            <button type="button" className={classes.UserIcon} onClick={handleProfileClick} ref={profileRef}>
+            <button
+              type="button"
+              className={classes.UserIcon}
+              onClick={handleProfileClick}
+              ref={profileRef}
+            >
               <img src={UserIcon} alt="UserIcon" />
             </button>
             {showProfile && <Profile LogOut={handleLogout} />}
             {showNotice && <Notice />}
           </div>
-        )
-          :
-
-          (
-            <div className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}>
-              <button className={classes.LoginBtn} type="button" onClick={handleLoginClick}>로그인/회원가입</button>
-            </div>
-          )}
-
+        ) : (
+          <div
+            className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}
+          >
+            <button
+              className={classes.LoginBtn}
+              type="button"
+              onClick={handleLoginClick}
+            >
+              로그인/회원가입
+            </button>
+          </div>
+        )}
       </div>
       {showLogin && <Login onClose={handleCloseLogin} />}
-
     </header>
   );
 }

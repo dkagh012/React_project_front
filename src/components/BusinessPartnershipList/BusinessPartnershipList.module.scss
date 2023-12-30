@@ -17,6 +17,12 @@
     padding: 16px 16px 16px 48px;
     gap: 8px;
     background: transparent;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.4px;
     &::placeholder {
       color: #9d9d9d;
       font-size: 16px;
@@ -41,6 +47,184 @@
 .BusinessList {
   width: 100%;
   height: 100%;
+  .BusinessManual {
+    .BusinessManualBackground {
+      background: black;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      opacity: 0.5;
+    }
+    .BusinessManualBox {
+      display: flex;
+      width: 500px;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      border-radius: 8px;
+      background: #141414;
+      box-shadow: 0px 0px 15px 0px rgba(20, 20, 20, 0.7);
+      .BusinessManualTop {
+        display: flex;
+        padding: 16px;
+        justify-content: flex-end;
+        align-items: flex-start;
+        align-self: stretch;
+        button {
+          background: transparent;
+          border: 0;
+          svg {
+            font-size: 36px;
+            * {
+              color: white;
+            }
+          }
+        }
+      }
+      .BusinessManualBody {
+        padding: 24px 16px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        .BusinessManualDesc {
+          display: flex;
+          gap: 24px;
+          .BusinessImg {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+          }
+          div {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            h1 {
+              color: #fff;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 24px; /* 150% */
+              letter-spacing: -0.4px;
+            }
+            p {
+              color: #9d9d9d;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 22px; /* 157.143% */
+              letter-spacing: -0.4px;
+            }
+          }
+        }
+        .BusinessManualIntro {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          h1 {
+            color: #fff;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 28px; /* 155.556% */
+            letter-spacing: -0.4px;
+          }
+          textarea {
+            width: 100%;
+            padding: 16px 16px 36px 16px;
+            height: 150px;
+            border-radius: 8px;
+            font-family: "Spoqa Han Sans Neo", "sans-serif";
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: white;
+            resize: none;
+            outline: none;
+            &::-webkit-scrollbar {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  .BusinessListPopup {
+    .BusinessListPopupBackground {
+      background: black;
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      opacity: 0.5;
+    }
+    .BusinessListPopupBox {
+      display: flex;
+      width: 500px;
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      padding: 24px 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      border-radius: 8px;
+      background: #141414;
+      box-shadow: 0px 0px 15px 0px rgba(20, 20, 20, 0.7);
+      div {
+        width: 100%;
+      }
+      h1 {
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 24px; /* 150% */
+        letter-spacing: -0.4px;
+        padding-bottom: 8px;
+      }
+      p {
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px; /* 157.143% */
+        letter-spacing: -0.4px;
+      }
+      .BusinessPopupBtn {
+        display: flex;
+        gap: 8px;
+        width: 100%;
+        button {
+          background: transparent;
+          color: white;
+          border-radius: 8px;
+          border: 1px solid var(--1, #00f2fe);
+          display: flex;
+          padding: 12px;
+          justify-content: center;
+          align-items: flex-start;
+          flex: 1 0 0;
+          &:last-child {
+            background: linear-gradient(91deg, #00f2fe 0%, #4facfe 98.1%);
+            border: 0;
+          }
+        }
+      }
+    }
+  }
   .BusinessItemList {
     width: 100%;
     width: 100%;

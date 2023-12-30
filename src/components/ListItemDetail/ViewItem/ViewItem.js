@@ -30,23 +30,23 @@ function View() {
   };
 
   // 회사 소개 팝업
-  const handleListOpen = () => {
-    setIntroAction((prev) => !prev);
-  };
+  function handleListOpen(element) {
+    element((prev) => !prev);
+  }
   const handleDescOpen = () => {
     setDescAction((prev) => !prev);
   };
   const handlePrefeerredOpen = () => {
     setPreferred((prev) => !prev);
   };
+  const handleImageUploadOpen = () => {
+    setViewImageUploadAction((prev) => !prev);
+  };
 
   const handleUrlClose = () => {
     setURLCopy(false);
   };
 
-  const handleImageUploadOpen = () => {
-    setViewImageUploadAction((prev) => !prev);
-  };
   const handleTextOpenClick = () => {
     setOpenText(!OpenText);
   };
@@ -72,13 +72,21 @@ function View() {
   };
   return (
     <section className="container">
-      {IntroAction && <IntroductionAction ShowClose={handleListOpen} />}
-      {DescAction && <CompanyAction ShowClose={handleDescOpen} />}
+      {IntroAction && (
+        <IntroductionAction ShowClose={() => handleListOpen(setIntroAction)} />
+      )}
+      {DescAction && (
+        <CompanyAction ShowClose={() => handleListOpen(setDescAction)} />
+      )}
       {ViewImageUploadAction && (
-        <ImageUploadAction ShowClose={handleImageUploadOpen} />
+        <ImageUploadAction
+          ShowClose={() => handleListOpen(setViewImageUploadAction)}
+        />
       )}
       {Preferred && (
-        <PreferredAffiliateCompany ShowClose={handlePrefeerredOpen} />
+        <PreferredAffiliateCompany
+          ShowClose={() => handleListOpen(setPreferred)}
+        />
       )}
       {isURLCopy && (
         <div>
@@ -104,7 +112,10 @@ function View() {
               <div className={classes.View_Info}>
                 <span>
                   서비스 간단 소개다
-                  <button type="button" onClick={handleListOpen}>
+                  <button
+                    type="button"
+                    onClick={() => handleListOpen(setIntroAction)}
+                  >
                     <LuPencil />
                   </button>
                 </span>
@@ -118,10 +129,16 @@ function View() {
             <div className={classes.ModifyBox}>
               <h2 className={classes.title}>인플루드 (INFLUDE)</h2>
               <div className={classes.Modify}>
-                <button type="button" onClick={handleDescOpen}>
+                <button
+                  type="button"
+                  onClick={() => handleListOpen(setDescAction)}
+                >
                   소개글 수정
                 </button>
-                <button type="button" onClick={handleImageUploadOpen}>
+                <button
+                  type="button"
+                  onClick={() => handleListOpen(setViewImageUploadAction)}
+                >
                   이미지 수정
                 </button>
               </div>
@@ -168,7 +185,10 @@ function View() {
             <div className={classes.ModifyBox}>
               <h2 className={classes.title}>선호 제휴 업체</h2>
               <div className={classes.Modify}>
-                <button type="button" onClick={handlePrefeerredOpen}>
+                <button
+                  type="button"
+                  onClick={() => handleListOpen(setPreferred)}
+                >
                   선호 제휴 업체 정보 수정
                 </button>
               </div>
