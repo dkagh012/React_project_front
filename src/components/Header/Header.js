@@ -42,24 +42,18 @@ function Header() {
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (profileRef.current && !profileRef.current.contains(event.target)) {
-        setShowProfile(false);
-      }
       if (noticeRef.current && !noticeRef.current.contains(event.target)) {
         setShowNotice(false);
       }
     }
 
-    if (showProfile || showNotice) {
+    if (showNotice) {
       document.addEventListener("mousedown", handleClickOutside);
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
+  }, [showNotice]);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showProfile, showNotice]);
   return (
     <header className={classes.Header}>
       <div className={classes.HeaderList}>

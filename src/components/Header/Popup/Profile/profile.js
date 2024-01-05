@@ -44,7 +44,7 @@ function Profile(props) {
           </Link>
         </li>
         <li>
-          <Link to="/subscription">
+          <Link to="/Premium">
             <span>구독권 관리</span>
           </Link>
         </li>
