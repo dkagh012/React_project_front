@@ -49,9 +49,6 @@ function LoginForm(props) {
       </form>
       <ul className={classes.loginBoxList}>
         <li>
-          <button type="button">이메일 찾기</button>
-        </li>
-        <li>
           <button type="button">비밀번호 찾기</button>
         </li>
         <li>

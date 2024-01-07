@@ -1,5 +1,5 @@
 .Check {
-  color: #FF4747;
+  color: #ff4747 !important;
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -10,7 +10,7 @@
 
   &::before {
     content: "";
-    background: #FF4747;
+    background: #ff4747 !important;
     width: 5px;
     height: 5px;
     display: inline-block;

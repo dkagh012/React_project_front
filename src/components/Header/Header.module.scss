@@ -3,7 +3,9 @@
   width: 100%;
   max-width: 1080px;
   margin: 0 auto;
-
+  .MobileTabMenu {
+    display: none;
+  }
   .HeaderList {
     display: flex;
     align-items: center;
@@ -96,6 +98,7 @@
       display: none;
     }
     .MobileTabMenu {
+      display: block;
       button {
         background: transparent;
         border: 0;

@@ -1,3 +1,6 @@
+.InputError {
+  border: 1px solid #ff4747 !important;
+}
 .JoinBox {
   width: 100%;
 
@@ -13,12 +16,12 @@
     gap: 16px;
     flex-direction: column;
 
-    >div {
+    > div {
       display: flex;
       gap: 16px;
       flex-direction: column;
 
-      >h1 {
+      > h1 {
         color: var(--colorWhite);
         font-size: 16px;
         font-weight: 700;

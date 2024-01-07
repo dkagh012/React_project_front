@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
-  companies,
   companiesItem,
   companiesHashTag,
   posts,
@@ -21,12 +20,9 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 function Best_company() {
-  const [selectedCompany, setSelectedCompany] = useState(companies[0]);
   const [showPopup, setShowPopup] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const handleClick = (company) => {
-    setSelectedCompany(company);
-  };
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const handleListClick = (boolean) => {
     if (boolean && !isLoggedIn) {
       setShowPopup(true); // Set the showPopup state to true when a list item is clicked
@@ -37,6 +33,18 @@ function Best_company() {
     //   setShowPopup(true); // Set the showPopup state to true when a list item is clicked
     // }
   };
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <section className="sectionWrap container" id="company">
@@ -48,55 +56,121 @@ function Best_company() {
         <h1>인기 업체</h1>
       </div>
       <div>
-        <ul className={classes.companyItem}>
-          {companiesItem.map((companyItem, index) => {
-            const post = posts.find((post) => post.id === index + 1);
+        {screenWidth <= 1024 ? (
+          <Swiper
+            className={classes.companyItem}
+            modules={[Pagination, Scrollbar, A11y]}
+            slidesPerView={3}
+            spaceBetween={16}
+            centeredSlides={false}
+            watchOverflow={true}
+            loop={true} // 무한 루프 활성화
+          >
+            {companiesItem.map((companyItem, index) => {
+              const post = posts.find((post) => post.id === index + 1);
 
-            return (
-              <li
-                key={index}
-                className={classes.companyItemLink}
-                onClick={() => handleListClick(true)}
-              >
-                <Link to="#">
-                  <div className={classes.companyItemLinkImg}>
-                    <img alt={companyItem} src={companyImg} />
-                  </div>
-                  <div className={classes.companyItemBody}>
-                    <div className={classes.companyItemLinkInfo}>
-                      <div className={classes.companyItemLinkTitle}>
-                        <h1>{companyItem}</h1>
-                      </div>
-                      <div className={classes.companyItemLinkHashTag}>
-                        <p>{companiesHashTag[index]}</p>
-                      </div>
-                      <div className={classes.companyItemLinkDesc}>
-                        <span> 선호 파트너 형태</span>
-                      </div>
+              return (
+                <SwiperSlide
+                  key={index}
+                  className={classes.companyItemLink}
+                  onClick={() => handleListClick(true)}
+                >
+                  <Link to="#">
+                    <div className={classes.companyItemLinkImg}>
+                      <img alt={companyItem} src={companyImg} />
                     </div>
-
-                    {post && ( // Check if post exists
-                      <div id="ItemTag" className={classes.companyItemLinkTag}>
-                        <Swiper
-                          modules={[Navigation, Pagination, Scrollbar, A11y]}
-                          slidesPerView={3}
-                          spaceBetween={8}
-                          centeredSlides={false}
-                          watchOverflow={true}
-                          navigation={true} // Enable navigation
-                        >
-                          {post.tags.map((tag, index) => (
-                            <SwiperSlide key={index}>#{tag}</SwiperSlide>
-                          ))}
-                        </Swiper>
+                    <div className={classes.companyItemBody}>
+                      <div className={classes.companyItemLinkInfo}>
+                        <div className={classes.companyItemLinkTitle}>
+                          <h1>{companyItem}</h1>
+                        </div>
+                        <div className={classes.companyItemLinkHashTag}>
+                          <p>{companiesHashTag[index]}</p>
+                        </div>
+                        <div className={classes.companyItemLinkDesc}>
+                          <span> 선호 파트너 형태</span>
+                        </div>
                       </div>
-                    )}
-                  </div>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+
+                      {post && ( // Check if post exists
+                        <div
+                          id="ItemTag"
+                          className={classes.companyItemLinkTag}
+                        >
+                          <Swiper
+                            modules={[Navigation, Pagination, Scrollbar, A11y]}
+                            slidesPerView={3}
+                            spaceBetween={8}
+                            centeredSlides={false}
+                            watchOverflow={true}
+                            navigation={true} // Enable navigation
+                          >
+                            {post.tags.map((tag, index) => (
+                              <SwiperSlide key={index}>#{tag}</SwiperSlide>
+                            ))}
+                          </Swiper>
+                        </div>
+                      )}
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        ) : (
+          <ul className={classes.companyItem}>
+            {companiesItem.map((companyItem, index) => {
+              const post = posts.find((post) => post.id === index + 1);
+
+              return (
+                <li
+                  key={index}
+                  className={classes.companyItemLink}
+                  onClick={() => handleListClick(true)}
+                >
+                  <Link to="#">
+                    <div className={classes.companyItemLinkImg}>
+                      <img alt={companyItem} src={companyImg} />
+                    </div>
+                    <div className={classes.companyItemBody}>
+                      <div className={classes.companyItemLinkInfo}>
+                        <div className={classes.companyItemLinkTitle}>
+                          <h1>{companyItem}</h1>
+                        </div>
+                        <div className={classes.companyItemLinkHashTag}>
+                          <p>{companiesHashTag[index]}</p>
+                        </div>
+                        <div className={classes.companyItemLinkDesc}>
+                          <span> 선호 파트너 형태</span>
+                        </div>
+                      </div>
+
+                      {post && ( // Check if post exists
+                        <div
+                          id="ItemTag"
+                          className={classes.companyItemLinkTag}
+                        >
+                          <Swiper
+                            modules={[Navigation, Pagination, Scrollbar, A11y]}
+                            slidesPerView={3}
+                            spaceBetween={8}
+                            centeredSlides={false}
+                            watchOverflow={true}
+                            navigation={true} // Enable navigation
+                          >
+                            {post.tags.map((tag, index) => (
+                              <SwiperSlide key={index}>#{tag}</SwiperSlide>
+                            ))}
+                          </Swiper>
+                        </div>
+                      )}
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </div>
     </section>
   );

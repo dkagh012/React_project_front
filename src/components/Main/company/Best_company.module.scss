@@ -114,7 +114,9 @@
 }
 @media all and (max-width: 1024px) {
   .companyItem {
-    overflow-x: scroll;
-    flex-wrap: nowrap;
+    .companyItemLink {
+      width: auto !important;
+      max-width: 258px;
+    }
   }
 }
