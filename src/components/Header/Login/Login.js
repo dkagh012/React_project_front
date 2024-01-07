@@ -3,11 +3,12 @@ import classes from "./Login.module.scss";
 import Logo from "../../../assets/image/logo.png";
 import { IoClose } from "react-icons/io5";
 import LoginForm from "./LoginForm/LoginForm";
-import JoinForm from "./JoinForm/JoinForm";
+import JoinPopup from "./JoinForm/JoinPopup";
+import JoinForm from "./JoinForm/JoinForm/JoinForm";
 import JoinEmail from "./JoinForm/JoinEmail/JoinEmail";
 import JoinFinish from "./JoinForm/JoinFinish/JoinFinish";
 import "./LoginBox.scss";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 function Login({ onClose }) {
   const formState = useSelector((state) => state.loginReducer.activeForm); //메인 홈 리스트팝업에서 회원가입 버튼을 눌렀을 떄
 
@@ -19,15 +20,15 @@ function Login({ onClose }) {
   const users = useSelector((state) => state.auth.users); // Redux 스토어에서 사용자 데이터 가져오기
   const dispatch = useDispatch();
 
-
   const handleLogin = (enteredEmail, enteredPassword) => {
     const user = users.find(
-      (user) => user.username === enteredEmail && user.password === enteredPassword
+      (user) =>
+        user.username === enteredEmail && user.password === enteredPassword
     );
     if (user) {
       console.log("로그인 성공!");
-      onClose(false)
-      dispatch({ type: 'LOGIN', payload: user }); // Redux 스토어 업데이트
+      onClose(false);
+      dispatch({ type: "LOGIN", payload: user }); // Redux 스토어 업데이트
     } else {
       alert("로그인 실패: 유효하지 않은 사용자 이름 또는 비밀번호입니다.");
     }
@@ -67,7 +68,7 @@ function Login({ onClose }) {
             <IoClose />
           </button>
         </div>
-        {activeForm !== "JoinEmail" && activeForm !== "JoinFinish" && (
+        {activeForm !== "JoinFinish" && (
           <div className={classes.loginBoxLogo}>
             <img src={Logo} alt="로고"></img>
           </div>
@@ -81,6 +82,10 @@ function Login({ onClose }) {
             handleLogin={handleLogin} // handleLogin 함수를 LoginForm 컴포넌트로 전달
           />
         )}
+        {activeForm === "JoinPopup" && (
+          <JoinPopup onChange={changeForm} onClose={onClose} />
+        )}
+
         {activeForm === "joinForm" && (
           <JoinForm
             onChange={changeForm}

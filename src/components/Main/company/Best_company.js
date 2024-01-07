@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { companies, companiesItem, companiesHashTag, posts } from '../../../DATE/companyDate';
-import { useSelector } from 'react-redux';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  companies,
+  companiesItem,
+  companiesHashTag,
+  posts,
+} from "../../../DATE/companyDate";
+import { useSelector } from "react-redux";
 import companyImg from "../../../assets/image/companyImg.png";
-import ListClickPopup from '../../Main/PageEvent/ListClickPopup';
-import classes from './Best_company.module.scss';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import ListClickPopup from "../../Main/PageEvent/ListClickPopup";
+import classes from "./Best_company.module.scss";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 function Best_company() {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
@@ -36,32 +40,24 @@ function Best_company() {
 
   return (
     <section className="sectionWrap container" id="company">
-      {showPopup && <ListClickPopup showPopup={showPopup} setShowPopup={setShowPopup} />}
-
+      {showPopup && (
+        <ListClickPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+      )}
 
       <div className={classes.company_title}>
         <h1>인기 업체</h1>
       </div>
-      <ul className={classes.companyList}>
-        {companies.map((company, index) => (
-          <li key={index}>
-            <button
-              className={company === selectedCompany ? `${classes.clicked}` : ''}
-              type="button"
-              onClick={() => handleClick(company)}
-            >
-              {company}
-            </button>
-          </li>
-        ))}
-      </ul>
       <div>
         <ul className={classes.companyItem}>
           {companiesItem.map((companyItem, index) => {
             const post = posts.find((post) => post.id === index + 1);
 
             return (
-              <li key={index} className={classes.companyItemLink} onClick={() => handleListClick(true)}>
+              <li
+                key={index}
+                className={classes.companyItemLink}
+                onClick={() => handleListClick(true)}
+              >
                 <Link to="#">
                   <div className={classes.companyItemLinkImg}>
                     <img alt={companyItem} src={companyImg} />
@@ -107,5 +103,3 @@ function Best_company() {
 }
 
 export default Best_company;
-
-

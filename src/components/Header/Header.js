@@ -7,7 +7,9 @@ import Notice from "./Popup/Notice/Notice";
 import Logo from "../../assets/image/logo.png";
 import UserIcon from "../../assets/image/companyImg.png";
 import MessagesIcon from "../../assets/image/messages-2.svg";
+import { IoClose } from "react-icons/io5";
 import { FaRegBell } from "react-icons/fa";
+import { IoMdMenu } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
 import {
   showLoginAction,
@@ -19,9 +21,13 @@ function Header() {
   const dispatch = useDispatch();
   const [showNotice, setShowNotice] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const profileRef = useRef(null);
   const noticeRef = useRef(null);
 
+  function handleListOpen(element) {
+    element((prev) => !prev);
+  }
   const handleLoginClick = () => {
     dispatch(showLoginAction());
   };
@@ -57,6 +63,14 @@ function Header() {
   return (
     <header className={classes.Header}>
       <div className={classes.HeaderList}>
+        <div className={classes.MobileTabMenu}>
+          <button
+            type="button"
+            onClick={() => handleListOpen(setShowMobileMenu)}
+          >
+            <IoMdMenu />
+          </button>
+        </div>
         <div className={classes.Logo}>
           <Link to="/">
             <img src={Logo} alt="Logo" />
@@ -74,7 +88,6 @@ function Header() {
             </li>
           </ul>
         </div>
-
         {isLoggedIn ? (
           <div
             className={`${classes.HeaderLoginButton} ${classes.HeaderFontStyle}`}
@@ -116,6 +129,35 @@ function Header() {
         )}
       </div>
       {showLogin && <Login onClose={handleCloseLogin} />}
+      {showMobileMenu && (
+        <div className={classes.MobileMenu}>
+          <div
+            className={classes.MobileMenuBackground}
+            onClick={() => handleListOpen(setShowMobileMenu)}
+          ></div>
+          <div className={classes.MobileMenuListWrap}>
+            <div className={classes.MobileMenuLogo}>
+              <Link to="/">
+                <img src={Logo} alt="Logo" />
+              </Link>
+              <button
+                type="button"
+                onClick={() => handleListOpen(setShowMobileMenu)}
+              >
+                <IoClose />
+              </button>
+            </div>
+            <ul className={classes.MobileMenuList}>
+              <li>
+                <Link to="/Search">업체 검색</Link>
+              </li>
+              <li>
+                <Link to="/View">업체 등록</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

@@ -10,32 +10,6 @@
   }
 }
 
-.companyList {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  align-self: stretch;
-  margin-bottom: 16px;
-
-  button {
-    display: flex;
-    padding: 4px 16px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-    border: 0;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: transparent;
-    color: white;
-  }
-
-  .clicked {
-    background: white !important;
-    color: black;
-  }
-}
-
 .companyItem {
   display: flex;
   gap: 44px 0;
@@ -136,5 +110,11 @@
         align-items: flex-end;
       }
     }
+  }
+}
+@media all and (max-width: 1024px) {
+  .companyItem {
+    overflow-x: scroll;
+    flex-wrap: nowrap;
   }
 }

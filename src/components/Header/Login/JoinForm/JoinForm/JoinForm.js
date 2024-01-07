@@ -1,12 +1,30 @@
 import React from "react";
 import classes from "./JoinForm.module.scss";
-import Button from "../../../UI/Button/Button"
+import Button from "../../../../UI/Button/Button";
 function JoinForm(props) {
-  const { email, updateEmail, isEmailValid, isPasswordMatch, setPasswordCheck, password, setPassword, passwordCheck } = props;
+  const {
+    email,
+    updateEmail,
+    isEmailValid,
+    isPasswordMatch,
+    setPasswordCheck,
+    password,
+    setPassword,
+    passwordCheck,
+  } = props;
   return (
     <div className={classes.JoinBox}>
       <form>
         <div className={classes.JoinBoxInput}>
+          <div>
+            <h1>이름을 입력해주세요</h1>
+            <input
+              type="text"
+              required
+              placeholder="이름 입력"
+              id="email"
+            ></input>
+          </div>
           <div>
             <h1>이메일을 입력해주세요</h1>
             <input
@@ -51,7 +69,9 @@ function JoinForm(props) {
           <span>영문,숫자,특수문자 중 2가지 이상 조합해 주세요</span>
         </div>
         <div className={classes.loginBoxBtn}>
-          <Button type="submit" onClick={() => props.onChange("JoinEmail")}>다음</Button>
+          <Button type="submit" onClick={() => props.onChange("JoinEmail")}>
+            다음
+          </Button>
         </div>
       </form>
       <div className={classes.JoinBoxLoginBtn}>

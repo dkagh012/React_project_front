@@ -55,7 +55,7 @@ function LoginForm(props) {
           <button type="button">비밀번호 찾기</button>
         </li>
         <li>
-          <button type="button" onClick={() => props.onChange("joinForm")}>
+          <button type="button" onClick={() => props.onChange("JoinPopup")}>
             회원가입
           </button>
         </li>
