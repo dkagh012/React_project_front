@@ -48,7 +48,47 @@ function JoinForm(props) {
       console.error("Error:", error);
     }
   };
+  document
+    .getElementById("memberForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
 
+      // 각 필드의 값을 추출
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const name = document.getElementById("name").value;
+      const level = document.getElementById("level").value;
+      // 다중 선택 업체들의 값을 배열로 추출
+
+      // JSON 객체 생성
+      const formData = {
+        member_level: level,
+        member_account: username,
+        member_pw: password,
+        member_name: name,
+      };
+      // fetch 요청
+      fetch("http://192.168.200.103:8000/member_write", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then(async (response) => {
+          const errorMessage = await response.json();
+          if (errorMessage.result === false) {
+            alert(errorMessage.error);
+          } else {
+            alert("등록되었습니다.");
+            window.location.href = "./manager_list.html";
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          console.error("Error sending data:", error.message);
+        });
+    });
   return (
     <div className={classes.JoinBox}>
       <form id="memberForm" onSubmit={handleSubmit}>
