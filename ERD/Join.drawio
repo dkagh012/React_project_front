@@ -1,0 +1,139 @@
+<mxfile host="65bd71144e">
+    <diagram id="IJYANa2vVbg0GQzpNW_r" name="페이지-1">
+        <mxGraphModel dx="2290" dy="3135" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="회원 테이블" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="10" width="420" height="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="shape=crossbar;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="3">
+                    <mxGeometry y="40" width="420" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="회원가입시 필요 컬럼" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="3">
+                    <mxGeometry y="22" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Member_name VARCHAR(20) (이름)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="3">
+                    <mxGeometry y="82" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Member_password VARCHAR(20) (비밀번호)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="3">
+                    <mxGeometry y="112" width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Member_email VARCHAR(20) (이메일)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="3">
+                    <mxGeometry y="142" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Member_id VARCHAR(20) (회원 ID)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="3">
+                    <mxGeometry y="52" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" value="Member_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP(등록 시간)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="3">
+                    <mxGeometry y="170" width="420" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="기업" style="swimlane;" vertex="1" parent="1">
+                    <mxGeometry x="870" y="10" width="390" height="370" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" value="company_id PRIMARY KEY, (기업ID)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="22" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="company_name VARCHAR(255) NOT NULL (업체명)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="52" width="310" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="company_category VARCHAR (255) (업체분류)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="82" width="280" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="company_location VARCHAR(255) (업체 위치)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="112" width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="company_business_type VARCHAR(255) (업체 종류)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="140" width="310" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="company_experience VARCHAR(255)&amp;nbsp; (업체 업력)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="170" width="290" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="company_url VARCHAR(255) (업체 URL)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="200" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="company_introduction TEXT (업체 소개)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="230" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="company_image_url VARCHAR(255) (업체 사진 URL" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="260" width="310" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="company_partnership (선호 제휴 업체 기업 코드)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="290" width="280" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="company_page_view INT DEFAULT 0 (업체 소개 페이지 조회수)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="77">
+                    <mxGeometry y="320" width="370" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="로그와 관련된 테이블" style="swimlane;" vertex="1" parent="1">
+                    <mxGeometry x="860" y="450" width="460" height="420" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="log_id INT PRIMARY KEY (로그 ID)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="89">
+                    <mxGeometry y="30" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" style="edgeStyle=none;html=1;" edge="1" parent="89" source="91" target="90">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="user_id INT (사용자 ID)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="89">
+                    <mxGeometry y="60" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="event_type VARCHAR(255) (이벤트 유형)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="89">
+                    <mxGeometry y="90" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="event_description TEXT (이벤트 설명)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="89">
+                    <mxGeometry y="120" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP (로그 등록 시간)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="89">
+                    <mxGeometry y="150" width="430" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Member_company VARCHAR(128) (기업코드)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="240" width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="shape=crossbar;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="228" width="420" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="shape=crossbar;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="198" width="420" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="회원 가입 후 기업 관련 컬럼" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="210" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="shape=crossbar;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="292" width="420" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="shape=crossbar;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="322" width="420" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="유저 알림 기능" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="300" width="100" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="marketting_aram BOOLEAN (마케팅 정보 수신)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="330" width="280" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="partnership_aram BOOLEAN (업체 제휴 요청 알림)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="360" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="company_search BOOLEAN (업체 조회, 관심 정보 알림)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="390" width="320" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="Member_role TINYINT NOT NULL (기업 권한)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="370" y="267" width="270" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="관리자 테이블" style="swimlane;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="450" width="470" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" value="admin_id INT PRIMARY KEY (어드민 ID)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="99">
+                    <mxGeometry y="30" width="240" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="username VARCHAR(255) UNIQUE (어드민 계정의 유일한 사용)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="99">
+                    <mxGeometry y="60" width="370" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" value="password VARCHAR(255) (어드민 계정의 비밀번호)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="99">
+                    <mxGeometry y="90" width="300" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="admin_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP (어드민 생성 날짜)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="99">
+                    <mxGeometry y="120" width="450" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
