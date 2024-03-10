@@ -85,8 +85,7 @@ function Login({ onClose }) {
         {activeForm === "JoinPopup" && (
           <JoinPopup onChange={changeForm} onClose={onClose} />
         )}
-
-        {activeForm === "joinForm" && (
+        {activeForm === "JoinForm" && (
           <JoinForm
             onChange={changeForm}
             email={email}

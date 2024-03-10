@@ -22,73 +22,42 @@ function JoinForm(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("1");
 
-    try {
-      const response = await fetch("/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-        }),
-      });
+    // 각 필드의 값을 추출
+    const Id = document.getElementById("Id").value;
+    const Email = document.getElementById("Email").value;
+    const password = document.getElementById("password").value;
+    // 다중 선택 업체들의 값을 배열로 추출
 
-      const result = await response.json();
-
-      if (result.success) {
-        alert("회원 가입이 완료되었습니다.");
-        // 리다이렉트 또는 다른 처리
-      } else {
-        alert(result.error);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    // JSON 객체 생성
+    const formData = {
+      member_Id: Id, //아이디
+      member_Email: Email,
+      member_password: password,
+    };
+    console.log(formData);
+    // fetch 요청
+    // fetch("http://localhost:8000/insert_SingData", {
+    //   method: "POST",
+    //   body: JSON.stringify(formData),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .then(async (response) => {
+    //     const data = await response.json();
+    //     console.log(data);
+    //     if (data.success) {
+    //       alert("등록되었습니다.");
+    //     } else {
+    //       alert(data.message);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error sending data:", error);
+    //   });
   };
-  document
-    .getElementById("memberForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      // 각 필드의 값을 추출
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-      const name = document.getElementById("name").value;
-      const level = document.getElementById("level").value;
-      // 다중 선택 업체들의 값을 배열로 추출
-
-      // JSON 객체 생성
-      const formData = {
-        member_level: level,
-        member_account: username,
-        member_pw: password,
-        member_name: name,
-      };
-      // fetch 요청
-      fetch("http://192.168.200.103:8000/member_write", {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then(async (response) => {
-          const errorMessage = await response.json();
-          if (errorMessage.result === false) {
-            alert(errorMessage.error);
-          } else {
-            alert("등록되었습니다.");
-            window.location.href = "./manager_list.html";
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-          console.error("Error sending data:", error.message);
-        });
-    });
   return (
     <div className={classes.JoinBox}>
       <form id="memberForm" onSubmit={handleSubmit}>
@@ -101,6 +70,7 @@ function JoinForm(props) {
             onChange={(e) => updateName(e.target.value)}
             required
             placeholder="이름 입력"
+            id="Id"
           ></input>
           {name.trim() === "" && (
             <span className="Check">이름을 입력해주세요</span>
@@ -112,6 +82,7 @@ function JoinForm(props) {
             type="text"
             value={email}
             required
+            id="Email"
             className={isEmailValid ? "" : classes.InputError}
             placeholder="이메일 입력"
             onChange={(e) => updateEmail(e.target.value)}
@@ -129,6 +100,7 @@ function JoinForm(props) {
             className={isPasswordMatch() ? "" : classes.InputError}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            id="password"
           ></input>
         </div>
         <div>
@@ -153,6 +125,7 @@ function JoinForm(props) {
           <Button type="submit" onClick={() => props.onChange("JoinEmail")}>
             다음
           </Button>
+          {/* <Button type="submit">다음</Button> */}
         </div>
       </form>
       <div className={classes.JoinBoxLoginBtn}>

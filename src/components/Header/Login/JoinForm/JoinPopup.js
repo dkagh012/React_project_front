@@ -55,9 +55,8 @@ function JoinPopup(props) {
       console.error("필수 항목에 동의해주세요.");
       return;
     }
-
     // 필수 항목이 체크되었을 경우 다음 단계로 이동
-    props.onChange("joinForm");
+    props.onChange("JoinForm");
   };
 
   return (
@@ -114,7 +113,7 @@ function JoinPopup(props) {
           </li>
         </ul>
       </div>
-      <Button type="submit" onClick={handleNextClick}>
+      <Button type="button" onClick={handleNextClick}>
         다음
       </Button>
       <div className={classes.JoinBoxLoginBtn}>
